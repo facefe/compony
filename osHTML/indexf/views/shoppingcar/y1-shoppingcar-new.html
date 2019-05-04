@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>我的购物车 - 企乐商城</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=10, chrome=1">
+    <link rel="stylesheet" type="text/css"
+          href="${ctxsta}/newPage/productdetail/css/sprite.css" />
+    <link rel="stylesheet" type="text/css"
+          href="${ctxsta}/newPage/productdetail/css/base.css" />
+    <link rel="stylesheet"
+          href="${ctxsta}/newPage/shoppingcar/css/y1-shoppingcar.css">
+    <link type="text/css" href="/static/common/layer/skin/default/layer.css">
+    <link rel="stylesheet" type="text/css" href="${ctxsta}/newPage/shoppingcar/css/swiper.css"/>
+    <style>
+        .y1-shoppingcar-container img{
+            display:inline;
+        }
+        .y1-shopping-ul img{
+            height: 80px;
+            width: 80px;
+        }
+        .y1-shopping-ul2 img{
+            height: 80px;
+            width: 80px;
+        }
+    </style>
+    <script type="text/javascript"
+            src="${ctxsta}/newPage/productdetail/js/swiper.js"></script>
+    <script type="text/javascript"
+            src="${ctxsta}/newPage/shoppingcar/js/y1-shoppingcar.js"></script>
+    <script type="text/javascript"
+            src="/static/common/layer/mobile/layer.js"></script>
+    <script type="text/javascript" src="/static/common/layer/layer.js"></script>
+    <script type="text/javascript"
+            src="${ctxsta}/newPage/shoppingcar/js/shoppingcar.js"></script>
+</head>
+<body>
+<!--&lt;!&ndash; 轮播top菜单导航引入 &ndash;&gt;-->
+<!--<%&#45;&#45; <jsp:include page="/WEB-INF/views/modules/common/site_header.jsp" /> &#45;&#45;%>-->
+<!--&lt;!&ndash; 轮播top菜单导航引入 &ndash;&gt;-->
+<!--<div class="template" data-id="${homePage.urlId }">-->
+    <!--<jsp:include page="${homePage.headUrl }" />-->
+<!--</div>-->
+
+<!--替换头部导航栏的line-->
+<hr class="y1-shopping-line">
+<!--title modules-->
+<div class="y1-shoppingcar-container">
+    <div class="y1-shoppingcar-title">
+        <p class="y1-shoppingcar-title-p1">我的购物车</p>
+        <p class="y1-shoppingcar-title-p2">My shopping cart</p>
+    </div>
+</div>
+<!--shopping- 有数据 modules-->
+<c:if test="${cartVO.shoppingCartVOs !=null}">
+    <div class="y1-shoppingcar-container y1-shoppingcar-show">
+        <ul class="y1-shopping-ul" id="productList">
+            <li class="y1-shopping-ul-li">
+                <input type="checkbox" class="y1-shopping-ul-li-inp1" id="y1-shop-inp1" autocomplete="off">
+                <label for="y1-shop-inp1"></label> &nbsp;全选
+                <input type="checkbox" class="y1-shopping-ul-li-inp1" id="y1-shop-inp2" autocomplete="off">
+                <label for="y1-shop-inp2"></label> &nbsp;反选
+                <span class="y1-shopping-ul-li-sp1">商品</span>
+                <span class="y1-shopping-ul-li-sp2">单价</span>
+                <span class="y1-shopping-ul-li-sp3">数量</span>
+                <span class="y1-shopping-ul-li-sp4">总价</span>.
+                <span class="y1-shopping-ul-li-sp5">操作</span>
+            </li>
+            <c:forEach items="${cartVO.shoppingCartVOs}" var="shoppingCart"  varStatus="status">
+                <c:if test="${shoppingCart.productShow == 1 && shoppingCart.spec !=null }">
+                    <li class="y1-shopping-ul-li">
+                        <div class="y1-shopping-ul-li-box1">
+                            <input type="checkbox" autocomplete="off" class="y1-inp-all y1-shop-inp3" id="status${status.index}" onclick="labelselect(this)"
+                                   price="${shoppingCart.price}" stock="${shoppingCart.stock}"
+                                   value="${shoppingCart.cartId}" productNumber="${shoppingCart.productNumber}"
+                                   specId="${shoppingCart.productSpecNumber}"
+                                   cartId="${shoppingCart.cartId}">
+                            <label for="status${status.index}" ></label>
+                            <img src="${dfsimg}${shoppingCart.picImg}" onerror="src='${ctxsta }/defaultImage/default_product.jpg'" class="y1-shopping-ul-li-box1-img1" alt="">
+                        </div>
+                        <div class="y1-shopping-ul-li-box2">
+                            <a href="/detail/product/goodsdetail?productId=${shoppingCart.productId}&id=${homePage.urlId }"><p class="y1-shopping-ul-li-box2-p1">${shoppingCart.name}</p></a>
+                            <p class="y1-shopping-ul-li-box2-p2">
+                                <!--<c:forEach items="${shoppingCart.specificationName}"-->
+                                           <!--var="specificationName">${shoppingCart.productSpecName}&nbsp;${specificationName}-->
+                                <!--</c:forEach>-->
+                            </p>
+                        </div>
+                        <span class="y1-shopping-ul-li2-sp1">
+						<span class="f1-shopping-sum-symbol">&yen;</span>${shoppingCart.price}
+					</span>
+                        <div class="y1-shopping-ul-li2-div2">
+                            <div class="y1-shopping-ul-li2-div2-box1" onclick="numberminus(this)">-</div>
+                            <input type="text" class="y1-shopping-ul-li2-div2-inp1" readonly="readonly"
+                                   value="${shoppingCart.buyNumber}" >
+                            <div class="y1-shopping-ul-li2-div2-box2" onclick="numberadd(this)">+</div>
+                        </div>
+                        <span class="y1-shopping-ul-li2-sp3">
+						<span class="f1-shopping-sum-symbol">&yen;${shoppingCart.buyNumber * shoppingCart.price}</span>
+					</span>
+                        <span class="y1-shopping-ul-li2-sp4">
+						<div class="y1-shopping-ul-li2-sp4-p1" specId="${shoppingCart.productSpecNumber}" onclick="removeit(this,'one')">删除</div>
+						<div class="y1-shopping-ul-li2-sp4-p2" specId="${shoppingCart.productSpecNumber}" productNumber="${shoppingCart.productNumber}" onclick="moveTOCollection(this,'one')">移入收藏夹</div>
+					</span>
+                    </li>
+                </c:if>
+            </c:forEach>
+        </ul>
+        <ul class="y1-shopping-ul2" id="shixiaodiv">
+            <li class="y1-shopping-ul2-li">
+                <span class="y1-shopping-ul2-li-sp1">已失效商品</span>
+                <c:forEach items="${cartVO.shoppingCartVOs}" var="shoppingCart">
+                    <c:if test="${shoppingCart.productShow == 0 || shoppingCart.spec ==null}">
+            <li class="y1-shopping-ul-li">
+                <div class="y1-shopping-ul-li-box4">
+                    <input type="checkbox"  class="y1-inp-all_sx" id="y1-shop-inp3" specId="${shoppingCart.productSpecNumber}" price="${shoppingCart.price}" count="${shoppingCart.buyNumber}" value="${shoppingCart.cartId}">
+                    <label for="y1-shop-inp3"></label>
+                    <c:if test="${empty shoppingCart.picImg}">
+                        <img src="${ctxsta }/defaultImage/default_product.jpg" onerror="src='${ctxsta }/defaultImage/default_product.jpg'"  class="y1-shopping-ul-li-box1-img1" alt="">
+                    </c:if>
+                    <c:if test="${not empty shoppingCart.picImg}">
+                        <img src="${dfsimg}${shoppingCart.picImg}" onerror="src='${ctxsta }/defaultImage/default_product.jpg'"  class="y1-shopping-ul-li-box1-img1" alt="">
+                    </c:if>
+                </div>
+                <div class="y1-shopping-ul-li-box2">
+                    <p class="y1-shopping-ul-li-box2-p1">${shoppingCart.name}</p>
+                    <p class="y1-shopping-ul-li-box2-p2">
+                        <c:forEach items="${shoppingCart.specificationName}"
+                                   var="specificationName">&nbsp;${specificationName}
+                        </c:forEach>
+                    </p>
+                </div>
+                <span class="y1-shopping-ul-li2-sp1">
+							<span class="f1-shopping-sum-symbol">&yen;</span>${shoppingCart.price==null?0:shoppingCart.price}</span>
+                <div class="y1-shopping-ul-li2-div2">
+                    <div class="y1-shopping-ul-li2-div2-box1">-</div>
+                    <input type="text" class="y1-shopping-ul-li2-div2-inp1" value="${shoppingCart.buyNumber}">
+                    <div class="y1-shopping-ul-li2-div2-box2">+</div>
+                </div>
+                <span class="y1-shopping-ul-li2-sp3">
+							<span class="f1-shopping-sum-symbol">&yen;</span>${shoppingCart.buyNumber * shoppingCart.price}
+							</span>
+                <span class="y1-shopping-ul-li2-sp4">
+							<div class="y1-shopping-ul-li2-sp4-p1" specId="${shoppingCart.productSpecNumber}" onclick="removeit(this,'shixiao')">删除</div>
+						</span>
+            </li>
+</c:if>
+</c:forEach>
+</li>
+</ul>
+<div class="y1-shopping-jiesuan">
+    <div class="y1-jiesuan-allchex">
+        <input type="checkbox" class="y1-shopping-ul-li-inp1"  id="y1-shop-inp-1" autocomplete="off"> <label
+            for="y1-shop-inp-1"></label>&nbsp;全选
+    </div>
+
+    <div class="y1-shopping-jiesuan-sp1" onclick="removeit(this,'all')">删除选中的商品</div>
+    <div class="y1-shopping-jiesuan-sp1" onclick="moveTOCollection(this,'all')">移入收藏夹</div>
+    <div class="y1-shopping-jiesuan-sp1" specId="0" onclick="removeit(this,'alls')">清空购物车</div>
+    <button class="y1-shopping-jiesuan-btn" onclick="settlement()">结算</button>
+    <div class="y1-shopping-jiesuan-sp2">
+        应付总金额(不含运费)：
+        <span class="y1-shopping-jiesuan-sp2-sp">
+					<span class="f1-shopping-sum-symbol">&yen;</span>
+					<span class="allprice">0</span>
+				</span>
+    </div>
+</div>
+</div>
+</c:if>
+<!--shopping- 无数据 modules-->
+<c:if test="${cartVO.shoppingCartVOs ==null}">
+    <div class="y1-shoppingcar-container ">
+        <div class="y1-shopping2-box">
+            <img src="${ctxsta}/newPage/shoppingcar/img/y1-shopping-gwc2.jpg"
+                 class="y1-shopping2-gwc-img" alt="">
+            <div class="y1-shopping2-box-box1">
+                <p class="y1-shopping2-box-p1">购物车空空的哦~，去看看心仪的商品吧~</p>
+                <a class="y1-shopping2-box-sp1" href="/">去购物>></a>
+            </div>
+
+        </div>
+    </div>
+</c:if>
+<!--shopping title2 modules-->
+<p class="y1-shopping-title">推荐商品</p>
+<!--shopping banner modules-->
+<div class="y1-shoppingcar-container">
+    <div class="swiper-container y1-shopping-banner">
+        <div class="swiper-wrapper">
+            <c:forEach var="x"  begin="1" end="${size}" varStatus="states">
+                <div class="swiper-slide">
+                    <c:forEach  var="y" begin="0" end="4" varStatus="states">
+                        <c:set value="${ x * 5 - 5 + y}" var="x1" />
+                        <c:if test="${productAll[x1]!=null}">
+                            <div class="y1-swiper-box">
+                                <a href="/detail/product/goodsdetail?productId=${productAll[x1].productId}&id=${homePage.urlId }">
+                                    <c:if test="${empty productAll[x1].picImg}">
+                                        <img src="${ctxsta }/defaultImage/default_product.jpg" onerror="src='${ctxsta }/defaultImage/default_product.jpg'"  class="y1-shopping-ul-li-box1-img1" alt="">
+                                    </c:if>
+                                    <c:if test="${not empty productAll[x1].picImg}">
+                                        <img class="f1-shopping-hot-img" src="${dfsimg}${productAll[x1].picImg}" onerror="src='${ctxsta }/defaultImage/default_product.jpg'"  alt="">
+                                    </c:if>
+                                    <div class="y1-swiper-slide-p1">
+                                        ${productAll[x1].name}
+                                    </div>
+                                    <p class="y1-swiper-slide-p3">
+										<span class="f1-shopping-sum-symbol">&yen;${productAll[x1].showPrice}
+                                    </p>
+                                </a>
+                            </div>
+                        </c:if>
+                    </c:forEach>
+                </div>
+            </c:forEach>
+        </div>
+        <div class="swiper-pagination y1-shopping-pagi"></div>
+    </div>
+</div>
+<div>
+    <jsp:include page="${homePage.footUrl }" />
+</div>
+
+</body>
+</html>

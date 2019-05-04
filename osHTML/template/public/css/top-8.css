@@ -1,0 +1,71 @@
+.fjiaju_l{
+	float: left;
+}
+.fjiaju_r{
+	float: right;
+}
+.jiaju1-index-header-top{
+	padding-top: 24px;
+	width: 1200px;
+	margin: 0 auto;
+	height: 93px;
+}
+.jiaju1-index-header-top-img{
+	width: 200px;
+	height: 45px;
+}
+.jiaju1-index-header-top-search{
+	margin: 3px 0 0 141px;
+}
+.jiaju1-index-header-top-search-inp{
+	width: 414px;
+	height: 40px;
+	border-radius: 20px 0 0 20px;
+	border: 1px solid #ffc215;
+	padding: 0 24px;
+	font-size: 14;
+	color: #999999;
+}
+.jiaju1-index-header-top-search-btn{
+	width: 99px;
+	height: 40px;
+	background: #ffc215;
+	border-radius: 0 20px 20px 0;
+	border: none;
+	font-size: 18px;
+	color: #FFFFFF;
+}
+.jiaju1-index-header-top-div-a{
+	font-size: 16px;
+	color: #333333;
+	margin-left: 26px;
+	line-height: 45px;
+}
+.jiaju1-index-header-nav{
+	background: #ffc215;
+}
+.jiaju1-index-header-nav-ul{
+	width: 1200px;
+	height: 30px;
+	margin: 0 auto;
+}
+.jiaju1-index-header-nav-li{
+	margin-right: 114px;
+	height: 29px;
+}
+.jiaju1-index-header-nav-li:last-child{
+	margin-right: 0;
+}
+.jiaju1-index-header-nav-li a{
+	font-size: 14px;
+	color: #333333;
+	padding: 0 10px 3px;
+	line-height: 30px;
+}
+.jiaju1-index-header-nav-li:first-child a{
+	border-bottom: 3px solid #333333;
+}
+.jiaju1-index-header-nav-li:hover a{
+	border-bottom: 3px solid #333333;
+}
+

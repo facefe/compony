@@ -1,0 +1,866 @@
+     <%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/layouts/base.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=10, chrome=1">
+    <link rel="stylesheet" href="/static/qlsc1.0/public/css/base.css">
+    <link rel="stylesheet"
+          href="/static/qlsc1.0/public/css/x1-personalCenter.css">
+    <link rel="stylesheet" href="/static/os/topcss/reset-1.css" />
+    <link rel="stylesheet" href="/static/os/topcss/dingdan-1.css" />
+    <script src="/static/qlsc1.0/public/js/libraries/jquery-1.12.4.js"></script>
+    <script src="/static/qlsc1.0/public/js/x1-personalCenter.js"></script>
+    <style type="text/css">
+        .pgCurrent{
+            background-color:#ffcdda;
+        }
+    </style>
+    <title>个人中心-我的订单</title>
+</head>
+<body>
+<jsp:include page="${homePage.headUrl}" />
+<div class="y1-personal-container clearFix">
+    <!--侧边栏-->
+    <div class="y1-personal-column">
+        <img src="${dfsimg }${user.picImg}"  onerror="src='/static/qlsc1.1/public/img/other/head_default.jpg'" class="y1-personal-column-img1" alt="" width="168px" height="168px">
+        <p class="y1-personal-column-p1">${user.userName}</p>
+        <ul id="f1-userCenter-left-hover">
+            <li class="y1-personal-column-ul-li y1-personal-column-ul-li-active"
+                data-number="1" onclick="window.location.href='${ctx}/uc/order/list/${urlId}'"><a style="color: #f13a3a">我的订单</a></li>
+            <li class="y1-personal-column-ul-li" data-number="2" onclick="window.location.href='${ctx }/uc/order/refundList/${urlId}'">售后管理</li>
+            <li class="y1-personal-column-ul-li" data-number="3" onclick="window.location.href='${ctx }/uc/user/details'">个人资料</li>
+            <li class="y1-personal-column-ul-li" data-number="5" onclick="window.location.href='${ctx }/uc/user/insert'">收货地址</li>
+            <li class="y1-personal-column-ul-li" data-number="6" onclick="window.location.href='${ctx }/product/getCollectionProduct/${urlId}'">我的收藏</li>
+        </ul>
+    </div>
+    <!-- 右侧内容 -->
+    <div class="y1-personal-Myoder">
+        <!--导航栏-->
+        <div class="y1-personal-Myoder-nav">
+            <ul class="y1-personal-Myoder-nav-ul">
+                <li
+                        class="${type eq 0 ? 'y1-personal-Myoder-nav-ul-li y1-personal-Myoder-nav-ul-li-active':'y1-personal-Myoder-nav-ul-li'}"><a
+                        href="${ctx}/uc/order/list/${urlId}?type=0" data-type="0">全部订单</a></li>
+                <li
+                        class="${type eq 10 ? 'y1-personal-Myoder-nav-ul-li y1-personal-Myoder-nav-ul-li-active':'y1-personal-Myoder-nav-ul-li'}"><a
+                        href="${ctx}/uc/order/list/${urlId}?type=10" data-type="1">待付款
+                </a><span class="y1-p-M-n-u-sp">${a }</span></li>
+                <li
+                        class="${type eq 20 ? 'y1-personal-Myoder-nav-ul-li y1-personal-Myoder-nav-ul-li-active':'y1-personal-Myoder-nav-ul-li'}"><a
+                        href="${ctx}/uc/order/list/${urlId}?type=20" data-type="2">待发货
+                </a><span class="y1-p-M-n-u-sp">${b }</span></li>
+                <li
+                        class="${type eq 30 ? 'y1-personal-Myoder-nav-ul-li y1-personal-Myoder-nav-ul-li-active':'y1-personal-Myoder-nav-ul-li'}"><a
+                        href="${ctx}/uc/order/list/${urlId}?type=30" data-type="3">待收货</a>
+                    <span class="y1-p-M-n-u-sp">${c }</span></li>
+                <li
+                        class="${type eq 40 ? 'y1-personal-Myoder-nav-ul-li y1-personal-Myoder-nav-ul-li-active':'y1-personal-Myoder-nav-ul-li'}"><a
+                        href="${ctx}/uc/order/list/${urlId}?type=40" data-type="4">待评价
+                </a><span class="y1-p-M-n-u-sp">${d }</span></li>
+            </ul>
+            <div class="y1-personal-Myoder-nav-search">
+                <form action="${ctx}/uc/order/list/${urlId}" method="get">
+                    <input type="text" class="y1-personal-Myoder-nav-search-inp"
+                           name="search" value="${search}" autocomplete="off"
+                           placeholder="输入商品名称、订单号">
+                    <button type="submit" class="y1-personal-Myoder-nav-search-btn">搜索订单</button>
+                </form>
+            </div>
+        </div>
+        <c:if test="${!empty orderVOs}">
+            <!--菜单栏-->
+            <div class="y1-personal-menu">
+                <span class="y1-personal-menu-shangpin">商品</span> <span
+                    class="y1-personal-menu-danjia">单价</span> <span
+                    class="y1-personal-menu-shuliang">数量</span> <span
+                    class="y1-personal-menu-caozuo">商品操作</span> <span
+                    class="y1-personal-menu-shifukuan">实付款</span> <span
+                    class="y1-personal-menu-zhuangtai">订单状态</span> <span
+                    class="y1-personal-menu-jiaoyicaozuo">交易操作</span>
+            </div>
+            <!--内容-->
+            <!--立即付款-->
+            <c:forEach items="${orderVOs}" var="orderVO">
+                <c:if test="${orderVO.orderStatus eq 10}">
+                    <div class="y1-personal-content1">
+                        <div class="y1-personal-content1-top">
+                            <div class="y1-personal-content1-date">
+                                <fmt:formatDate value="${orderVO.createTime}"
+                                                pattern="yyyy年MM月dd日 HH:mm:ss" />
+                            </div>
+                            <div class="y1-personal-content1-oder">
+                                订单号 ：<a href="${ctx}/uc/order/${orderVO.orderNumber}?urlId=${urlId}">${orderVO.orderNumber}</a>
+                            </div>
+                        </div>
+                        <div class="y1-personal-content1-left">
+                            <c:forEach items="${orderVO.orderProducts}" var="orderProduct">
+
+                                <div class="y1-personal-content1-left-box1">
+                                    <img src="${dfsimg }${orderProduct.picImg}" class="y1-left-box1-img1"  onerror="src='${ctxsta }/defaultImage/default_product.jpg'"
+                                         width="80" height="80" alt="${orderProduct.name}&nbsp;&nbsp;${orderProduct.productSpecName}"
+                                         title="${orderProduct.name}&nbsp;&nbsp;${orderProduct.productSpecName}">
+                                    <div class="y1-left-box1-text">
+                                        <a <c:if test='${orderProduct.productNumber != 0 }'>href="${ctx }/detail/${orderProduct.productNumber}?id=${urlId}"</c:if>><p class="y1-left-box1-text-p">${orderProduct.name}</p></a>
+                                        <span class="y1-left-box1-text-sp">${orderProduct.productSpecName}</span>
+                                    </div>
+                                    <div class="y1-left-box1-danjia">￥${orderProduct.price}</div>
+                                    <div class="y1-left-box1-shuliang">
+                                        ${orderProduct.buyNumber}</div>
+
+                                </div>
+                            </c:forEach>
+
+                        </div>
+                        <div class="y1-personal-content1-right">
+                            <div class="y1-right-box1-shifukuan">
+                                <span class="y1-right-box1-shifukuan-sp1">¥${orderVO.payAmount}</span>
+                                <span class="y1-right-box1-shifukuan-sp1">(含运费:¥${orderVO.shipmentAmount})</span>
+                            </div>
+                            <div class="y1-right-box1-zhuangtai">
+                                <span class="y1-right-box1-zhuangtai-sp1">等待买家付款</span> <span
+                                    class="y1-right-box1-zhuangtai-sp1"><a
+                                    href="${ctx}/uc/order/${orderVO.orderNumber}?urlId=${homePage.urlId }">订单详情</a></span>
+                            </div>
+                            <div class="y1-right-box1-jiaoyicaozuo_shouhuo">
+                                <%-- <c:if test="${flag != 0}"> --%>
+                                <span class="y1-right-box1-jiaoyicaozuo-time">
+			                            <i class="icon-time-black-1"></i>
+			                            <span class="y1-right-box1-jiaoyicaozuo-time-sp asd" data="${orderVO.createTime.getTime()}"></span>
+			                        </span>
+                                <span class="y1-right-box1-jiaoyicaozuo-time-sp1"><a
+                                        href="${ctx}/buy/confirm/${orderVO.orderNumber}">立即付款</a></span> <span
+                                        class="y1-right-box1-jiaoyicaozuo-time-sp2"><a
+                                        href="javascript:void(0)"
+                                        onclick='changeCancel("${orderVO.orderNumber}")'>取消订单</a></span>
+                                <%-- </c:if>
+                                <c:if test="${flag == 0}">
+                                    <span class="y1-right-box1-jiaoyicaozuo-sp1">商品已下架</span><span
+                                        class="y1-right-box1-jiaoyicaozuo-sp2"><a
+                                        href="javascript:void(0)"
+                                        onclick='changeCancel("${orderVO.orderNumber}")'>取消订单</a></span>
+                                </c:if> --%>
+                            </div>
+                        </div>
+                    </div>
+                </c:if>
+            </c:forEach>
+
+            <!--等待发货-->
+            <c:forEach items="${orderVOs}" var="orderVO">
+                <c:if test="${orderVO.orderStatus eq 20}">
+                    <div class="y1-personal-content1">
+                        <div class="y1-personal-content1-top">
+                            <div class="y1-personal-content1-date">
+                                <fmt:formatDate value="${orderVO.createTime}"
+                                                pattern="yyyy年MM月dd日 HH:mm:ss" />
+                            </div>
+                            <div class="y1-personal-content1-oder">
+                                订单号 ：<a href="${ctx}/uc/order/${orderVO.orderNumber}?urlId=${urlId}">${orderVO.orderNumber}</a>
+                            </div>
+                        </div>
+                        <div class="y1-personal-content1-left">
+                            <c:forEach items="${orderVO.orderProducts}" var="orderProduct">
+                                <div class="y1-personal-content1-left-box1">
+                                    <img src="${dfsimg }${orderProduct.picImg}" class="y1-left-box1-img1" onerror="src='${ctxsta }/defaultImage/default_product.jpg'"
+                                         width="80" height="80" alt="${orderProduct.name}&nbsp;&nbsp;${orderProduct.productSpecName}"
+                                         title="${orderProduct.name}&nbsp;&nbsp;${orderProduct.productSpecName}">
+                                    <div class="y1-left-box1-text">
+                                        <a <c:if test='${orderProduct.productNumber != 0 }'>href="${ctx }/detail/${orderProduct.productNumber}?id=${urlId}"</c:if>><p class="y1-left-box1-text-p">${orderProduct.name}</p></a>
+                                        <span class="y1-left-box1-text-sp">${orderProduct.productSpecName}</span>
+                                    </div>
+                                    <div class="y1-left-box1-danjia">￥${orderProduct.price}</div>
+                                    <div class="y1-left-box1-shuliang">
+                                        ${orderProduct.buyNumber}</div>
+                                    <c:if test="${orderVO.orderId != 0}">
+                                        <div class="y1-left-box1-tuikuan"><a
+                                                href="${ctx }/uc/order/refund/page/${orderVO.orderNumber}?urlId=${urlId}"
+                                        >申请退款</a></div>
+                                    </c:if>
+                                    <c:if test="${orderVO.orderId == 0}">
+                                        <div class="y1-left-box1-tuikuan">退款失败</div>
+                                    </c:if>
+                                </div>
+                            </c:forEach>
+
+                        </div>
+                        <div class="y1-personal-content1-right">
+                            <div class="y1-right-box1-shifukuan">
+                                <span class="y1-right-box1-shifukuan-sp1">¥${orderVO.payAmount}</span>
+                                <span class="y1-right-box1-shifukuan-sp1">(含运费:¥${orderVO.shipmentAmount})</span>
+                            </div>
+                            <div class="y1-right-box1-zhuangtai">
+                                <span class="y1-right-box1-zhuangtai-sp1">等待卖家发货</span> <span
+                                    class="y1-right-box1-zhuangtai-sp1"><a
+                                    href="${ctx}/uc/order/${orderVO.orderNumber}?urlId=${homePage.urlId }">订单详情</a></span>
+                            </div>
+                            <div class="y1-right-box1-jiaoyicaozuo">
+								<span class="y1-right-box1-jiaoyicaozuo-time-sp1"><a
+                                        onclick="changeCom('${orderVO.orderNumber}')">确认收货</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </c:if>
+            </c:forEach>
+
+            <!--确认收货-->
+            <c:forEach items="${orderVOs}" var="orderVO">
+                <c:if test="${orderVO.orderStatus eq 30}">
+                    <div class="y1-personal-content1">
+
+                        <div class="y1-personal-content1-top">
+                            <div class="y1-personal-content1-date">
+                                <fmt:formatDate value="${orderVO.createTime}"
+                                                pattern="yyyy年MM月dd日 HH:mm:ss" />
+                            </div>
+                            <div class="y1-personal-content1-oder">
+                                订单号 ：<a href="${ctx}/uc/order/${orderVO.orderNumber}?urlId=${urlId}">${orderVO.orderNumber}</a>
+                            </div>
+                        </div>
+                        <div class="y1-personal-content1-left">
+                            <c:forEach items="${orderVO.orderProducts}" var="orderProduct">
+                                <div class="y1-personal-content1-left-box1">
+                                    <img src="${dfsimg }${orderProduct.picImg}" class="y1-left-box1-img1" onerror="src='${ctxsta }/defaultImage/default_product.jpg'"
+                                         width="80" height="80" alt="${orderProduct.name}&nbsp;&nbsp;${orderProduct.productSpecName}"
+                                         title="${orderProduct.name}&nbsp;&nbsp;${orderProduct.productSpecName}">
+                                    <div class="y1-left-box1-text">
+                                        <a <c:if test='${orderProduct.productNumber != 0 }'>href="${ctx }/detail/${orderProduct.productNumber}?id=${urlId}"</c:if>><p class="y1-left-box1-text-p">${orderProduct.name}</p></a>
+                                        <span class="y1-left-box1-text-sp">${orderProduct.productSpecName}</span>
+                                    </div>
+                                    <div class="y1-left-box1-danjia">￥${orderProduct.price}</div>
+
+                                    <div class="y1-left-box1-shuliang">
+                                        ${orderProduct.buyNumber}</div>
+                                    <c:if test="${orderVO.orderId != 0}">
+                                        <div class="y1-left-box1-tuikuan"><a
+                                                href="${ctx }/uc/order/refund/page/${orderVO.orderNumber}?urlId=${urlId}"
+                                        >申请退款</a></div>
+                                    </c:if>
+                                    <c:if test="${orderVO.orderId == 0}">
+                                        <div class="y1-left-box1-tuikuan">退款失败</div>
+                                    </c:if>
+                                </div>
+                            </c:forEach>
+                        </div>
+                        <div class="y1-personal-content1-right">
+                            <div class="y1-right-box1-shifukuan">
+                                <span class="y1-right-box1-shifukuan-sp1">¥${orderVO.payAmount}</span>
+                                <span class="y1-right-box1-shifukuan-sp1">(含运费:¥${orderVO.shipmentAmount})</span>
+                            </div>
+                            <div class="y1-right-box1-zhuangtai">
+                                <span class="y1-right-box1-zhuangtai-sp1">快递已揽件</span> <span
+                                    class="y1-right-box1-zhuangtai-sp1"><a
+                                    href="${ctx}/uc/order/${orderVO.orderNumber}?urlId=${homePage.urlId }">订单详情</a></span>
+                                <span
+                                        class="y1-right-box1-zhuangtai-sp1 y1-right-box1-zhuangtai-sp1-active" onclick="wuliu('${orderVO.orderNumber}');">查看物流</span>
+                            </div>
+                            <div class="y1-right-box1-jiaoyicaozuo_shouhuo">
+								<span class="y1-right-box1-jiaoyicaozuo-time"> <i
+                                        class="icon-time-black-1"></i> <span
+                                        class="y1-right-box1-jiaoyicaozuo-time-sp zxc" data="${orderVO.fhTime.getTime() }"></span>
+								</span> <span class="y1-right-box1-jiaoyicaozuo-time-sp1"><a
+                                    onclick="changeCom('${orderVO.orderNumber}')">确认收货</a></span>
+                                <!--<span class="y1-right-box1-jiaoyicaozuo-sp1">立即付款</span>-->
+                                <!--<span class="y1-right-box1-jiaoyicaozuo-sp2">取消订单</span>-->
+                            </div>
+                        </div>
+                    </div>
+                </c:if>
+            </c:forEach>
+
+            <!--评价-->
+            <c:forEach items="${orderVOs}" var="orderVO">
+                <c:if test="${orderVO.orderStatus eq 40}">
+                    <div class="y1-personal-content1 y1-personal-content1_pj">
+
+                        <div class="y1-personal-content1-top y1-personal-content1-top_pj">
+                            <div class="y1-personal-content1-date">
+                                <fmt:formatDate value="${orderVO.createTime}"
+                                                pattern="yyyy年MM月dd日 HH:mm:ss" />
+                            </div>
+                            <div class="y1-personal-content1-oder">
+                                订单号 ：<a href="${ctx}/uc/order/${orderVO.orderNumber}?urlId=${urlId}">${orderVO.orderNumber}</a>
+                            </div>
+                        </div>
+                        <div class="y1-personal-content1-left">
+                            <c:forEach items="${orderVO.orderProducts}" var="orderProduct">
+                                <div class="y1-personal-content1-left-box1">
+                                    <img src="${dfsimg }${orderProduct.picImg}" class="y1-left-box1-img1" onerror="src='${ctxsta }/defaultImage/default_product.jpg'"
+                                         width="80" height="80" alt="${orderProduct.name}&nbsp;&nbsp;${orderProduct.productSpecName}"
+                                         title="${orderProduct.name}&nbsp;&nbsp;${orderProduct.productSpecName}">
+                                    <div class="y1-left-box1-text">
+                                        <a <c:if test='${orderProduct.productNumber != 0 }'>href="${ctx }/detail/${orderProduct.productNumber}?id=${urlId}"</c:if>><p class="y1-left-box1-text-p">${orderProduct.name}</p></a>
+                                        <span class="y1-left-box1-text-sp">${orderProduct.productSpecName}</span>
+                                    </div>
+                                    <div class="y1-left-box1-danjia">￥${orderProduct.price}</div>
+                                    <div class="y1-left-box1-shuliang">
+                                        ${orderProduct.buyNumber}</div>
+                                    <c:if test="${orderVO.orderId != 0}">
+                                        <div class="y1-left-box1-tuikuan"><a
+                                            <c:if test="${orderVO.shTime != null}">
+                                                href="${ctx }/uc/order/refund/page/${orderVO.orderNumber}?urlId=${urlId}"
+                                            </c:if><c:if test="${orderVO.shTime == null}">style="color:gray;" title="确认收货七天后，不再提供售后服务"</c:if>
+                                            >申请售后</a></div>
+                                    </c:if>
+                                    <c:if test="${orderVO.orderId == 0}">
+                                        <div class="y1-left-box1-tuikuan">退货失败</div>
+                                    </c:if>
+                                </div>
+                            </c:forEach>
+                        </div>
+                        <div class="y1-personal-content1-right">
+                            <div class="y1-right-box1-shifukuan">
+                                <span class="y1-right-box1-shifukuan-sp1">¥${orderVO.payAmount}</span>
+                                <span class="y1-right-box1-shifukuan-sp1">(含运费:¥${orderVO.shipmentAmount})</span>
+                            </div>
+                            <div class="y1-right-box1-zhuangtai">
+                                <span class="y1-right-box1-zhuangtai-sp1">交易完成</span> <span
+                                    class="y1-right-box1-zhuangtai-sp1"><a
+                                    href="${ctx}/uc/order/${orderVO.orderNumber}?urlId=${homePage.urlId }">订单详情</a></span>
+                                <span
+                                        class="y1-right-box1-zhuangtai-sp1 y1-right-box1-zhuangtai-sp1-active" onclick="wuliu('${orderVO.orderNumber}');">查看物流</span>
+                            </div>
+                            <div class="y1-right-box1-jiaoyicaozuo">
+								<span class="y1-right-box1-jiaoyicaozuo-sp1_pj"
+                                      onclick="goComment('${orderVO.orderNumber}')">评价</span>
+                                <!--<span class="y1-right-box1-jiaoyicaozuo-sp2">取消订单</span>-->
+                            </div>
+                        </div>
+                    </div>
+                </c:if>
+            </c:forEach>
+
+            <!--追加评价-->
+            <c:forEach items="${orderVOs}" var="orderVO">
+                <c:if test="${orderVO.orderStatus eq 50}">
+                    <div class="y1-personal-content1 y1-personal-content1_pj">
+
+                        <div class="y1-personal-content1-top y1-personal-content1-top_pj">
+                            <div class="y1-personal-content1-date">
+                                <fmt:formatDate value="${orderVO.createTime}"
+                                                pattern="yyyy年MM月dd日 HH:mm:ss" />
+                            </div>
+                            <div class="y1-personal-content1-oder">
+                                订单号 ：<a href="${ctx}/uc/order/${orderVO.orderNumber}?urlId=${urlId}">${orderVO.orderNumber}</a>
+                            </div>
+                        </div>
+                        <div class="y1-personal-content1-left">
+                            <c:forEach items="${orderVO.orderProducts}" var="orderProduct">
+                                <c:if test="${orderProduct.productNumber == 0}"><c:set value="0" var="flag"></c:set></c:if>
+                                <div class="y1-personal-content1-left-box1">
+                                    <img src="${dfsimg }${orderProduct.picImg}" class="y1-left-box1-img1" onerror="src='${ctxsta }/defaultImage/default_product.jpg'"
+                                         width="80" height="80" alt="${orderProduct.name}&nbsp;&nbsp;${orderProduct.productSpecName}"
+                                         title="${orderProduct.name}&nbsp;&nbsp;${orderProduct.productSpecName}">
+                                    <div class="y1-left-box1-text">
+                                        <a <c:if test='${orderProduct.productNumber != 0 }'>href="${ctx }/detail/${orderProduct.productNumber}?id=${urlId}"</c:if>><p class="y1-left-box1-text-p">${orderProduct.name}</p></a>
+                                        <span class="y1-left-box1-text-sp">${orderProduct.productSpecName}</span>
+                                    </div>
+                                    <div class="y1-left-box1-danjia">￥${orderProduct.price}</div>
+                                    <div class="y1-left-box1-shuliang">
+                                        ${orderProduct.buyNumber}</div>
+
+                                    <%-- <c:if test="${orderProduct.productNumber == 0 }">
+                                    <div class="y1-left-box1-tuikuan">已下架</div>
+                                </c:if> --%>
+                                </div>
+                            </c:forEach>
+                        </div>
+                        <div class="y1-personal-content1-right">
+                            <div class="y1-right-box1-shifukuan">
+                                <span class="y1-right-box1-shifukuan-sp1">¥${orderVO.payAmount}</span>
+                                <span class="y1-right-box1-shifukuan-sp1">(含运费:¥${orderVO.shipmentAmount})</span>
+                            </div>
+                            <div class="y1-right-box1-zhuangtai">
+                                <span class="y1-right-box1-zhuangtai-sp1">交易完成</span> <span
+                                    class="y1-right-box1-zhuangtai-sp1"><a
+                                    href="${ctx}/uc/order/${orderVO.orderNumber}?urlId=${homePage.urlId }">订单详情</a></span>
+                                <span
+                                        class="y1-right-box1-zhuangtai-sp1 y1-right-box1-zhuangtai-sp1-active" onclick="wuliu('${orderVO.orderNumber}');">查看物流</span>
+                            </div>
+                            <div class="y1-right-box1-jiaoyicaozuo">
+                            </div>
+                        </div>
+                    </div>
+                </c:if>
+            </c:forEach>
+
+            <!--取消订单-->
+            <c:forEach items="${orderVOs}" var="orderVO">
+                <c:if test="${orderVO.orderStatus eq 60}">
+                    <div class="y1-personal-content1 y1-personal-content1_pj">
+
+                        <div class="y1-personal-content1-top y1-personal-content1-top_pj">
+                            <div class="y1-personal-content1-date">
+                                <fmt:formatDate value="${orderVO.createTime}"
+                                                pattern="yyyy年MM月dd日 HH:mm:ss" />
+                            </div>
+                            <div class="y1-personal-content1-oder">
+                                订单号 ：<a href="${ctx}/uc/order/${orderVO.orderNumber}?urlId=${urlId}">${orderVO.orderNumber}</a>
+                            </div>
+                            <i class="icon-delete-black-1" data="${orderVO.orderNumber}"></i>
+                        </div>
+                        <div class="y1-personal-content1-left">
+                            <c:forEach items="${orderVO.orderProducts}" var="orderProduct">
+                                <div class="y1-personal-content1-left-box1">
+                                    <img src="${dfsimg }${orderProduct.picImg}" class="y1-left-box1-img1" onerror="src='${ctxsta }/defaultImage/default_product.jpg'"
+                                         width="80" height="80" alt="${orderProduct.name}&nbsp;&nbsp;${orderProduct.productSpecName}"
+                                         title="${orderProduct.name}&nbsp;&nbsp;${orderProduct.productSpecName}">
+                                    <div class="y1-left-box1-text">
+                                        <a <c:if test='${orderProduct.productNumber != 0 }'>href="${ctx }/detail/${orderProduct.productNumber}?id=${urlId}"</c:if>><p class="y1-left-box1-text-p">${orderProduct.name}</p></a>
+                                        <span class="y1-left-box1-text-sp">${orderProduct.productSpecName}</span>
+                                    </div>
+                                    <div class="y1-left-box1-danjia">￥${orderProduct.price}</div>
+                                    <div class="y1-left-box1-shuliang">
+                                        ${orderProduct.buyNumber}</div>
+                                </div>
+                            </c:forEach>
+                        </div>
+                        <div class="y1-personal-content1-right">
+                            <div class="y1-right-box1-shifukuan">
+                                <span class="y1-right-box1-shifukuan-sp1">¥${orderVO.payAmount}</span>
+                                <span class="y1-right-box1-shifukuan-sp1">(含运费:¥${orderVO.shipmentAmount})</span>
+                            </div>
+                            <div class="y1-right-box1-zhuangtai">
+                                <span class="y1-right-box1-zhuangtai-sp1">交易关闭</span>
+                            </div>
+                            <div class="y1-right-box1-jiaoyicaozuo">
+                            </div>
+                        </div>
+                    </div>
+                </c:if>
+            </c:forEach>
+
+            <!--退款中-->
+            <c:forEach items="${orderVOs}" var="orderVO">
+                <c:if test="${orderVO.orderStatus eq 70}">
+                    <div class="y1-personal-content1 y1-personal-content1_pj">
+
+                        <div class="y1-personal-content1-top y1-personal-content1-top_pj">
+                            <div class="y1-personal-content1-date">
+                                <fmt:formatDate value="${orderVO.createTime}"
+                                                pattern="yyyy年MM月dd日 HH:mm:ss" />
+                            </div>
+                            <div class="y1-personal-content1-oder">
+                                订单号 ：<a href="${ctx}/uc/order/${orderVO.orderNumber}?urlId=${urlId}">${orderVO.orderNumber}</a>
+                            </div>
+                        </div>
+                        <div class="y1-personal-content1-left">
+                            <c:forEach items="${orderVO.orderProducts}" var="orderProduct">
+                                <div class="y1-personal-content1-left-box1">
+                                    <img src="${dfsimg }${orderProduct.picImg}" class="y1-left-box1-img1" onerror="src='${ctxsta }/defaultImage/default_product.jpg'"
+                                         width="80" height="80" alt="${orderProduct.name}&nbsp;&nbsp;${orderProduct.productSpecName}"
+                                         title="${orderProduct.name}&nbsp;&nbsp;${orderProduct.productSpecName}">
+                                    <div class="y1-left-box1-text">
+                                        <a <c:if test='${orderProduct.productNumber != 0 }'>href="${ctx }/detail/${orderProduct.productNumber}?id=${urlId}"</c:if>><p class="y1-left-box1-text-p">${orderProduct.name}</p></a>
+                                        <span class="y1-left-box1-text-sp">${orderProduct.productSpecName}</span>
+                                    </div>
+                                    <div class="y1-left-box1-danjia">￥${orderProduct.price}</div>
+                                    <div class="y1-left-box1-shuliang">
+                                        ${orderProduct.buyNumber}</div>
+                                    <div class="y1-left-box1-tuikuan"><a href="${ctx }/uc/order/refundView/${orderVO.orderNumber}?urlId=${urlId}">退款中</a></div>
+                                </div>
+                            </c:forEach>
+                        </div>
+                        <div class="y1-personal-content1-right">
+                            <div class="y1-right-box1-shifukuan">
+                                <span class="y1-right-box1-shifukuan-sp1">¥${orderVO.payAmount}</span>
+                                <span class="y1-right-box1-shifukuan-sp1">(含运费:¥${orderVO.shipmentAmount})</span>
+                            </div>
+                            <div class="y1-right-box1-zhuangtai">
+								<span
+                                        class="y1-right-box1-zhuangtai-sp1"><a
+                                        href="${ctx}/uc/order/${orderVO.orderNumber}?urlId=${homePage.urlId }">订单详情</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </c:if>
+            </c:forEach>
+
+            <!--退款成功-->
+            <c:forEach items="${orderVOs}" var="orderVO">
+                <c:if test="${orderVO.orderStatus eq 80}">
+                    <div class="y1-personal-content1 y1-personal-content1_pj">
+
+                        <div class="y1-personal-content1-top y1-personal-content1-top_pj">
+                            <div class="y1-personal-content1-date">
+                                <fmt:formatDate value="${orderVO.createTime}"
+                                                pattern="yyyy年MM月dd日 HH:mm:ss" />
+                            </div>
+                            <div class="y1-personal-content1-oder">
+                                订单号 ：<a href="${ctx}/uc/order/${orderVO.orderNumber}?urlId=${urlId}">${orderVO.orderNumber}</a>
+                            </div>
+                        </div>
+                        <div class="y1-personal-content1-left">
+                            <c:forEach items="${orderVO.orderProducts}" var="orderProduct">
+                                <div class="y1-personal-content1-left-box1">
+                                    <img src="${dfsimg }${orderProduct.picImg}" class="y1-left-box1-img1" onerror="src='${ctxsta }/defaultImage/default_product.jpg'"
+                                         width="80" height="80" alt="${orderProduct.name}&nbsp;&nbsp;${orderProduct.productSpecName}"
+                                         title="${orderProduct.name}&nbsp;&nbsp;${orderProduct.productSpecName}">
+                                    <div class="y1-left-box1-text">
+                                        <a <c:if test='${orderProduct.productNumber != 0 }'>href="${ctx }/detail/${orderProduct.productNumber}?id=${urlId}"</c:if>><p class="y1-left-box1-text-p">${orderProduct.name}</p></a>
+                                        <span class="y1-left-box1-text-sp">${orderProduct.productSpecName}</span>
+                                    </div>
+                                    <div class="y1-left-box1-danjia">￥${orderProduct.price}</div>
+                                    <div class="y1-left-box1-shuliang">
+                                        ${orderProduct.buyNumber}</div>
+                                    <div class="y1-left-box1-tuikuan">退款成功</div>
+                                </div>
+                            </c:forEach>
+                        </div>
+                        <div class="y1-personal-content1-right">
+                            <div class="y1-right-box1-shifukuan">
+                                <span class="y1-right-box1-shifukuan-sp1">¥${orderVO.payAmount}</span>
+                                <span class="y1-right-box1-shifukuan-sp1">(含运费:¥${orderVO.shipmentAmount})</span>
+                            </div>
+                            <div class="y1-right-box1-zhuangtai">
+                                <span class="y1-right-box1-zhuangtai-sp1">交易完成</span> <span
+                                    class="y1-right-box1-zhuangtai-sp1"><a
+                                    href="${ctx}/uc/order/${orderVO.orderNumber}?urlId=${homePage.urlId }">订单详情</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </c:if>
+            </c:forEach>
+
+            <!--退货中-->
+            <c:forEach items="${orderVOs}" var="orderVO">
+                <c:if test="${orderVO.orderStatus eq 90}">
+                    <div class="y1-personal-content1 y1-personal-content1_pj">
+
+                        <div class="y1-personal-content1-top y1-personal-content1-top_pj">
+                            <div class="y1-personal-content1-date">
+                                <fmt:formatDate value="${orderVO.createTime}"
+                                                pattern="yyyy年MM月dd日 HH:mm:ss" />
+                            </div>
+                            <div class="y1-personal-content1-oder">
+                                订单号 ：<a href="${ctx}/uc/order/${orderVO.orderNumber}?urlId=${urlId}">${orderVO.orderNumber}</a>
+                            </div>
+                        </div>
+                        <div class="y1-personal-content1-left">
+                            <c:forEach items="${orderVO.orderProducts}" var="orderProduct">
+                                <div class="y1-personal-content1-left-box1">
+                                    <img src="${dfsimg }${orderProduct.picImg}" class="y1-left-box1-img1" onerror="src='${ctxsta }/defaultImage/default_product.jpg'"
+                                         width="80" height="80" alt="${orderProduct.name}&nbsp;&nbsp;${orderProduct.productSpecName}"
+                                         title="${orderProduct.name}&nbsp;&nbsp;${orderProduct.productSpecName}">
+                                    <div class="y1-left-box1-text">
+                                        <a <c:if test='${orderProduct.productNumber != 0 }'>href="${ctx }/detail/${orderProduct.productNumber}?id=${urlId}"</c:if>><p class="y1-left-box1-text-p">${orderProduct.name}</p></a>
+                                        <span class="y1-left-box1-text-sp">${orderProduct.productSpecName}</span>
+                                    </div>
+                                    <div class="y1-left-box1-danjia">￥${orderProduct.price}</div>
+                                    <div class="y1-left-box1-shuliang">
+                                        ${orderProduct.buyNumber}</div>
+                                    <div class="y1-left-box1-tuikuan"><a href="${ctx }/uc/order/refundView/${orderVO.orderNumber}?urlId=${urlId}">退货申请中</a></div>
+                                </div>
+                            </c:forEach>
+                        </div>
+                        <div class="y1-personal-content1-right">
+                            <div class="y1-right-box1-shifukuan">
+                                <span class="y1-right-box1-shifukuan-sp1">¥${orderVO.payAmount}</span>
+                                <span class="y1-right-box1-shifukuan-sp1">(含运费:¥${orderVO.shipmentAmount})</span>
+                            </div>
+                            <div class="y1-right-box1-zhuangtai">
+								<span
+                                        class="y1-right-box1-zhuangtai-sp1"><a
+                                        href="${ctx}/uc/order/${orderVO.orderNumber}?urlId=${homePage.urlId }">订单详情</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </c:if>
+            </c:forEach>
+            <!--同意退货-->
+            <c:forEach items="${orderVOs}" var="orderVO">
+                <c:if test="${orderVO.orderStatus eq 100}">
+                    <div class="y1-personal-content1 y1-personal-content1_pj">
+
+                        <div class="y1-personal-content1-top y1-personal-content1-top_pj">
+                            <div class="y1-personal-content1-date">
+                                <fmt:formatDate value="${orderVO.createTime}"
+                                                pattern="yyyy年MM月dd日 HH:mm:ss" />
+                            </div>
+                            <div class="y1-personal-content1-oder">
+                                订单号 ：<a href="${ctx}/uc/order/${orderVO.orderNumber}?urlId=${urlId}">${orderVO.orderNumber}</a>
+                            </div>
+                        </div>
+                        <div class="y1-personal-content1-left">
+                            <c:forEach items="${orderVO.orderProducts}" var="orderProduct">
+                                <div class="y1-personal-content1-left-box1">
+                                    <img src="${dfsimg }${orderProduct.picImg}" class="y1-left-box1-img1" onerror="src='${ctxsta }/defaultImage/default_product.jpg'"
+                                         width="80" height="80" alt="${orderProduct.name}&nbsp;&nbsp;${orderProduct.productSpecName}"
+                                         title="${orderProduct.name}&nbsp;&nbsp;${orderProduct.productSpecName}">
+                                    <div class="y1-left-box1-text">
+                                        <a <c:if test='${orderProduct.productNumber != 0 }'>href="${ctx }/detail/${orderProduct.productNumber}?id=${urlId}"</c:if>><p class="y1-left-box1-text-p">${orderProduct.name}</p></a>
+                                        <span class="y1-left-box1-text-sp">${orderProduct.productSpecName}</span>
+                                    </div>
+                                    <div class="y1-left-box1-danjia">￥${orderProduct.price}</div>
+                                    <div class="y1-left-box1-shuliang">
+                                        ${orderProduct.buyNumber}</div>
+                                    <div class="y1-left-box1-tuikuan"><a href="${ctx }/uc/order/refundView/${orderVO.orderNumber}?urlId=${urlId}">同意退货</a></div>
+                                </div>
+                            </c:forEach>
+                        </div>
+                        <div class="y1-personal-content1-right">
+                            <div class="y1-right-box1-shifukuan">
+                                <span class="y1-right-box1-shifukuan-sp1">¥${orderVO.payAmount}</span>
+                                <span class="y1-right-box1-shifukuan-sp1">(含运费:¥${orderVO.shipmentAmount})</span>
+                            </div>
+                            <div class="y1-right-box1-zhuangtai">
+								<span
+                                        class="y1-right-box1-zhuangtai-sp1"><a
+                                        href="${ctx}/uc/order/${orderVO.orderNumber}?urlId=${homePage.urlId }">订单详情</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </c:if>
+            </c:forEach>
+            <!--退货成功-->
+            <c:forEach items="${orderVOs}" var="orderVO">
+                <c:if test="${orderVO.orderStatus eq 110}">
+                    <div class="y1-personal-content1 y1-personal-content1_pj">
+
+                        <div class="y1-personal-content1-top y1-personal-content1-top_pj">
+                            <div class="y1-personal-content1-date">
+                                <fmt:formatDate value="${orderVO.createTime}"
+                                                pattern="yyyy年MM月dd日 HH:mm:ss" />
+                            </div>
+                            <div class="y1-personal-content1-oder">
+                                订单号 ：<a href="${ctx}/uc/order/${orderVO.orderNumber}?urlId=${urlId}">${orderVO.orderNumber}</a>
+                            </div>
+                        </div>
+                        <div class="y1-personal-content1-left">
+                            <c:forEach items="${orderVO.orderProducts}" var="orderProduct">
+                                <div class="y1-personal-content1-left-box1">
+                                    <img src="${dfsimg }${orderProduct.picImg}" class="y1-left-box1-img1" onerror="src='${ctxsta }/defaultImage/default_product.jpg'"
+                                         width="80" height="80" alt="${orderProduct.name}&nbsp;&nbsp;${orderProduct.productSpecName}"
+                                         title="${orderProduct.name}&nbsp;&nbsp;${orderProduct.productSpecName}">
+                                    <div class="y1-left-box1-text">
+                                        <a <c:if test='${orderProduct.productNumber != 0 }'>href="${ctx }/detail/${orderProduct.productNumber}?id=${urlId}"</c:if>><p class="y1-left-box1-text-p">${orderProduct.name}</p></a>
+                                        <span class="y1-left-box1-text-sp">${orderProduct.productSpecName}</span>
+                                    </div>
+                                    <div class="y1-left-box1-danjia">￥${orderProduct.price}</div>
+                                    <div class="y1-left-box1-shuliang">
+                                        ${orderProduct.buyNumber}</div>
+                                    <div class="y1-left-box1-tuikuan"><a href="${ctx }/uc/order/refundView/${orderVO.orderNumber}?urlId=${urlId}">退货成功</a></div>
+                                </div>
+                            </c:forEach>
+                        </div>
+                        <div class="y1-personal-content1-right">
+                            <div class="y1-right-box1-shifukuan">
+                                <span class="y1-right-box1-shifukuan-sp1">¥${orderVO.payAmount}</span>
+                                <span class="y1-right-box1-shifukuan-sp1">(含运费:¥${orderVO.shipmentAmount})</span>
+                            </div>
+                            <div class="y1-right-box1-zhuangtai">
+								<span
+                                        class="y1-right-box1-zhuangtai-sp1"><a
+                                        href="${ctx}/uc/order/${orderVO.orderNumber}?urlId=${homePage.urlId }">订单详情</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </c:if>
+            </c:forEach>
+        </c:if>
+        <c:if test="${empty orderVOs }">
+            <div class="ddkhfk"
+                 style="border: none; height: 150px; text-align: center;">
+                <h3 style="line-height: 150px;">您好，暂时没有订单，请尽快购买商品吧！！！</h3>
+            </div>
+        </c:if>
+        <br><br>
+        <!--页码-->
+        <div class="pagenum">
+            <!-- <ul class="page">
+                        <li class="fli">上一页</li>
+                        <li class="active">1</li>
+                        <li>2</li>
+                        <li class="tli">3</li>
+                        <li class="loop">. . .</li>
+                        <li>668</li>
+                        <li class="lli">下一页</li>
+                    </ul> -->
+            <c:if
+                    test="${pageInfo.total gt pageInfo.limit and not empty orderVOs}">
+                <div id="pager"
+                     data-pager-href="${ctx}/uc/order/list/${urlId}?type=${type}&search=${search}&page="
+                     data-pager-totalPage="${pageInfo.totalPage}"
+                     data-pager-nowpage="${pageInfo.current}"
+                     data-pager-total="${pageInfo.total}"></div>
+            </c:if>
+        </div>
+    </div>
+</div>
+<div id="spanFoot">
+    <jsp:include page="${homePage.footUrl }" />
+</div>
+</body>
+<script src="${ctxsta}/common/jquery/jquery-2.1.4.min.js"></script>
+<!-- layer javascript -->
+<script src="/static/common/layer/layer.js"></script>
+<!-- 分页js -->
+<script src="/static/common/pager/jquery.pager.js"></script>
+<script type="text/javascript">
+    var serverTime;
+    var serverTime2;
+    $(document).ready(function(){
+        serverTime = new Date($.ajax({async: false}).getResponseHeader("Date")).getTime();
+        serverTime2 = serverTime;
+    });
+    var asd = setInterval(showTime, 1000);
+    function showTime(){
+        $(".asd").each(function(){
+            var createTime = $(this).attr("data");
+            var nowTime = serverTime;
+            var time = createTime - (nowTime - 1800000);
+            if(time <= 0) {
+                if(time == 0 || time%5000 == 0) window.location.reload();
+                return;
+            }
+            var minute = parseInt(time / 1000 / 60 % 60);
+            var seconds = parseInt(time / 1000 % 60);
+            $(this).html("还剩" + minute + "分" + seconds + "秒");
+        });
+        serverTime = serverTime - (- 1000);
+    }
+    var zxc = setInterval(showTime2, 1000);
+    function showTime2(){
+        $(".zxc").each(function(){
+            var createTime = $(this).attr("data");
+            var nowTime = serverTime2;
+            var time = createTime - (nowTime - 864000000);
+            if(time <= 0) {
+                if(time == 0 || time%5000 == 0) window.location.reload();
+                return;
+            }
+            var day = parseInt(time /1000 / 60 / 60 / 24);
+            var hour = parseInt(time /1000 / 60 / 60 % 24);
+            var minute = parseInt(time / 1000 / 60 % 60);
+            var seconds = parseInt(time / 1000 % 60);
+            $(this).html("还剩" + day + "天" + hour + "时" + minute + "分" + seconds + "秒");
+        });
+        serverTime2 = serverTime2 - (- 1000);
+    }
+
+    //订单删除
+    $(".icon-delete-black-1").click(function(){
+        var orderNumber = $(this).attr("data");
+        layer.confirm("确认删除？",function(){
+            $.ajax({
+                url: baselocation + "/uc/order/delete/" + orderNumber,
+                type:"GET",
+                dataType:"json"
+            });
+            layer.msg("删除成功");
+            window.location.reload();
+        });
+    });
+
+    //查看物流
+    function wuliu(orderNumber){
+        $.ajax({
+            type:"GET",
+            url: baselocation + "/uc/order/"+orderNumber+"/wuliu",
+            dataType:"json",
+            success : function(result) {
+                console.log(result);
+                var Object=eval("("+result.data+")");
+                layer.open({
+                    type: 1,
+                    title:"物流信息",
+                    area: ['250px', '250px'],
+                    shadeClose: true,
+                    skin: 'layui-layer-rim',
+                    content: "<div style='margin-top:30px;margin-left:10px;font-size:15px;'>快递公司："+Object.com+"<br><br><br>快递单号："+Object.num+"</div>"
+                });
+            }
+        });
+    }
+
+    //跳转评价页面
+    function goComment(val){
+        window.location.href = baselocation + '/comment/goAdd?orderNumber='+val;
+    }
+    //确认收货
+    function changeCom(val){
+        //href="${ctx}/uc/order/${orderVO.orderNumber}/complete"
+        layer.confirm('确认收货?',function(){
+            $.ajax({
+                url : baselocation + "/uc/order/"+val+"/complete",
+                type : "get",
+                success : function (data){
+                    if (0 == data.code) {
+                        layer.msg(data.message);
+                    }else{
+                        location.reload();
+                    }
+                },
+                error : function (){
+                    layer.msg("请等待商家发货");
+                }
+            })
+        })
+    }
+    //确认收货
+    function changeCom2(val){
+        layer.confirm('确认申请退款?',function(){
+            $.ajax({
+                url : baselocation + "/uc/order/"+val+"/refund",
+                type : "get",
+                success : function (data){
+                    if (0 == data.code) {
+                        layer.msg(data.message);
+                    }else{
+                        location.reload();
+                    }
+                },
+                error : function (){
+                    alert("失败")
+                }
+            })
+        })
+    }
+    // 取消订单
+    function changeCancel(value){
+        //href="${ctx}/uc/order/${orderVO.orderNumber}/complete"
+        layer.confirm('确认取消?',function(){
+            $.ajax({
+                url : baselocation + "/uc/order/"+value+"/cancel",
+                type : "get",
+                success : function (data){
+                    if (0 == data.code) {
+                        layer.msg(data.message);
+                    }else{
+                        location.reload();
+                    }
+                },
+                error : function (){
+                    alert("失败")
+                }
+            })
+        })
+    }
+    $(function(){
+        var pagecount = $('#pager').attr('data-pager-totalPage'); // 总页面数
+        var nowpage = $('#pager').attr('data-pager-nowpage'); // 当前页数
+        var href = $('#pager').attr('data-pager-href'); // 链接地址
+        $(document).ready(function() {
+            $("#pager").pager({
+                pagenumber : nowpage,
+                pagecount : pagecount,
+                buttonClickCallback : PageClick
+            });
+        });
+        PageClick = function(number) {
+            $("#pager").pager({
+                pagenumber : number,
+                pagecount : pagecount,
+                buttonClickCallback : PageClick
+            });
+            window.location.href = href + number;
+        }
+    })
+</script>
+
+</html>

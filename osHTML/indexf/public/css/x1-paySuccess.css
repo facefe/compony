@@ -1,0 +1,174 @@
+.x1-paySuccess-box{
+	width: 1200px;
+	margin: 0 auto;
+	margin-top: 60px;
+	margin-bottom: 40px;
+}
+.x1-paySuccess{
+	height: 234px;
+}
+.x1-paySuccess-div{
+	width: 250px;
+	height: 60px;
+	margin: 0 auto;
+	padding: 5px;
+}
+.x1-paySuccess-left{
+	float: left;
+}
+.x1-paySuccess-right{
+	float: left;
+	margin-left: 20px;
+}
+.x1-paySuccess-right-p{
+	font-size: 18px;
+	color: #f13a3a;
+}
+.x1-paySuccess-text{
+	width: 356px;
+	margin: 20px auto;
+}
+.x1-paySuccess-text-p{
+	float: left;
+	font-size: 14px;
+	color: #999999;
+}
+.x1-paySuccess-text-p1{
+	float: left;
+	font-size: 14px;
+	color: #999999;
+	margin-left: 20px;
+}
+.x1-paySuccess-operation{
+	width: 240px;
+	margin: 0 auto;
+}
+.x1-paySuccess-operation-div{
+	width: 130px;
+	float: left;
+	border-right: 1px solid #999999;
+	text-align: center;
+	font-size: 14px;
+	color: #666666;
+	cursor: pointer;
+}
+.x1-paySuccess-operation-div1{
+	width: 110px;
+	float: left;
+	text-align: center;
+	color: #F13A3A;
+	font-size: 14px;
+	cursor: pointer;
+}
+.x1-paySuccess-youLike-p{
+	font-size: 18px;
+	line-height: 46px;
+	border-bottom: 1px solid #999999;
+}
+.x1-paySuccess-swiper-container{
+	width: 1200px;
+	height: 430px;
+	margin: 0 auto;
+	overflow: hidden;
+	margin-top: 20px;
+}
+.x1-paySuccess-swiper-container .swiper-slide{
+	height: 360px;
+}
+.x1-paySuccess-swiper-container .swiper-slide .swiper-slide-text{
+	/* display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2; */
+	overflow: hidden;
+	font-size: 12px;
+	margin-top: 30px;
+	margin-bottom: 20px;
+	line-height: 20px;
+}
+.swiper-slide-p{
+	color: #F13A3A;
+	font-size: 18px;
+	letter-spacing: 2px;
+}
+.x1-paySuccess-swiper-container .swiper-slide img{
+	width: 230px;
+	height: 230px;
+}
+.x1-paySuccess-swiper-container .swiper-wrappe{
+	width: 1200px;
+	height: 360px;
+}
+.x1-paySuccess-swiper-container .swiper-pagination-bullet {
+	width: 14px;
+	height: 14px;
+	display: inline-block;
+	background: #999999;
+	opacity: .3;
+	margin: 0 5px;
+}
+.x1-paySuccess-swiper-container .swiper-pagination-bullet-active {
+	opacity: 1;
+	background-color: #f13a3a;
+}
+/*隐藏底部部分内容*/
+.x1-footer-boxs{
+	display: none;
+}
+/*<!--隐藏头部的导航栏-->*/
+.y1-header-mainnav {
+    display: none;
+}
+.y1-shopping-line {
+    height: 3px;
+    border: none;
+    background: #ffcdda;
+}
+.y1-header-search{
+	display: none;
+}
+@media (max-width: 768px) {
+	.x1-paySuccess-box{
+		width: 100%;
+		margin: 0 auto;
+		margin-top: 60px;
+		margin-bottom: 0;
+	}
+	.x1-paySuccess-youLike{
+		display: none;
+	}
+	.x1-paySuccess-text {
+	    width: 95%;
+	    margin: 20px auto;
+	    line-height: 26px;
+	    text-align: center;
+	}
+	.x1-paySuccess-text-p{
+		float: none;
+	}
+	.x1-paySuccess-text-p1{
+		float: none;
+	}
+	.x1-paySuccess {
+	    height: 210px;
+	}
+	.y1-shopping-line{
+		display: none;
+	}
+}
+
+/* 
+ * revise: 180809
+ * describe: 修改猜你喜欢样式
+*/
+.x1-paySuccess-swiper-container .swiper-slide > div{
+	margin-top: 18px;
+	float: left;
+	width: 230px;
+    margin-left: 12px;
+}
+.x1-paySuccess-swiper-container .swiper-slide > :first-child{
+	margin-left: 0;
+}
+.x1-paySuccess-swiper-container .swiper-slide .swiper-slide-text{
+	width: 83%;
+}

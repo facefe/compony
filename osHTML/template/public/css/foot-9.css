@@ -1,0 +1,60 @@
+.fxiefu_l{
+	float: left;
+}
+.fxiefu_r{
+	float: right;
+}
+.xiefu-index-footer{
+	height: 250px;
+}
+.xiefu-index-footer-content-top{
+	padding-top: 36px;
+	height: 200px;
+	background: #3e3e3e;
+}
+.xiefu-index-footer-content-top-da{
+	width: 1200px;
+	margin: 0 auto;
+	font-family: "宋体";
+}
+.xiefu-index-footer-content-top-li a{
+	font-size: 18px;
+	color: #d8d8d8;
+}
+.xiefu-index-footer-content-top-ul{
+	margin-right: 170px;
+}
+.xiefu-index-footer-content-top-li{
+	margin-bottom: 10px;
+}
+.xiefu-index-footer-content-top-ul .xiefu-index-footer-content-top-li:first-child{
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+.xiefu-index-footer-content-top-right,.xiefu-index-footer-content-top-right img{
+	width: 94px;
+}
+.xiefu-index-footer-content-top-right-p{
+	font-size: 14px;
+	color: #d8d8d8;
+	text-align: center;
+	margin-top: 10px;
+}
+.xiefu-index-footer-content-bot{
+	background: #222222;
+	height: 50px;
+}
+.xiefu-index-footer-content-bot-da{
+	width: 1200px;
+	height: 50px;
+	margin: 0 auto;
+	color: #d8d8d8;
+	text-align: center;
+}
+.xiefu-index-footer-content-bot-da-p:nth-child(2){
+	margin: 0 14px;
+}
+.xiefu-index-footer-content-bot-da-p{
+	line-height: 50px;
+	display: inline;
+}

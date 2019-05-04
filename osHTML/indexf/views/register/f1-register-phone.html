@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>注册用户</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords"
+          content="Best Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <link rel="stylesheet" href="/static/common/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="/static/common/bootstrapvalidator/css/bootstrapValidator.min.css" />
+    <link rel="stylesheet" href="/static/qlsc1.1/public/css/base.css">
+    <link rel="stylesheet" href="/static/qlsc1.1/public/css/f1-login-main.css">
+    <link rel="stylesheet" href="/static/qlsc1.1/public/css/libraries/layer.css">
+    <script src="/static/qlsc1.1/public/js/libraries/jquery-1.12.4.js"></script>
+    <script src="/static/qlsc1.1/public/js/f1-login-main.js"></script>
+    <script src="/static/qlsc1.1/public/js/libraries/layer.js"></script>
+</head>
+
+<body>
+<div class="f1-login-container">
+    <div class="f1-login-bg-box f1-register-box">
+        <img class="f1-login-bg" src="/static/qlsc1.1/public/img/other/f1-login-Bg.jpg" alt="" />
+        <div class="f1-login-cont f1-register-cont" style="overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">
+            <h4 class="f1-login-cont-h4 clearFix w1-login-cont-h4">
+                用户注册
+                <!-- <img src="/static/qlsc1.1/public/img/icon/question.png" class="w1-login-cont-h4-img"> -->
+                <a class="register-email">邮箱注册</a>
+                <span class="f1-register-small" style="margin-top:24px;"><a class="f1-register-small to-login-phone" >已有账号？请登录</a></span>
+            </h4>
+            <form id="form" class="f1-login-form f1-register-form form-horizontal"  data-method="post">
+                <!--  <span class="f1-form-error">账号或密码错误</span>-->
+                <div class="form-group f1-login-input">
+                    <input class="f1-login-input-public" name="userName" type="text" placeholder="请输入昵称">
+                </div>
+                <div class="form-group f1-login-input">
+                    <input class="f1-login-input-public" id="loginName" name="loginName" type="text" placeholder="请输入登录账号">
+                    <p class="message_loginName" style="display: none;"></p>
+                </div>
+                <div class="form-group f1-login-input">
+                    <input class="f1-login-input-public" id="tel" name="tel" type="text" placeholder="请输入有效手机号码">
+                    <p class="message" style="display: none;"></p>
+                </div>
+                <div class="f1-login-input"  style="margin-bottom: 0px">
+                    <div class="form-group " style="width: 260px;display:inline-block">
+                        <input class="f1-login-test w1-login-test" name="code" type="text" placeholder="请输入手机验证码" >
+                        <input name="telSign" id="telSign" type="hidden" >
+                    </div>
+                    <a class="f1-login-btn" style="margin-bottom: 15px;position:absolute;top:0px;" href="javascript:void(0);"
+                       onclick="settime(this)">获取短信验证</a>
+                </div>
+                <div class="form-group f1-login-input">
+                    <input class="f1-login-input-public" name="loginPassword" type="password" placeholder="请输入密码" >
+
+                </div>
+                <div class="form-group f1-login-input">
+                    <input class="f1-login-input-public" name="loginPassword_two" type="password" placeholder="请再次输入密码" >
+                </div>
+                <!--<div class="f1-login-input f1-login-color clearFix">-->
+                <!--<div id="f1-login-recall" class="f1-login-recall">-->
+                    <!--<i class="icon-checkbox-default-blank"></i>-->
+                    <!--阅读并同意《***服务协议》-->
+                    <!--</div>-->
+                <!--</div>-->
+                <button class="f1-login-href w1-register-btn" id="submit">确认并提交</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+>
+</body>
+
+<script type="text/javascript" src="/static/os/topjs/bootstrap.min-1.js"></script>
+<!-- bootstrapvalidator-master前端验证框架 -->
+<script type="text/javascript" src="/static/common/bootstrapvalidator/js/bootstrapValidator.min.js"></script>
+<script src="/static/common/layer/layer.js"></script>
+<script type="text/javascript">
+
+
+    $('.register-email').on('click', function () {
+        $('.mainview')
+            .load('indexf/views/register/f1-register-min.html');
+    })
+
+    $('.to-login-phone').on('click', function () {
+        $('.mainview')
+            .load('./indexf/views/login/f1-login-main.html');
+    })
+
+
+    var countdown = 60;
+    var start = true;
+    function settime(val) {
+        if(telcount==1 && countdown==60)
+            return ;
+        var tel=$("#tel").val();
+        var reg=/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/;
+        if(reg.test(tel)==false){
+            $(".message").show();
+            $(".message").css("color","red");
+            $(".message").html("手机号格式不正确");
+            if(countdown == 60)
+                return false;
+        }
+        if (start) {
+            $.ajax({
+                type : "POST",
+                url : '/sms/sendMessage',
+                data : {
+                    "telNumber" :tel
+                },
+                dataType : "json",
+                success : function(result) {
+                    layer.msg(result.data, {
+                        icon : 6,
+                        time : 3000
+                    })
+                }
+            })
+            start = false;
+        }
+        if (countdown == 0) {
+            val.setAttribute("onclick","settime(this)");
+            val.removeAttribute("disabled", "disabled");
+            val.text = "免费获取验证码";
+            countdown = 60;
+            start = true;
+            return;
+        } else {
+            val.setAttribute("onclick", "return false;");
+            val.setAttribute("disabled", "disabled");
+            /* val.setAttribute("style", "cursor: default;opacity: 0.2;");*/
+            val.text = "重新发送(" + countdown + ")";
+            countdown--;
+        }
+        setTimeout(function() {
+            settime(val)
+        }, 1000)
+    }
+
+
+    $(function() {
+
+        $('form').bootstrapValidator({
+            message: 'This value is not valid',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                userName: {
+                    message: '昵称验证失败',
+                    validators: {
+                        notEmpty: {
+                            message: '昵称不能为空'
+
+                        }
+                    }
+                },
+                loginName: {
+                    message: '用户名验证失败',
+                    validators: {
+                        notEmpty: {
+                            message: '用户名不能为空'
+                        },
+                        stringLength: {/*长度提示*/
+                            min: 8,
+                            max: 20,
+                            message: '用户名长度必须在8到20之间'
+                        },
+                        regexp: {//正则验证
+                            regexp: /^[a-zA-Z][a-zA-Z0-9_]*$/,
+                            message: '可使用字母、数字，需以字母开头'
+                        }
+                    }
+                },
+                tel: {
+                    validators: {
+                        regexp: {//正则验证
+                            regexp: /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/,
+                            message: '输入正确格式的手机号码'
+                        },
+                        notEmpty: {
+                            message: '手机号码不能为空'
+                        },
+                        telAddress: {
+                            message: '手机号码不正确'
+                        }
+                    }
+                },
+                code: {
+                    message: '验证码验证失败',
+                    validators: {
+                        notEmpty: {
+                            message: '验证码不能为空'
+                        },
+                        stringLength: {/*长度提示*/
+                            min: 4,
+                            max: 4,
+                            message: '验证码长度为4位'
+                        }
+                    }
+                },
+                loginPassword: {
+                    message: '密码验证失败',
+                    validators: {
+                        notEmpty: {
+                            message: '密码不能为空'
+                        },
+                        regexp: {//正则验证
+                            regexp: /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/,
+                            message: '密码必须是6-16位字母数字结合'
+                        },
+                        callback: {/*自定义，可以在这里与其他输入项联动校验*/
+                            message : ' ',
+                            callback:function(value, validator){
+                                $("#form").bootstrapValidator('addField','loginPassword_two');
+                                $("#form").bootstrapValidator('updateStatus','loginPassword_two','NOT_VALIDATED');
+
+                                return true;
+                            }
+                        }
+                    }
+                },
+                loginPassword_two: {
+                    message: '密码验证失败',
+                    validators: {
+                        notEmpty: {
+                            message: '密码不能为空'
+                        },
+                        identical: {
+                            field: 'loginPassword',
+                            message: '两次输入的密码不相符'
+                        }
+                    }
+                }
+            }
+        }).on('success.form.bv', function(e) {
+
+            if(telcount==1 || loginNameCount==1)
+                return ;
+            e.preventDefault();
+            var $forms = $(e.target);
+            var bv = $forms.data('bootstrapValidator');
+            var method = $('#form').attr('data-method');
+            var form = document.getElementById("form");
+            var formdata=new FormData(form);
+            $("#submit").attr("disabled", true);
+            //提交
+            $.ajax({
+                type:'post',
+                data: formdata,
+                url:'/pass/telRegisterOn',
+                processData : false,  //必须false才会避开jQuery对 formdata 的默认处理
+                contentType : false,  //必须false才会自动加上正确的Content-Type
+                success: function(result){
+
+                    if(result.code==1){
+                        layer.msg('注册成功', {
+                            offset: '350px',
+                            icon: 1,
+                            time: 1000 //2秒关闭（如果不配置，默认是3秒）
+                        }, function(){
+                            window.location.href="/pass/login";
+                        });
+                    }else{
+                        layer.msg(result.message, {
+                            offset: '350px',
+                            icon: 2,
+                            time: 2000 //2秒关闭（如果不配置，默认是3秒）
+                        }, function(){
+
+                        });
+                    }
+                    $("#submit").attr("disabled", false);
+
+                }
+            })
+        })
+        // 	.on('error.form.bv', function(e) {
+        //    var smalls = $.find(".help-block");
+        //    $.each(smalls, function(i,small){
+        //        if($(small).css("display")=="none"){
+        //            return;
+        //        }else{
+        //            $(small).parent().css("margin-bottom","0")
+        //        }
+        //    });
+        // });
+
+    })
+
+    var telcount=0;
+    $(function(){
+        $("input[name='tel']").blur(function(){
+            var tel=$("#tel").val();
+            $.ajax({
+                type : "POST",
+                url : '/sms/isHavetel',
+                data : {
+                    "telNumber":tel
+                },
+                dataType : "json",
+                success : function(result) {
+                    if(result){
+                        $(".message").show();
+                        $(".message").css("color","red");
+                        $(".message").html("手机号已存在，请重新填写手机号码。");
+                        telcount=1;
+
+                    }else{
+                        $(".message").hide();
+                        $(".message").html("");
+                        telcount=0;
+                    }
+                }
+            })
+        })
+    });
+    var loginNameCount = 0;
+    $(function(){
+        $("input[name='loginName']").blur(function(){
+            var loginName=$("#loginName").val();
+            $.ajax({
+                type : "POST",
+                url : '/pass/isHaveLoginName',
+                data : {
+                    "isHaveLoginName" :loginName
+                },
+                dataType : "json",
+                success : function(result) {
+                    console.log(result);
+                    if(result){
+                        $(".message_loginName").show();
+                        $(".message_loginName").css("color","red");
+                        $(".message_loginName").html("账号已存在，请重新填写账号。");
+                        loginNameCount=1;
+
+                    }else{
+                        $(".message_loginName").hide();
+                        $(".message_loginName").html("");
+                        loginNameCount=0;
+                    }
+                }
+            })
+        })
+    });
+</script>
+
+</html>

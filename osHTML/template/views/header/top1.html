@@ -1,0 +1,129 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title>页头</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=10, chrome=1">
+	<link rel="stylesheet" href="/static/newPage/new1/public/css/base.css">
+	<link rel="stylesheet" href="/static/newPage/new1/public/css/y1-header.css">
+	<link rel="stylesheet" href="/static/qlsc1.0/public/css/top-all.css">
+	<!--<script src="static/newPage/new1/public/js/libraries/jquery-1.12.4.js"></script>-->
+	<!--<script src="static/newPage/new1/public/js/y1-header.js"></script>-->
+	<script src="/static/qlsc1.0/public/js/top-all.js"></script>
+	<script src="/static/common/layer/layer.js"></script>
+	<style>
+		.f1-icon-sreach{
+			margin-top: 8px
+		}
+		.f1-search-input{
+			height: 100%;
+			background: none;
+		}
+
+	</style>
+</head>
+<body>
+<div class="y1-header-nav">
+	<ul class="y1-header-left-ul">
+			<li class="y1-header-li"><a class="f1-href"><span class="loginon">登录</span></a></li>
+			<li class="y1-header-li"><a class="f1-href register1">免费注册</a></li>
+			<li class="y1-header-li">商城欢迎您</li>
+			<li class="y1-header-li" id="logout"><a class="f1-href signout" href="#">退出</a></li>
+	</ul>
+	<ul class="y1-header-right-ul">
+		<li class="y1-header-li">
+			<a class="f1-href" id="indexPage">
+				首页
+			</a>
+		</li>
+		<li class="y1-header-li">
+			<a class="f1-href" id="myorder">
+				我的订单
+			</a>
+		</li>
+		<li class="y1-header-li">
+			<a class="f1-href" id="shopCar">
+				购物车
+			</a>
+		</li>
+		<li class="y1-header-li">
+			<a class="f1-href person-center" >
+				个人中心
+			</a>
+		</li>
+		<li class="y1-header-li">
+			<a class="f1-href" id="collection">
+				收藏
+			</a>
+		</li>
+			<li class="y1-header-li">
+				<a class="f1-href" href="#" >
+					<span>联系商家<span >(0)</span></span>
+				</a>
+			</li>
+	</ul>
+</div>
+<!--页面头-->
+<div class="y1-header-nav2">
+	<a href="javascript:;">
+		<div class="y1-header-logo">
+			<a href="/">
+				<img src="${dfsimg }${slider.url }" onerror="src='/static/qlsc1.0/public/img/other/logo_default.jpg'"   alt="" width="200" height="45">
+			</a>
+		</div>
+	</a>
+	<div class="y1-header-search">
+		<form method="get" action="/product/getLikeProduct/${homePage.urlId }" id="fromSearch">
+			<input type="text" autocomplete="off" class="f1-search-input g1-index-all-search" value="${like }" name="like" id="y1-h-search">
+			<div class="g1-index-all-Header-history">
+				<ul class="g1-index-all-Header-history-ul">
+					<c:if test="${historyList.size() > 0 }">
+						<c:forEach items="${historyList }" var="h">
+							<li class="g1-index-all-Header-history-ul-li" data="${h.historyId }" data2="${homePage.urlId }">${h.key }
+								<img class="Header-history-ul-li-img" src="/static/qlsc1.0/public/img/icon/g1-index-all-history.png" alt="" />
+							</li>
+						</c:forEach>
+
+						<li class="g1-index-all-Header-history-ul-li-active">
+							<span class="g1f_r history-ul-li-active-span">清除所有</span>
+						</li>
+					</c:if>
+				</ul>
+			</div>
+			<div class="y1-header-search-box">
+				<i class="icon-sreach-white-1 f1-icon-sreach" id="searchbutton"></i>
+			</div>
+		</form>
+	</div>
+</div>
+<!--手机导航自适应-->
+<div class="y1-header-mainnav2">
+	<div class="y1-mainnav2-container">
+		<ul class="y1-mainnav2-ul">
+			<li class="y1-mainnav2-ul-li ysj-li">
+				<i class="icon-mobles-nav-white"></i>
+			</li>
+		</ul>
+	</div>
+</div>
+<!--导航-->
+<div class="y1-header-mainnav">
+	<div class="y1-mainnav-container">
+		<ul class="y1-mainnav-ul">
+			<li class="y1-mainnav-ul-li">
+				<a class="storeId${homePage.urlId } shouye" href="/">首页</a>
+			</li>
+			<c:forEach items="${activity}" var="activitys">
+				<li class="y1-mainnav-ul-li">
+					<a class="storeId${homePage.urlId } dh${activitys.activityId }" href="/product/hotPage?activityId=${activitys.activityId }&id=${homePage.urlId }">${activitys.activityName}</a>
+				</li>
+			</c:forEach>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

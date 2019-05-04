@@ -1,0 +1,211 @@
+<!--登录页-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=10, chrome=1">
+	<link rel="stylesheet" href="indexf/public/css/base.css">
+	<link rel="stylesheet" href="indexf/public/css/f1-login-main.css">
+    <script src="indexf/public/js/f1-login-main.js"></script>
+
+    <title>登录-中</title>
+</head>
+<body>
+    <div class="f1-login-container">
+        <div class="f1-login-bg-box">
+            <img class="f1-login-bg" src="indexf/public/img/other/f1-login-Bg.jpg" alt="" />
+            <div class="f1-login-cont">
+                <h4 class="f1-login-cont-h4">欢迎回来！请登录</h4>
+
+                <form id="signupForm" class="f1-login-form" action="">
+                    <span class="f1-form-error message"></span>
+                    <div class="f1-login-input">
+                        <input class="f1-login-input-public" id="loginName" name="phone" type="text" placeholder="会员名/邮箱" maxlength="11">
+                    </div>
+                    <div class="f1-login-input">
+                        <input class="f1-login-input-public"  id="password" name="pass" type="password" placeholder="密码" maxlength="16">
+                    </div>
+                    <div class="f1-login-input f1-login-color clearFix">
+                        <div id="f1-login-recall" class="f1-login-recall">
+                            <i class="icon-checkbox-default-blank"></i>
+                            记住密码
+                        </div>
+                        <div class="f1-login-other">
+                            <span>
+                                <a class="to-register"  href="#">我要注册</a>
+                            </span>
+                                &nbsp;&nbsp;&nbsp;
+                            <span>
+                                <a class="to-find-password">找回密码</a>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+                <!--<form id="signupForm2" class="f1-login-form" action="" hidden>-->
+                    <!--<span class="f1-form-error">手机号或验证码错误</span>-->
+                    <!--<div class="f1-login-input">-->
+                        <!--<input id="userName2" class="f1-login-input-public" type="text" placeholder="手机号" maxlength="11">-->
+                    <!--</div>-->
+                    <!--<div class="f1-login-input">-->
+                        <!--<input class="f1-login-test" type="text" placeholder="验证码" maxlength="4">-->
+                        <!--<img class="f1-login-img" src="indexf/public/img/other/yzm.jpg" alt=""/>-->
+                    <!--</div>-->
+                    <!--<div class="f1-login-input">-->
+                <!--<input class="f1-login-test" type="text" placeholder="手机动态码" maxlength="4">-->
+                <!--<button class="f1-login-btn">获取动态码</button>-->
+            <!--</div>-->
+            <!--</form>-->
+                <a class="f1-login-href" id="btn_login">登录</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+
+        /**
+         * 登录页面中点击我要注册 跳转到注册页面 实现
+         *
+         */
+
+
+
+        $(".to-find-password").on('click', function () {
+            $('.mainview')
+                .load('indexf/views/retrievePassword/f1-retrieve-main1.html');
+        })
+
+
+        function toPageRegister() {
+            $(".to-register").on('click', function () {
+                $('.mainview')
+                    .load('indexf/views/register/f1-register-min.html');
+            })
+        }
+        toPageRegister()
+
+        var modulus = '',
+            exponent = ''
+
+
+        $.ajax({
+            url: baseUrl + '/frontEnd/loginFrontEnd',
+            async: false,
+            type: 'GET',
+            success: function (res) {
+
+                modulus = res.modulus
+                exponent = res.exponent
+
+            }
+        })
+
+        /**
+         * 回车登录实现
+         */
+
+        $(document).keyup(function(event) {
+            if (event.keyCode == 13) {
+                $(".submit_btn").trigger("click");
+            }
+        });
+
+
+        $(function() {
+
+            var rememberMe = ''
+
+            $("#btn_login").click(function() {
+
+                loginPassword = $("#password").val();
+                loginName = $("#loginName").val();
+
+                rememberMe = !$('.f1-login-recall').children().hasClass('icon-checkbox-default-blank')
+
+                if(loginName==""){
+                    $(".message").html("");
+                    $(".message").html("请输入用户名");
+                    $(".message").css("color","red");
+                    $(".message").show();
+
+                    return false;
+                }
+                if(loginPassword==""){
+                    $(".message").html("");
+                    $(".message").html("请输入密码");
+                    $(".message").css("color","red");
+                    $(".message").show();
+                    return false;
+                }
+
+
+                if (loginPassword.length != 256) {
+                    var publicKey = RSAUtils.getKeyPair(exponent,'', modulus);
+                    loginPassword = RSAUtils.encryptedString(publicKey, loginPassword);
+                }
+
+                $.ajax({
+                    type : "POST",
+                    url :  'http://zhonglan.qilewang.net/pass/login',
+                    data : {
+                        "loginName" : loginName,
+                        "loginPassword" : loginPassword,
+                        "rememberMe" : rememberMe
+                    },
+                    dataType : "json",
+                    success : function(result) {
+                        if(result.code==1){
+                            //登陆成功之后刷新页面
+                            window.location.href = '/os/'
+
+                            // $('.mainview').load('template/views/main'+ main + '.html');
+                            // $('.loginon').html('这是用户名字');
+                            // $('.register').html('退出');
+                            // $('.register').on('click', function () {
+                            //     signOutFunc()
+                            // })
+
+                            layer.msg('登录成功', {
+                                offset: '350px',
+                                icon: 1,
+                                time: 1000 //2秒关闭（如果不配置，默认是3秒）
+                            }, function(){
+                                $(".message").html("");
+                                $(".message").hide();
+                            });
+                        }else if (result.code==850){
+                            layer.msg('需要进行手机验证', {
+                                offset: '350px',
+                                icon: 2,
+                                time: 1000 //2秒关闭（如果不配置，默认是3秒）
+                            }, function(){
+                                $(".message").html("");
+                                $(".message").hide();
+                                // window.location.href =result.data;
+                            });
+                        }
+                        else{
+                            layer.msg(result.message, {
+                                offset: '350px',
+                                icon: 2,
+                                time: 2000 //2秒关闭（如果不配置，默认是3秒）
+                            }, function(){
+                                $(".message").html("");
+                                $(".message").children("label").text(result.message);
+                                $(".message").html(result.message);
+                                $(".message").css("color","red");
+                                $(".message").show();
+                            });
+                        }
+                    }
+                })
+            });
+
+        });
+
+    </script>
+</body>
+</html>

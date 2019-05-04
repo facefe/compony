@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="format-detection" content="email=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=10, chrome=1">
+		<link rel="stylesheet" href="../../public/css/base.css">
+		<link rel="stylesheet" href="../../public/css/g1-paySuccess.css">
+		<link rel="stylesheet" href="../../public/css/x1-personalCenter.css">
+		<link rel="stylesheet" href="../../public/css/libraries/swiper.css">
+		<script src="../../public/js/libraries/jquery-1.12.4.js"></script>
+		<script src="../../public/js/libraries/swiper.js"></script>
+		<script src="../../public/js/g1-paySuccess.js"></script>
+		<script src="../../public/js/g1-pdata.js"></script>
+		<title>新增收货地址</title>
+	</head>
+
+	<body>
+		<div class="g1-paySuccess-setAddress-container">
+			<!--左侧列表-->
+			<div class="y1-personal-column">
+				<img src="../../public/img/other/y1-personal-img1.jpg" class="y1-personal-column-img1" alt="">
+				<p class="y1-personal-column-p1">豚豚</p>
+				<ul id="f1-userCenter-left-hover">
+					<li class="y1-personal-column-ul-li" data-number="1">
+						我的订单
+					</li>
+					<li class="y1-personal-column-ul-li" data-number="2">
+						退款管理
+					</li>
+					<li class="y1-personal-column-ul-li" data-number="3">
+						个人资料
+					</li>
+					<li class="y1-personal-column-ul-li" data-number="4">
+						修改登录密码
+					</li>
+					<li class="y1-personal-column-ul-li y1-personal-column-ul-li-active" data-number="5">
+						收货地址
+					</li>
+					<li class="y1-personal-column-ul-li " data-number="6">
+						我的收藏
+					</li>
+				</ul>
+			</div>
+			<!--结束-->
+			<div class="g1-paySuccess-setAddress-container-content g1fl">
+				<div class="g1-paySuccess-setAddress-container-content-nav">
+					<p>收货地址</p>
+				</div>
+				<div class="g1-paySuccess-setAddress-container-content-inner">
+					<p class="g1-title">新增收货地址</p>
+					<!--这个div是新增收货地址的，显示的是input框没有内容的状态，-->
+					<form action="">
+						<div class="g1-xinZengDiZhi">
+						<!--把下列每个div里的，class=“red”的添加display:none样式，和给input移除kong的类添加you的类-->
+						<!--g1-paySuccess.css   的205~~225行-->
+							<div>
+								<label class="g1fl" for=""><span class="red g1-paySuccess-setAddress-kong">*</span> 收货人:</label>
+								<input class="g1fl you g1-paySuccess-setAddress-you1" type="text" placeholder="收货人姓名" />
+								<p class="red g1fl g1-paySuccess-setAddress-kong">！请输入收货人姓名</p>
+							</div>
+							<div>
+								<label class="g1fl" for="">性别:</label>
+								<p class="g1fl">
+								<input class="" name="sex" type="radio"/>男
+								<input class="" name="sex" type="radio" />女
+								<input class="" name="sex" checked="checked" type="radio" />保密
+								</p>
+							</div>
+							<div>
+								<label class="g1fl" for=""><span class="red g1-paySuccess-setAddress-kong">*</span>地址:</label>
+								<select name="input_province" id="input_province" class="form-control you g1-paySuccess-setAddress-you1">
+								</select>					
+								<select name="input_city" id="input_city" class="form-control g1-paySuccess-setAddress-you1 you">
+								</select>									
+								<select name="input_area" id="input_area" class="form-control g1-paySuccess-setAddress-you1 you">
+								</select>
+								<input class="g1fl g1-paySuccess-setAddress-you1 you" type="text" placeholder="详细地址" />
+								<p class="red g1fl g1-paySuccess-setAddress-kong">！请输入完整地址信息</p>
+							</div>
+							<div>
+								<label class="g1fl" for=""><span class="red g1-paySuccess-setAddress-kong">*</span>手机:</label>
+								<input class="g1fl g1-paySuccess-setAddress-you1 you" type="text" placeholder="手机号" />
+								<p class="red g1fl g1-paySuccess-setAddress-kong">！请输入收货人手机号</p>
+							</div>	
+							<input id="g1-paySuccess-setAddress-BC" type="submit" value="保存"/>
+						</div>
+						
+					</form>
+					
+					
+				</div>
+				<div class="g1-paySuccess-setAddress-container-content-bottom">
+					<p class="title">已经保存的地址<span>您已经保存了<span>2</span>个收货地址，最多可保存<span>8</span>个</span></p>
+					<table>
+						<tr>
+							<th>收货人</th>
+							<th>性别</th>
+							<th>所在地区</th>
+							<th>详细地址</th>
+							<th>邮编</th>
+							<th>手机号</th>
+							<th>操作</th>
+							<th></th>
+						</tr>
+						<tr>
+							<td>何丽丽</td>
+							<td>女</td>
+							<td>河北省 石家庄市 桥西区 中华南大街</td>
+							<td>XX路XX号</td>
+							<td>050000</td>
+							<td>131****1111</td>
+							<td class="g1-paySuccess-setAddress-container-content-bottom-caoZuo">
+								编辑|删除
+							</td>
+							<td class="g1-paySuccess-setAddress-container-content-bottom-yiMoRen">默认地址</td>
+						</tr>
+						<tr>
+							<td>何丽丽</td>
+							<td>女</td>
+							<td>河北省 石家庄市 桥西区 中华南大街</td>
+							<td>XX路XX号</td>
+							<td>050000</td>
+							<td>131****1111</td>
+							<td class="g1-paySuccess-setAddress-container-content-bottom-caoZuo">
+								编辑|删除
+							</td>
+							<td class="g1-paySuccess-setAddress-container-content-bottom-weiMoRen">默认地址</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		$(function(){
+			var html = "<option value=''>== 请选择 ==</option>"; 
+			$("#input_city").append(html); $("#input_area").append(html);
+				$.each(pdata,function(idx,item){
+					if (parseInt(item.level) == 0) {
+		   				html += "<option value='" + item.names + "' exid='" + item.code + "'>" + item.names + "</option>";
+		   			}
+				});
+				$("#input_province").append(html);
+		
+				$("#input_province").change(function(){
+					if ($(this).val() == "") return;
+					$("#input_city option").remove(); $("#input_area option").remove();
+					var code = $(this).find("option:selected").attr("exid"); code = code.substring(0,2);
+					var html = "<option value=''>== 请选择 ==</option>"; $("#input_area").append(html);
+					$.each(pdata,function(idx,item){
+						if (parseInt(item.level) == 1 && code == item.code.substring(0,2)) {
+			   				html += "<option value='" + item.names + "' exid='" + item.code + "'>" + item.names + "</option>";
+			   			}
+					});
+					$("#input_city").append(html);		
+				});
+		
+				$("#input_city").change(function(){
+					if ($(this).val() == "") return;
+					$("#input_area option").remove();
+					var code = $(this).find("option:selected").attr("exid"); code = code.substring(0,4);
+					var html = "<option value=''>== 请选择 ==</option>";
+					$.each(pdata,function(idx,item){
+						if (parseInt(item.level) == 2 && code == item.code.substring(0,4)) {
+			   				html += "<option value='" + item.names + "' exid='" + item.code + "'>" + item.names + "</option>";
+			   			}
+					});
+					$("#input_area").append(html);		
+				});
+				//绑定
+				/*$("#input_province").val("广东省");$("#input_province").change();
+				$("#input_city").val("深圳市");$("#input_city").change();
+				$("#input_area").val("罗湖区");*/
+		})
+	</script>
+
+</html>

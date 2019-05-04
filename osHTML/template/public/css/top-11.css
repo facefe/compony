@@ -1,0 +1,88 @@
+.fcake_l{
+	float: left;
+}
+.fcake_r{
+	float: right;
+}
+.cake-index-header-top-con{
+	width: 1200px;
+	height: 45px;
+	margin: 0 auto;
+	line-height: 45px;
+	font-size: 12px;
+}
+.cake-index-header-top-con-left-li{
+	color: #161616;
+}
+.cake-index-header-top-con i{
+	margin: 0 7px;
+	font-style: inherit;
+}
+.cake-index-header-top-con-right{
+	background: url(../img/other/cake-index-2.png) no-repeat center left;
+	padding-left: 35px;
+}
+.cake-index-header-search{
+	width: 1200px;
+	margin: 0 auto;
+	padding-top: 38px;
+	padding-bottom: 39px;
+}
+.cake-index-header-search-left-img{
+	width: 200px;
+	height: 45px;
+}
+.cake-index-header-search-right-inp{
+	width: 403px;
+	height: 40px;
+	border: 1px solid #855648;
+	padding: 0 18px;	
+	line-height: 40px;
+	border-radius: 20px 0 0 20px;
+}
+.cake-index-header-search-right-inp::-webkit-input-placeholder{
+	font-size: 14px;
+	color: #999999;
+}
+.cake-index-header-search-right-inp:-moz-placeholder{
+	font-size: 14px;
+	color: #999999;
+}
+.cake-index-header-search-right-inp::-moz-placeholder{
+	font-size: 14px;
+	color: #999999;
+}
+.cake-index-header-search-right-inp:-ms-input-placeholder{
+	font-size: 14px;
+	color: #999999;
+}
+.cake-index-header-search-right-btn{
+	background: #855648 url(../img/other/cake-index-3.png) no-repeat center;
+	width: 69px;
+	height: 40px;
+	border-radius: 0 20px 20px 0;
+	border: none;
+	cursor: pointer;
+}
+.cake-index-header-nav{
+	width: 1200px;
+	margin: 0 auto;
+}
+.cake-index-header-nav-li>a{
+	color: #333333;
+	line-height: 32px;
+}
+.cake-index-header-nav-li{
+	width: 64px;
+	text-align: center;
+	margin-right: 125px;
+}
+.cake-index-header-nav-li:last-child{
+	margin-right: 0;
+}
+.cake-index-header-nav-li:hover a{
+	color: #855648;
+}
+
+
+

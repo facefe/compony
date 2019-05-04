@@ -1,0 +1,234 @@
+.x1-Details-container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+.x1-Details-container .x1-bcn-ul {
+    margin: 0;
+    padding: 0;
+}
+.x1-Details-container .x1-bcn-ul-li {
+    float: left;
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
+    color: rgb(153, 153, 153);
+    text-align: center;
+    padding: 0 3px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.x1-Details-container .x1-bcn-ul-li:first-child {
+    padding: 0;
+}
+.x1-goodsList-sort-box{
+	width: 1200px;
+	margin: 0 auto;
+	font-size: 14px;
+}
+.x1-goodsList-sort-box>div:not(:last-child){
+	border-bottom: 1px solid #999999;
+}
+.x1-goodsList-sort{
+	height: 50px;
+	line-height: 50px;
+}
+.x1-goodsList-sort-title{
+	width: 100px;
+	height: 50px;
+	color: #333333;
+	float: left;
+}
+.x1-goodsList-sort-content{
+	float: left;
+}
+.x1-goodsList-sort-content-div{
+	float: left;
+	margin-left: 50px;
+	height: 27px;
+    line-height: 27px;
+    margin-top: 12px;
+    border-radius: 4px;
+    padding: 0 5px;
+}
+/*.x1-goodsList-sort-content-div:nth-of-type(4n){
+	margin-left: 0;
+}*/
+.x1-goodsList-sort-content-div>a{
+	color: #666666;
+}
+.x1-goodsList-sort-right{
+	color: #333333;
+	float: right;
+	cursor: pointer;
+}
+.x1-goodsList-sort-right-p1{
+	float: left;
+}
+/*.x1-goodsList-sort-right-icon{
+	display: block;
+	float: left;
+	margin-left: 10px;
+	margin-top: 23px;
+}*/
+.x1-goodsList-sort-1{
+	height: 50px;
+	line-height: 50px;
+	display: none;
+	padding-left: 100px;
+}
+.x1-goodsList-screen{
+	height: 40px;
+	line-height: 40px;
+	width: 1200px;
+	margin: 20px auto;
+	background: #f9f9f9;
+}
+.x1-goodsList-screen-title{
+	width: 100px;
+	float: left;
+	color: #333333;
+}
+.x1-goodsList-screen-content{
+	float: left;
+}
+.x1-goodsList-btn{
+	width: 60px;
+	height: 26px;
+	line-height: 26px;
+	margin-top: 7px;
+	background: #e4e5e5;
+	color: #000000;
+	text-align: center;
+	float: left;
+	cursor: pointer;
+}
+.x1-goodsList-btn>i{
+	margin-left: 4px;
+}
+.x1-goodsList-btn-active{
+	background: #f13a3a;
+	color: #FFFFFF;
+}
+.x1-goodsList-screen-content>.x1-goodsList-btn:not(:first-child){
+	margin-left: 20px;
+}
+.x1-goodsList-screen-right{
+	margin: 7px 0;
+	float: right;
+}
+.x1-goodsList-leftBtn{
+	width: 60px;
+	height: 26px;
+	line-height: 26px;
+	text-align: center;
+	background: #E4E5E5;
+	float: left;
+	margin-right: 20px;
+	cursor: pointer;
+}
+.x1-goodsList-rightBtn{
+	width: 60px;
+	height: 26px;
+	line-height: 26px;
+	text-align: center;
+	background: #E4E5E5;
+	float: left;
+	margin-right: 20px;
+	cursor: pointer;
+}
+.x1-goodsList-shops-box{
+	width: 1200px;
+	margin: 0 auto;
+	margin-bottom: 50px;
+}
+.x1-goodsList-shops{
+	width: 230px;
+	height: 350px;
+	margin-left: 12px;
+	margin-bottom: 28px;
+	float: left;
+	cursor: pointer;
+}
+.x1-goodsList-shops-img{
+	width: 230px;
+	height: 230px;
+}
+.x1-goodsList-shops-text{
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	margin-top: 30px;
+	margin-bottom: 16px;
+	font-size: 14px;
+	line-height: 22px;
+}
+.x1-goodsList-shops-price{
+	color: #f13a3a;
+	font-size: 18px;
+}
+.x1-goodsList-shops-box>:nth-child(5n+1) {
+    margin-left: 0 ;
+}
+@media (max-width: 768px) {
+	.x1-goodsList-sort-box{
+		display: none;
+	}
+	.x1-goodsList-screen {
+		width: 100%;
+		padding: 0 2.5%;
+	}
+	.x1-goodsList-shops-box{
+		width: 95%;
+		margin: 0 auto;
+	}
+	.x1-goodsList-shops{
+		margin: 20px auto;
+		float: none;
+	}
+	.x1-goodsList-shops-box>:nth-child(5n+1){
+		margin: 20px auto;
+		float: none;
+	}
+	.x1-goodsList-screen-right{
+		display: none;
+	}
+	.x1-goodsList-place{
+		width: 95%;
+	}
+	.x1-goodsList-screen-title{
+		width: 80px;
+	}
+	.x1-goodsList-btn{
+		margin-left: 10px;
+	}
+	.x1-goodsList-screen-content>.x1-goodsList-btn:not(:first-child){
+		margin-left: 10px;
+	}
+}
+
+
+/*
+ *times: 20180722
+ *modules: 中部
+ *describe: 修改更多样式
+*/
+.x1-goodsList-sort-right-icon{
+	vertical-align: middle;
+	margin-left: 8px;
+	transition: all .4s;
+}
+.x1-goodsList-sort-content{
+	width: 1050px;
+	position: relative;
+	left: -45px;
+}
+.x1-goodsList-sort{
+	overflow: hidden;
+}
+.x1-goodsList-sort-content-div-active{
+	background: #F13A3A;
+}
+.x1-goodsList-sort-content-div-active-a{
+	color: white!important;
+}

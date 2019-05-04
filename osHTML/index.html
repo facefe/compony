@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    </style>
+    <script src="js/until.js"></script>
+    <script src="js/public.js"></script>
+    <script src="./assets/jquery/dist/jquery.js"></script>
+    <script src="./js/security/security.js"></script>
+    <!--弹窗组件 -->
+    <script src="js/layer/layer.js"></script>
+    <script src="js/register.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<!--头部-->
+<div class="header"></div>
+<!--中部-->
+<div class="mainview"></div>
+<!--尾部-->
+<div class="footer"></div>
+
+
+
+<script>
+
+    var $title = $('title').prev();
+    var header,
+        main,
+        footer
+
+    $.ajax({
+        url: baseUrl + 'frontEnd/getHomePage',
+        success: function (res) {
+            header = res.data.headUrl
+            main = res.data.middleUrl
+            footer = res.data.footUrl
+
+            $('.header').load('./template/views/header' + header + '.html', function () {
+                $title.before('<script src="js/topCurrency.js">');
+                // 回调函数登录功能
+                loginCom();
+                // 回调函数注册功能
+                registerFunc()
+                // 设置本次登录的页面
+                toPersonCenter()
+
+            });
+            /**
+             * 加载中部页面的设置,
+             */
+
+            function showMiddlePage () {
+                var contentPag = getMiddlePage()
+                console.log('登录成功之后，中部要设置的页面')
+                console.log(contentPag)
+                if (contentPag) {
+                    $('.mainview').load(contentPag, function () {
+                        delMiddlePage()
+                    });
+                }else  {
+                    $('.mainview').load('./template/views/main'+ main + '.html');
+                }
+
+            }
+            showMiddlePage()
+
+
+
+            $('.footer').load('./template/views/footer' + footer + '.html');
+        }
+    });
+
+</script>
+</body>
+</html>

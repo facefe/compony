@@ -1,0 +1,165 @@
+<!--选择收货地址-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=10, chrome=1">
+    <link rel="stylesheet" href="../../public/css/base.css">
+    <link rel="stylesheet" href="../../public/css/y1-Settlement.css">
+    <link rel="stylesheet" href="../../public/css/libraries/layer.css">
+    <script src="../../public/js/libraries/jquery-1.12.4.js"></script>
+    <script src="../../public/js/libraries/layer.js"></script>
+    <script src="../../public/js/y1-settlement.js"></script>
+    <title>选择收货地址-中</title>
+</head>
+<body>
+    <!--替换头部导航栏的line-->
+    <hr class="y1-shopping-line">
+    <!--title modules-->
+    <div class="y1-settlement-container clearFix">
+        <div class="y1-settlement-title clearFix">
+            <p class="y1-settlement-title-p1">填写并核对订单信息</p>
+            <p class="y1-settlement-title-p2">管理收货地址</p>
+        </div>
+        <div class="y1-settlement-title2 clearFix">
+            <p class="y1-settlement-title2-p1">收货人信息</p>
+            <p id="f1-settlement-address" class="y1-settlement-title2-p2">新增收货地址</p>
+        </div>
+        <ul class="y1-address-ul">
+            <li class="y1-address-ul-li cur">
+                <span class="y1-address-ul-li-sp1">寄送到</span>
+                <input type="radio" name="1" class="y1-address-ul-li-inp1" checked="checked">
+                <span class="y1-address-ul-li-sp2">河北省 石家庄市 桥西区 西小路164号默默小区5单元405（豚豚 收）15863947851</span>
+                <span class="y1-address-ul-li-sp3">修改本地址</span>
+                <span class="y1-address-ul-li-sp4">默认地址</span>
+            </li>
+            <li class="y1-address-ul-li">
+                <span class="y1-address-ul-li-sp1">寄送到</span>
+                <input type="radio" name="1" class="y1-address-ul-li-inp1">
+                <span class="y1-address-ul-li-sp2">河北省 石家庄市 桥西区 西小路164号默默小区5单元405（豚豚 收）15863947851</span>
+                <span class="y1-address-ul-li-sp3">修改本地址</span>
+                <span class="y1-address-ul-li-sp4">默认地址</span>
+            </li>
+            <li class="y1-address-ul-li">
+                <span class="y1-address-ul-li-sp1">寄送到</span>
+                <input type="radio" name="1" class="y1-address-ul-li-inp1">
+                <span class="y1-address-ul-li-sp2">河北省 石家庄市 桥西区 西小路164号默默小区5单元405（豚豚 收）15863947851</span>
+                <span class="y1-address-ul-li-sp3">修改本地址</span>
+                <span class="y1-address-ul-li-sp4">默认地址</span>
+            </li>
+            <li class="y1-address-ul-li">
+                <span class="y1-address-ul-li-sp1">寄送到</span>
+                <input type="radio" name="1" class="y1-address-ul-li-inp1">
+                <span class="y1-address-ul-li-sp2">河北省 石家庄市 桥西区 西小路164号默默小区5单元405（豚豚 收）15863947851</span>
+                <span class="y1-address-ul-li-sp3">修改本地址</span>
+                <span class="y1-address-ul-li-sp4">默认地址</span>
+            </li>
+            <!--<li class="y1-address-ul-li2">-->
+                <!--<input type="radio" name="1" class="y1-address-ul-li2-inp1">-->
+                <!--<span class="y1-address-ul-li2-sp2">河北省 石家庄市 桥西区 西小路164号默默小区5单元405（豚豚 收）15863947851</span>-->
+                <!--<span class="y1-address-ul-li-sp3">设置为默认地址</span>-->
+            <!--</li>-->
+            <!--<li class="y1-address-ul-li3">-->
+                <!--<input type="radio" name="1" class="y1-address-ul-li2-inp1">-->
+                <!--<span class="y1-address-ul-li2-sp2">河北省 石家庄市 桥西区 西小路164号默默小区5单元405（豚豚 收）15863947851</span>-->
+                <!--<span class="y1-address-ul-li-sp3">设置为默认地址</span>-->
+            <!--</li>-->
+            <!--<li class="y1-address-ul-li3">-->
+                <!--<input type="radio" name="1" class="y1-address-ul-li2-inp1">-->
+                <!--<span class="y1-address-ul-li2-sp2">河北省 石家庄市 桥西区 西小路164号默默小区5单元405（豚豚 收）15863947851</span>-->
+                <!--<span class="y1-address-ul-li-sp3">设置为默认地址</span>-->
+            <!--</li>-->
+            <!--<li class="y1-address-ul-li4">-->
+                <!--<p class="y1-address-ul-li4-p">使用其他地址</p>-->
+            <!--</li>-->
+        </ul>
+        <div class="y1-settlement-title2 clearFix">
+            <p class="y1-settlement-title2-p1">订单信息 </p>
+        </div>
+        <div class="y1-settlement-goods">
+            <p class="y1-settlement-goods-p1">商品信息及规格</p>
+            <p class="y1-settlement-goods-p2">单价</p>
+            <p class="y1-settlement-goods-p3">数量</p>
+            <p class="y1-settlement-goods-p4">小计</p>
+        </div>
+        <div class="y1-settlement-goods clearFix">
+            <div class="y1-settlement-goods-box1 clearFix">
+                <img src="../../public/img/other/y1-shopping-img1.jpg" class="y1-settlement-goods-box1-img" alt="">
+                <p class="y1-settlement-goods-box1-p1">
+                    2018春夏装新款 时尚v领修身雪纺印花连衣裙 甜美公主裙品牌女装
+                    <span>
+                        颜色：水洗白   尺码：28英寸
+                    </span>
+                </p>
+                <p class="y1-settlement-goods-box1-p2">
+                    ￥298.00
+                </p>
+                <p class="y1-settlement-goods-box1-p3">
+                    1
+                </p>
+                <p class="y1-settlement-goods-box1-p4">
+                    <span>￥298.00</span>
+                </p>
+            </div>
+            <div class="y1-settlement-goods-box1 clearFix">
+                <img src="../../public/img/other/y1-shopping-img1.jpg" class="y1-settlement-goods-box1-img" alt="">
+                <p class="y1-settlement-goods-box1-p1">
+                    2018春夏装新款 时尚v领修身雪纺印花连衣裙 甜美公主裙品牌女装
+                    <span>
+                        颜色：水洗白   尺码：28英寸
+                    </span>
+                </p>
+                <p class="y1-settlement-goods-box1-p2">
+                    ￥298.00
+                </p>
+                <p class="y1-settlement-goods-box1-p3">
+                    1
+                </p>
+                <p class="y1-settlement-goods-box1-p4">
+                    <span>￥298.00</span>
+                </p>
+            </div>
+            <div class="y1-settlement-goods-box1 clearFix" id="y1-clear">
+                <img src="../../public/img/other/y1-shopping-img1.jpg" class="y1-settlement-goods-box1-img" alt="">
+                <p class="y1-settlement-goods-box1-p1">
+                    2018春夏装新款 时尚v领修身雪纺印花连衣裙 甜美公主裙品牌女装
+                    <span>
+                        颜色：水洗白   尺码：28英寸
+                    </span>
+                </p>
+                <p class="y1-settlement-goods-box1-p2">
+                    ￥298.00
+                </p>
+                <p class="y1-settlement-goods-box1-p3">
+                    1
+                </p>
+                <p class="y1-settlement-goods-box1-p4">
+                    <span>￥298.00</span>
+                </p>
+            </div>
+            <div class="y1-settlement-goods-box2 y1-settlement-goods-box2-p1 clearFix" >
+                <p class="y1-settlement-goods-box2-p1">
+                    给卖家留言：<input type="text" placeholder="选填：填写内容已和商家协商" class="y1-settlement-goods-box2-p1-inp">
+                    <i style="width: 288px;"></i>
+                    配送方式：普通配送    免邮
+                    <i style="width: 230px;"></i>
+                    <span style="color: #f13a3a;">0.00</span>
+                </p>
+                <p class="y1-settlement-goods-box2-p3">
+                    发货时间：卖家承诺订单在买家付款后，72小时内 <span style="color: #3366cc">发货</span>
+                </p>
+                <p class="y1-settlement-goods-box2-p4">
+                    商品合计（含运费）<span>￥556.00</span>
+                </p>
+            </div>
+        </div>
+        <div class="y1-settlement-btn">
+            <span>返回购物车</span>
+            <button>结算</button>
+        </div>
+    </div>
+</body>
+</html>

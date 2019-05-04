@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>找回密码</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords"
+          content="Best Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <link rel="stylesheet" href="/static/common/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="/static/common/bootstrapvalidator/css/bootstrapValidator.min.css" />
+    <link rel="stylesheet" href="/static/qlsc1.1/public/css/base.css">
+    <link rel="stylesheet" href="/static/qlsc1.1/public/css/f1-login-main.css">
+    <link rel="stylesheet" href="/static/qlsc1.1/public/css/libraries/layer.css">
+    <script src="/static/qlsc1.1/public/js/libraries/jquery-1.12.4.js"></script>
+    <script src="/static/qlsc1.1/public/js/f1-login-main.js"></script>
+    <script src="/static/qlsc1.1/public/js/libraries/layer.js"></script>
+</head>
+
+<body>
+
+<div class="f1-login-container">
+    <div class="f1-login-bg-box">
+        <img class="f1-login-bg" src="/static/qlsc1.1/public/img/other/f1-login-Bg.jpg" alt="" />
+        <div class="f1-login-cont f1-retrieve-cont">
+            <h4 class="f1-login-cont-h4 f1-retrieve-cont-h4">
+                找回密码
+                <!--<a href="${ctx }/pass/forgetPasswordByPhone">手机找回</a>-->
+                <img src="/static/qlsc1.1/public/img/icon/question.png" class="w1-login-cont-h4-img">
+            </h4>
+            <form id="form" class="f1-login-form f1-register-form form-horizontal"  data-method="post">
+                <div class="form-group f1-login-input">
+                    <input class="f1-login-input-public" id="email" name="email" type="text" placeholder="请输入有效邮箱">
+                    <p class="message" style="display: none;"></p>
+                </div>
+                <div class="f1-login-input"  style="margin-bottom: 0px">
+                    <div class="form-group " style="width: 260px;display:inline-block">
+                        <input class="f1-login-test w1-login-test" name="registerCode" type="text" placeholder="请输入邮箱验证码" >
+                        <input name="emailSign" id="emailSign" type="hidden" >
+                    </div>
+                    <a class="f1-login-btn" style="margin-bottom: 15px;position:absolute;top:0px;" href="javascript:void(0);" onclick="settime(this)">获取邮箱验证</a>
+                </div>
+                <div class="form-group f1-login-input">
+                    <input class="f1-login-input-public" name="loginPassword" type="password" placeholder="请输入密码" >
+
+                </div>
+                <div class="form-group f1-login-input">
+                    <input class="f1-login-input-public" name="loginPassword_two" type="password" placeholder="请再次输入密码" >
+                </div>
+                <div class="f1-login-input f1-login-color clearFix" style="height: 35px">
+                    <div class="f1-login-other">
+                            <span>
+                                <a class="repassword-to-login">返回登录</a>
+                            </span>
+                    </div>
+                </div>
+                <button class="f1-login-href w1-register-btn"  id="submit">确认并提交</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script type="text/javascript" src="/static/os/topjs/bootstrap.min-1.js"></script>
+<!-- bootstrapvalidator-master前端验证框架 -->
+<script type="text/javascript" src="/static/common/bootstrapvalidator/js/bootstrapValidator.min.js"></script>
+<script src="/static/common/layer/layer.js"></script>
+<script type="text/javascript">
+
+
+    $(".repassword-to-login").on('click', function () {
+        $('.mainview')
+            .load('indexf/views/login/f1-login-main.html');
+    })
+
+    var countdown = 60;
+    var start = true;
+    function settime(val) {
+        var email=$("#email").val();
+        var reg=/^[1-9a-zA-Z_]\w*@[a-zA-Z0-9]+(\.[a-zA-Z]{2,})+$/;
+        if(reg.test(email)==false){
+            $(".message").show();
+            //$(".message").children("label").text(result.message);
+            $(".message").css("color","red");
+            $(".message").html("邮箱号格式不正确");
+            if(countdown==60)
+                return false;
+        }
+
+        //判断邮箱是否正确
+        if(emailcount==1 && countdown==60)
+            return ;
+
+        if (start) {
+            $.ajax({
+                type : "POST",
+                url : '/pass/sendEmailTicket',
+                data : {
+                    "email" :email
+                },
+                dataType : "json",
+                success : function(result) {
+                    console.log(result);
+                    if(result.code == 1)
+                        $("#emailSign").val(result.data);
+                }
+            })
+            start = false;
+        }
+        if (countdown == 0) {
+            val.setAttribute("onclick","settime(this)");
+            val.removeAttribute("disabled", "disabled");
+            val.text = "免费获取验证码";
+            countdown = 60;
+            start = true;
+            return;
+        } else {
+            val.setAttribute("onclick", "return false;");
+            val.setAttribute("disabled", "disabled");
+            /* val.setAttribute("style", "cursor: default;opacity: 0.2;");*/
+            val.text = "重新发送(" + countdown + ")";
+            countdown--;
+        }
+        setTimeout(function() {
+            settime(val)
+        }, 1000)
+    }
+
+    $(function() {
+
+        $('form').bootstrapValidator({
+            message: 'This value is not valid',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                email: {
+                    validators: {
+                        notEmpty: {
+                            message: '邮箱地址不能为空'
+                        },
+                        emailAddress: {
+                            message: '邮箱地址不正确'
+                        }
+                    }
+                },
+                registerCode: {
+                    message: '验证码验证失败',
+                    validators: {
+                        notEmpty: {
+                            message: '验证码不能为空'
+                        },
+                        stringLength: {/*长度提示*/
+                            min: 6,
+                            max: 6,
+                            message: '验证码长度为6位'
+                        }
+                    }
+                },
+                loginPassword: {
+                    message: '密码验证失败',
+                    validators: {
+                        notEmpty: {
+                            message: '密码不能为空'
+                        },
+                        regexp: {//正则验证
+                            regexp: /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/,
+                            message: '密码必须是6-16位字母数字结合'
+                        },
+                        callback: {/*自定义，可以在这里与其他输入项联动校验*/
+                            message : ' ',
+                            callback:function(value, validator){
+                                $("#form").bootstrapValidator('addField','loginPassword_two');
+                                $("#form").bootstrapValidator('updateStatus','loginPassword_two','NOT_VALIDATED');
+
+                                return true;
+                            }
+                        }
+                    }
+                },
+                loginPassword_two: {
+                    message: '密码验证失败',
+                    validators: {
+                        notEmpty: {
+                            message: '密码不能为空'
+                        },
+                        identical: {
+                            field: 'loginPassword',
+                            message: '两次输入的密码不相符'
+                        }
+                    }
+                }
+            }
+        }).on('success.form.bv', function(e) {
+            if(emailcount==1)
+                return ;
+            e.preventDefault();
+            var $forms = $(e.target);
+            var bv = $forms.data('bootstrapValidator');
+            var method = $('#forms').attr('data-method');
+            var form = document.getElementById("form");
+            var formdata=new FormData(form);
+            $("#submit").attr("disabled", true);
+            //提交
+            $.ajax({
+                type:'post',
+                data: formdata,
+                url:'/pass/resetPasswordEmail',
+                processData : false,  //必须false才会避开jQuery对 formdata 的默认处理
+                contentType : false,  //必须false才会自动加上正确的Content-Type
+                success: function(data){
+                    if (data.code == 1){
+                        layer.msg("密码重置成功", {
+                            offset: '350px',
+                            icon: 1,
+                            time: 2000 //2秒关闭（如果不配置，默认是3秒）
+                        });
+                        window.location.href="/pass/login";
+                    }else{
+                        layer.msg(data.message, {
+                            offset: '350px',
+                            icon: 2,
+                            time: 2000 //2秒关闭（如果不配置，默认是3秒）
+                        });
+
+                    }
+                    $("#submit").attr("disabled", false);
+                }
+
+            })
+        });
+    })
+    var emailcount = 0;
+    $(function(){
+        $("input[name='email']").blur(function(){
+            var email=$("#email").val();
+            $.ajax({
+                type : "POST",
+                url : '/pass/isHaveEmail',
+                data : {
+                    "email" :email
+                },
+                dataType : "json",
+                success : function(result) {
+                    if(!result){
+                        $(".message").show();
+                        $(".message").css("color","red");
+                        $(".message").html("该邮箱未注册，请重新填写邮箱。");
+                        emailcount=1;
+
+                    }else{
+                        $(".message").hide();
+                        $(".message").html("");
+                        emailcount=0;
+                    }
+                }
+            })
+        })
+    });
+</script>
+
+</html>

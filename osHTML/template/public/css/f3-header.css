@@ -1,0 +1,144 @@
+/**
+ * time: 20180710
+ * modules: 头部样式
+ * describe: 样式初始化
+ */
+.header{
+    background: #000;
+    color: #fff;
+}
+.f3-column-1,
+.f3-column-2{
+    width: 1200px;
+    margin: auto;
+}
+
+/**
+ * time: 20180710
+ * modules: 头部样式
+ * describe: 内容有logo、搜索、购物车图标
+ */
+.f3-column-1{
+    line-height: 0;
+    padding: 30px 0 25px;
+}
+.f3-content-logo{
+    float: left;
+}
+.f3-content-search,
+.f3-content-cart{
+    float: right;
+}
+.f3-content-search{
+    padding: 10px 0;
+    margin-right: 41px;
+}
+.f3-content-search-input,
+.f3-content-search-btn{
+    display: block;
+    float: left;
+    height: 44px;
+}
+.f3-content-search-input{
+    width: 362px;
+    border: 1px solid #ed3130;
+    border-right: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding: 0 10px;
+    background: transparent;
+    color: inherit;
+}
+.f3-content-search-btn{
+    width: 86px;
+    background: #ed3130;
+    border: 1px solid #ed3130;
+    border-left: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    color: inherit;
+    cursor: pointer;
+}
+.f3-content-cart{
+    margin-top: 14px;
+}
+
+/**
+ * time: 20180710
+ * modules: 头部样式
+ * describe: 内容导航区，包含个人中心
+ */
+.f3-column-2 > li:first-child{
+    margin-left: 0;
+}
+.f3-column-2 .h1{
+    float: left;
+    margin-left: 114px;
+    line-height: 1;
+}
+.f3-column-2 .h1 a{
+    padding: 8px 5px;
+    color: inherit;
+    display: inline-block;
+    transition: color .3s;
+}
+.f3-column-2 .h1 a:hover,
+.f3-column-2 .h1 a.active{
+    color: #ed3130;
+}
+.f3-mobile{
+    display: none;
+}
+
+/**
+ * time: 20180710
+ * modules: 头部样式
+ * describe: 媒体查询设备手机，平板不考虑
+ */
+@media (max-width: 768px) {
+    .f3-column-1{
+        padding: 20px 0 5px;
+    }
+    .f3-mobile{
+        display: block;
+        text-align: right;
+        line-height: 0;
+        border-bottom: 1px solid #fff;
+        padding-bottom: 5px;
+    }
+    .f3-column-2{
+        height: 0;
+        transition: all .3s;
+    }
+    .f3-column-2-active{
+        height: 100%;
+    }
+    .f3-column-2 .h1 a{
+        padding: 10px 0;
+    }
+    .f3-mobile-icon{
+        width: 24px;
+        margin-right: 10px;
+    }
+    .f3-column-1,
+    .f3-column-2{
+        width: 100%;
+        text-align: center;
+    }
+    .f3-column-2 > li.h1{
+        margin-left: 0;
+        float: none;
+        border-bottom: 1px solid #fff;
+        font-size: 14px;
+    }
+    .f3-content-logo{
+        float: none;
+    }
+    .f3-content-logo img{
+        width: 50%;
+    }
+    .f3-content-search,
+    .f3-content-cart{
+        display: none;
+    }
+}

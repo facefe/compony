@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="format-detection" content="email=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=10, chrome=1">
+		<link rel="stylesheet" href="../../public/css/base.css">
+		<link rel="stylesheet" href="../../public/css/g1-paySuccess.css">
+		<link rel="stylesheet" href="../../public/css/x1-personalCenter.css">
+		<link rel="stylesheet" href="../../public/css/libraries/swiper.css">
+		<script src="../../public/js/libraries/jquery-1.12.4.js"></script>
+		<script src="../../public/js/libraries/swiper.js"></script>
+		<script src="../../public/js/g1-paySuccess.js"></script>
+		<title>评论</title>
+	</head>
+
+	<body>
+		<div class="g1-paySuccess-comment-container">
+			<!--左侧列表-->
+			<div class="y1-personal-column">
+				<img src="../../public/img/other/y1-personal-img1.jpg" class="y1-personal-column-img1" alt="">
+				<p class="y1-personal-column-p1">豚豚</p>
+				<ul id="f1-userCenter-left-hover">
+					<li class="y1-personal-column-ul-li y1-personal-column-ul-li-active" data-number="1">
+						我的订单
+					</li>
+					<li class="y1-personal-column-ul-li" data-number="2">
+						退款管理
+					</li>
+					<li class="y1-personal-column-ul-li" data-number="3">
+						个人资料
+					</li>
+					<li class="y1-personal-column-ul-li" data-number="4">
+						修改登录密码
+					</li>
+					<li class="y1-personal-column-ul-li" data-number="5">
+						收货地址
+					</li>
+					<li class="y1-personal-column-ul-li " data-number="6">
+						我的收藏
+					</li>
+				</ul>
+			</div>
+			<!--结束-->
+			<!--右侧评论内容-->
+			<div class="g1-paySuccess-comment-container-content g1fl">
+				<div class="g1-paySuccess-setAddress-container-content-nav">
+					<a class="g1-paySuccess-setAddress-container-content-nav-a" href="#"><<返回</a>
+				</div>
+				<div class="g1-paySuccess-comment-container-content-left g1fl">
+					 <img src="../../public/img/other/g1-comment1.png" alt="" />
+					 <p class="biaoTi">2018春夏装新款 时尚V领修身雪纺印花连衣裙 甜美公主裙品牌女装</p>
+					 <p class="price">￥289.00</p>
+					 <p class="text">
+					 	颜色:<span>水洗白</span>&nbsp;&nbsp;&nbsp;
+					 	尺码:<span>28英寸</span>
+					 </p>
+				</div>				
+				<div class="g1-paySuccess-comment-container-content-right g1fl">
+					<form action="" method="post">
+					 <div class="g1-paySuccess-comment-container-content-right-PF">
+					 	<span class="ziTi1">商品评分</span>
+					 	<img class="g1-paySuccess-comment-container-content-right-xing" src="../../public/img/other/g1-comment2.png" alt="" />
+					 	<img class="g1-paySuccess-comment-container-content-right-xing" src="../../public/img/other/g1-comment2.png" alt="" />
+					 	<img class="g1-paySuccess-comment-container-content-right-xing" src="../../public/img/other/g1-comment2.png" alt="" />
+					 	<img class="g1-paySuccess-comment-container-content-right-xing" src="../../public/img/other/g1-comment2.png" alt="" />
+					 	<img class="g1-paySuccess-comment-container-content-right-xing" src="../../public/img/other/g1-comment2.png" alt="" />
+					 </div>
+					 <div class="g1-paySuccess-comment-container-content-right-NR">					 	
+					 	<div class="g1fl wenZiKuang">
+					 		<span class="ziTi1 g1fl">评价内容</span>
+					 		<textarea id="note2" class="wenZi" name="note2" rows="" cols="" maxlength="200" onkeyup="this.value=this.value.substring(0, 200)"></textarea>
+					 		<p class="ziShu"><span id="text-count2" value="">0</span>/200</p>
+					 	</div>
+					 	<!--清浮动-->
+					 	<div class="g1-claer"></div>
+					 	<!--结束-->
+					 	<div class="tuPian g1fl">
+					 		<div class="tianJia" id="shangChuan">
+					 			<img class="" src="../../public/img/other/g1-comment5.png" alt="" />
+					 			<p>最多上传3张图片</p>
+								<input id="shangchuan" type="file" value="本地上传" />
+					 		</div>
+					 		
+					 	</div>
+					 	
+					 	
+					 </div>
+					 <!--清浮动-->
+					 	<div class="g1-claer"></div>
+				 	<!--结束-->
+					 <input class="g1-paySuccess-comment-tiJiao" type="submit" value="提交"/>
+					 </form>
+				</div>				
+			</div>
+			<!--结束-->
+		</div>
+		<!--大图查看-->
+		<div id="g1-paySuccess-comment-container-daTuK" class="g1-paySuccess-comment-container-daTuK">			
+			<img id="g1-paySuccess-comment-container-GB" class="g1-paySuccess-comment-container-GB" src="../../public/img/other/g1-comment6.png"/>
+			<img class="g1-paySuccess-comment-container-daTuInner" src="" alt="" />			
+		</div>
+	</body>
+	<script type="text/javascript">    
+    //字数限制
+	    window.onload = function() {
+	    //（jquery）
+	        $('#note2').keyup(function() {
+	        //    var val=$('#note2').val();
+	        //    var len=val.length;
+	        var len=this.value.length
+	                    $('#text-count2').text(len);
+	
+	        })
+	    }
+	</script>
+
+</html>

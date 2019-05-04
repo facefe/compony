@@ -1,0 +1,230 @@
+.x4-header-box{
+	width: 100%;
+	background: #424242;
+}
+/*x4-header-nav*/
+.x4-header-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-top: 10px;
+}
+.x4-header-nav .x4-header-left-ul{
+    float: left;
+    list-style: none;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+.x4-header-nav .x4-header-left-ul>:first-child>li {
+    margin: 0;
+}
+.x4-header-nav .x4-header-li {
+    float: left;
+    font-size: 12px;
+    margin-left: 20px;
+    color: #ffffff;
+}
+.x4-header-li:hover {
+    color: #f4b610;
+    cursor: pointer;
+}
+.x4-header-left-ul>:first-child {
+    margin: 0;
+}
+.x4-header-right-ul {
+    float: right;
+    list-style: none;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+.x4-h-item {
+    vertical-align: middle;
+}
+/*x4-header-mainbav*/
+.x4-header-nav2 {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 38px;
+    overflow: hidden;
+    padding-bottom: 28px;
+}
+.x4-header-logo {
+    float: left;
+}
+.x4-header-search {
+    float: right;
+    width: 465px;
+    height: 42px;
+    border: 1px solid #f4b610;
+    padding-left: 20px;
+    border-radius: 4px;
+    margin-right: 20px;
+}
+.x4-header-search .x4-header-search-box {
+    width: 85px;
+    height: 41px;
+    line-height: 41px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #f4b610;
+    font-size: 16px;
+    float: right;
+    margin-right: -1px;
+    cursor: pointer;
+    border-right: 1px solid #F4B610;
+    border-bottom-right-radius:4px;
+    border-top-right-radius:4px;
+}
+
+.x4-h-ss {
+    display: block;
+    margin: 0 auto;
+    margin-top: 8px;
+}
+#x4-h-search {
+    width: 80%;
+    height: 40px;
+    background: #424242;
+    outline: none;
+    border: none;
+    float: left;
+    color: #FFFFFF;
+    
+}
+/*购物车*/
+.x4-header-shopCart{
+	width: 130px;
+	height: 42px;
+	background: #F4B610;
+	float: right;
+	border-radius: 4px;
+	cursor: pointer;
+}
+.x4-header-shopCart-icon{
+	display: inline-block;
+	width: 28px;
+	height: 31px;
+	background: #F4B610;
+	background-image: url(../img/icon/shopbag-white-1.png);
+	background-repeat: no-repeat;
+	margin: 5px 0 0 20px;
+}
+.x4-header-shopCart-box{
+	float: right;
+	width: 80px;
+	height: 42px;
+	line-height: 42px;
+	color: #FFFFFF;
+	text-align: center;
+}
+/*x4-header-mainnav*/
+.x4-header-mainnav {
+    min-width: 100%;
+    overflow: hidden;
+    background: #424242;
+}
+.x4-header-mainnav .x4-mainnav-ul {
+    list-style: none;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+.x4-mainnav-ul .x4-mainnav-ul-li {
+    float: left;
+    padding:  8px 0px;
+    color: #FFFFFF;
+    margin-left: 100px;
+}
+.x4-mainnav-container .x4-mainnav-ul>:first-child>li {
+    margin: 0;
+}
+.x4-mainnav-ul-li:hover {
+    cursor: pointer;
+    color: #f4b610;
+}
+.x4-mainnav-active {
+    cursor: pointer;
+    color: #f4b610 !important;
+}
+.x4-mainnav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.x4-mainnav-ul>:first-child  {
+    margin: 0;
+}
+.x4-header-mainnav2 {
+    display: none;
+}
+/*media modules*/
+@media (max-width: 768px) {
+	.x4-header-box{
+		padding-top: 20px;
+	}
+    .x4-header-mainnav2 {
+        display: block;
+    }
+    .x4-header-shopCart {
+    	display: none;
+	}
+    .x4-header-nav {
+        display: none;
+    }
+    .x4-header-logo {
+        float: none;
+        margin: 0 auto;
+        width: 200px;
+    }
+    .x4-header-search {
+        float: none;
+        margin: 0 auto;	
+        width: 90%;
+        margin-top: 20px;
+    }
+    .x4-header-nav2 {
+	    max-width: 1200px;
+	    margin: 0 auto;
+	    overflow: hidden;
+	    padding-bottom: 28px;
+	}
+    .x4-header-mainnav {
+        display: none;
+        min-width: 100%;
+    }
+    /*app*/
+    .x4-mainnav2-ul {
+        width: 100%;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .x4-mainnav2-ul>:first-child{
+        float: right;
+    }
+    .x4-header-search .x4-header-search-box {
+        width: 50px;
+        margin-top: -1px;
+    }
+    .x4-mainnav-ul .x4-mainnav-ul-li {
+    	width: 100px;
+    	height: 40px;
+    	line-height: 40px;
+    	text-align: center;
+	    float: left;
+	    padding:  0px;
+	    color: #FFFFFF;
+	    margin-left: 0;
+	}
+	.x4-header-mainnav .x4-mainnav-ul {
+	    padding-bottom: 20px;
+	}
+	.x4-header-mainnav2 {
+	    overflow: hidden;
+	    background: #424242;
+	    padding-right: 18px;
+	}
+}

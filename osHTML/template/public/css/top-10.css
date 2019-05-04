@@ -1,0 +1,101 @@
+.fflower_l{
+	float: left;
+}
+.fflower_r{
+	float: right;
+}
+.flower-index-header-top{
+	background: #fafafa;
+	height: 45px;
+	border-bottom: 1px solid #999999;
+}
+.flower-index-header-top-con{
+	width: 1200px;
+	margin: 0 auto;
+	line-height: 45px;
+	font-size: 12px;
+}
+.flower-index-header-top-con-left-li{
+	color: #161616;
+}
+.flower-index-header-top-con i{
+	margin: 0 7px;
+	font-style: inherit;
+}
+.flower-index-header-top-con-right1-div{
+	margin-right: 36px;
+}
+.flower-index-header-top-con-right1-a{
+	color: #161616;
+}
+.flower-index-header-top-con-right1-a:nth-of-type(1){
+	margin-right: 7px;
+}
+.flower-index-header-top-con-right2-p{
+	background: url(../img/other/flower-index-2.png) no-repeat center left;
+	padding-left: 35px;
+}
+.flower-index-header-search{
+	width: 1200px;
+	margin: 0 auto;
+	padding-top: 38px;
+	padding-bottom: 39px;
+}
+.flower-index-header-search-left-img{
+	width: 200px;
+	height: 45px;
+}
+.flower-index-header-search-right-inp{
+	width: 403px;
+	height: 40px;
+	border: 1px solid #FF3893;
+	padding: 0 18px;	
+	line-height: 40px;
+}
+.flower-index-header-search-right-inp::-webkit-input-placeholder{
+	font-size: 14px;
+	color: #999999;
+}
+.flower-index-header-search-right-inp:-moz-placeholder{
+	font-size: 14px;
+	color: #999999;
+}
+.flower-index-header-search-right-inp::-moz-placeholder{
+	font-size: 14px;
+	color: #999999;
+}
+.flower-index-header-search-right-inp:-ms-input-placeholder{
+	font-size: 14px;
+	color: #999999;
+}
+.flower-index-header-search-right-btn{
+	background: #FF3893 url(../img/other/flower-index-3.png) no-repeat center;
+	width: 69px;
+	height: 40px;
+	border: none;
+	cursor: pointer;
+}
+.flower-index-header-nav{
+	width: 1200px;
+	margin: 0 auto;
+}
+.flower-index-header-nav-li>a{
+	color: #161616;
+	line-height: 32px;
+}
+.flower-index-header-nav-li{
+	width: 64px;
+	text-align: center;
+	margin-right: 125px;
+}
+.flower-index-header-nav-li:last-child{
+	margin-right: 0;
+}
+.flower-index-header-nav-li:hover a{
+	color: #FF3893;
+}
+.flower-index-header-nav-li-bh a{
+	color: #FF3893;
+}
+
+

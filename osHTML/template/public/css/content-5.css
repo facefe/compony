@@ -1,0 +1,150 @@
+/*x2-main banner*/
+/*.x5-mian-banner {
+    max-width: 1920px;
+    margin: 0 auto;
+}
+.swiper-container {
+    width: 100%;
+}
+.swiper-slide {
+    width: 100%;
+}
+.swiper-slide img {
+    width: 100%;
+}*/
+.x5-main-nav{
+	width: 1200px;
+	margin: 40px auto;
+	margin-top: 50px;
+	padding: 0 15px;
+	font-size: 13px;
+}
+.x5-main-nav-div{
+	width: 130px;
+	height: 40px;
+	line-height: 40px;
+	background: #f4b610;
+	border-radius: 50px;
+	text-align: center;
+	float: left;
+	cursor: pointer;
+}
+.x5-main-nav-div-a{
+	color: #000000;
+	text-decoration: none;
+}
+.x5-main-lookMore{
+	width: 190px;
+	height: 40px;
+	line-height: 40px;
+	text-align: right;
+	float: right;
+	border-bottom: 1px solid #b2b2b2;
+}
+.x5-main-lookMore-a{
+	color: #000000;
+	text-decoration: none;
+}
+
+.x5-main-shops{
+	width: 1200px;
+	margin: 0 auto;
+}
+.x5-shops-div{
+	width: 300px;
+	padding: 0 15px;
+	margin-bottom: 84px;
+	float: left;
+	cursor: pointer;
+}
+.x5-shops-img{
+	width: 270px;
+	height: 350px;
+}
+.x5-shops-text{
+	height: 16px;
+	margin-top: 20px;
+	font-size: 14px;
+	color: #666666;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.x5-shops-price{
+	height: 18px;
+	margin-top: 10px;
+	color: #333333;
+	font-size: 16px;
+}
+.x5-shops-price-span{
+	color: #666666;
+	text-decoration: line-through;
+	margin-left: 15px;
+}
+@media (max-width: 768px) {
+	.x5-main-nav{
+		width: 95%;
+	}
+	.x5-main-shops{
+		width: 95%;
+		margin: 0 auto;
+	}
+	.x5-main-nav-div{
+		width: 100px;
+	}
+	.x5-main-lookMore{
+		width: 100px;
+	}
+	.x5-shops-div{
+		width: 100%;
+		text-align: center;
+		margin-bottom: 30px;
+	}
+	.x5-shops-text{
+		padding: 0 15px;
+	}
+
+	/**
+	 * revise: 20180719
+	 * modules: 中部
+	 * describe: 修改轮播图居中问题
+	 */
+	div.x5-mian-banner {
+		height: auto;
+	}
+	div.f5-main-banner-box{
+		width: 100%;
+		margin: auto;
+		position: static;
+	}
+	div.swiper-container {
+		position: static;
+		margin-left: 0;
+		width: 100%;
+	}
+}
+
+/**
+ * revise: 20180718
+ * modules: 中部
+ * describe: 修改轮播图居中问题和分类的子分类嵌套问题
+ */
+.x5-mian-banner {
+	width: 100%;
+	line-height: 0;
+	overflow: hidden;
+	height: 550px;
+	position: relative;
+}
+.f5-main-banner-box{
+	width: 1200px;
+	height: inherit;
+	margin: auto;
+	position: relative;
+}
+.swiper-container {
+	width: 1920px;
+	position: absolute;
+	left: 50%;
+	margin-left: -960px;
+}

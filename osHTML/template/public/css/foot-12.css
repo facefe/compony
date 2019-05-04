@@ -1,0 +1,50 @@
+.fdeng_l{
+	float: left;
+}
+.fdeng_r{
+	float: right;
+}
+.deng-index-footer-top{
+	height: 157px;
+	border-bottom: 1px solid #B4B4B4;
+}
+.deng-index-footer-top-con{
+	width: 1200px;
+	margin: 0 auto;
+}
+.deng-index-footer-content-top-left{
+	width: 200px;
+	height: 45px;
+	margin-top: 56px;
+}
+.deng-index-footer-top-right-div{
+	width: 100px;
+	margin-right: 100px;
+	margin-top: 24px;
+}
+.deng-index-footer-top-right-div:last-of-type{
+	margin-right: 0;
+}
+.deng-index-footer-top-right-p{
+	font-size: 18px;
+	color: #444444;
+}
+.deng-index-footer-top-right-a{
+	font-size: 14px;
+	color: #444444;
+	display: block;
+	margin-top: 14px;
+}
+.deng-index-footer-content-bot{
+	height: 80px;
+	width: 1200px;
+	margin: 0 auto;
+	text-align: center;
+}
+.deng-index-footer-content-bot-span{
+	display: inline-block;
+	margin-right: 40px;
+	color: #444444;
+	font-size: 18px;
+	line-height: 80px;
+}

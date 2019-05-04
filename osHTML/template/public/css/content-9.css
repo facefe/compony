@@ -1,0 +1,122 @@
+.fxiefu_l{
+	float: left;
+}
+.fxiefu_r{
+	float: right;
+}
+.swiper-container {
+  	width: 100%;
+	height: 600px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+}
+.swiper-wrapper{
+	width: 1920px;
+	height: 600px;
+}
+.swiper-slide {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+  	text-align: center;
+  	display: -webkit-box;
+  	display: -ms-flexbox;
+  	display: -webkit-flex;
+  	display: flex;
+  	-webkit-box-pack: center;
+  	-ms-flex-pack: center;
+  	-webkit-justify-content: center;
+  	justify-content: center;
+  	-webkit-box-align: center;
+  	-ms-flex-align: center;
+  	-webkit-align-items: center;
+  	align-items: center;
+}
+.swiper-slide img{
+	max-width: 1920px;
+	height: 600px;
+}
+.xiefu-index-main-xie{
+	width: 1200px;
+	margin: 0 auto;
+}
+.xiefu-index-main-xie-content{
+	background: #fafafa;
+	padding-top: 43px;
+}
+.xiefu-index-main-xie-tl{
+	width: 537px;
+	height: 537px;
+}
+.xiefu-index-main-xie-tr{
+	width: 620px;
+	height: 537px;
+}
+.xiefu-index-main-xie-tr-con{
+	width: 189px;
+	background: #FFFFFF;
+	margin-right:26px;
+	margin-bottom: 36px;
+}
+.xiefu-index-main-xie-tr-con:nth-child(3n){
+	margin-right: 0;
+}
+.xiefu-index-main-xie-tr-con:nth-child(4){
+	margin-bottom: 0;
+}
+.xiefu-index-main-xie-tr-con:nth-child(5){
+	margin-bottom: 0;
+}
+.xiefu-index-main-xie-tr-con:nth-child(6){
+	margin-bottom: 0;
+}
+.xiefu-index-main-xie-tr-con:hover{
+	box-shadow: 0px 4px 4px #bcbcbc;
+	-webkit-box-shadow: 0px 4px 4px #bcbcbc;
+	-moz-box-shadow: 0px 4px 4px #bcbcbc;
+}
+.xiefu-index-main-xie-tr-con-a1{
+	display: block;
+}
+.xiefu-index-main-xie-tr-con-img{
+	width: 189px;
+	height: 189px;
+}
+.xiefu-index-main-xie-tr-con-a2{
+	font-size: 14px;
+	color: #030304;
+	margin-top: 5px;
+	padding: 0 14px;
+}
+.xiefu-index-main-xie-tr-con-p{
+	font-size: 18px;
+	margin-top: 8px;
+	padding: 0 14px 10px;
+}
+.xiefu-index-main-xie-bot{
+	margin-top: 37px;
+}
+.xiefu-index-main-xie-bot-con,.xiefu-index-main-xie-bot-con:nth-child(3n){
+	margin-right: 13px;
+	margin-bottom: 36px;
+}
+.xiefu-index-main-xie-bot-con:nth-child(4){
+	margin-bottom: 36px;
+}
+.xiefu-index-main-xie-bot-con:nth-child(5){
+	margin-bottom: 36px;
+}
+.xiefu-index-main-xie-bot-con:nth-child(6){
+	margin-bottom: 36px;
+}
+.xiefu-index-main-xie-bot-con:nth-child(6n){
+	margin-right: 0;
+}
+.xiefu-index-main-xie-bot-con:last-child{
+	margin-bottom: 100px;
+}
+
+
+
+

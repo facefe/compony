@@ -1,0 +1,119 @@
+.fxiefu_l{
+	float: left;
+}
+.fxiefu_r{
+	float: right;
+}
+.xiefu-index-header-top{
+	height: 40px;
+	border-bottom: 1px solid #999999;
+}
+.xiefu-index-header-top-content{
+	width: 1200px;
+	margin: 0 auto;
+	font-size: 12px;
+}
+.xiefu-index-header-top-content a{
+	line-height: 40px;
+	color: #161616;
+}
+.xiefu-index-header-top-content i{
+	font-style: inherit;
+}
+.xiefu-index-header-top-content-left-a1{
+	padding-right: 4px;
+}
+.xiefu-index-header-top-content-left-a2{
+	padding-left: 4px;
+}
+.xiefu-index-header-top-content-right a{
+	padding: 0 7px;
+}
+.xiefu-index-header-top-content-right a:last-child{
+	padding-right: 0;
+}
+.xiefu-index-header-search{
+	width: 1200px;
+	height: 120px;
+	margin: 0 auto;
+	padding-top: 37px;
+}
+.xiefu-index-header-search-left{
+	width: 200px;
+	height: 45px;
+	margin-right: 329px;
+}
+.xiefu-index-header-search-center{
+	border-bottom: 1px solid #999999;
+	width: 464px;
+}
+.xiefu-index-header-search-center input{
+	border: none;
+}
+.xiefu-index-header-search-center-inp1{
+	width: 415px;
+	height: 20px;
+	margin-top: 15px;
+	padding: 0 18px;
+	
+}
+.xiefu-index-header-search-center-inp1::-webkit-input-placeholder{
+	font-size: 12px;
+	color: #555555;
+}
+.xiefu-index-header-search-center-inp1:-moz-placeholder{
+	font-size: 12px;
+	color: #555555;
+}
+.xiefu-index-header-search-center-inp1::-moz-placeholder{
+	font-size: 12px;
+	color: #555555;
+}
+.xiefu-index-header-search-center-inp1:-ms-input-placeholder{
+	font-size: 12px;
+	color: #555555;
+}
+.xiefu-index-header-search-center-inp2{
+	width: 29px;
+	height: 28px;
+	background: url(../images/xiefu-index-2.png) no-repeat top right;
+	padding: 0;
+	margin-bottom: 13px;
+	margin-right: 15px;
+	cursor: pointer;
+}
+.xiefu-index-header-search-right{
+	height: 28px;
+	line-height: 28px;
+	font-size: 12px;
+	color: #161616;
+	margin-top: 10px;
+	background: url(../images/xiefu-index-3.png) no-repeat center left;
+	padding-left: 43px;
+}
+.xiefu-index-header-nav{
+	background: #38a6a7;
+	height: 36px;
+}
+.xiefu-index-header-nav-ul{
+	width: 1200px;
+	margin: 0 auto;
+}
+.xiefu-index-header-nav-li a{
+	color: #FFFFFF;
+	line-height: 36px;
+	padding: 0 10px 4px;
+}
+.xiefu-index-header-nav-li{
+	margin-right: 139px;
+	height: 29px;
+}
+.xiefu-index-header-nav-li:last-child{
+	margin-right: 0;
+}
+.xiefu-index-header-nav-li:first-child a{
+	border-bottom: 3px solid #FFFFFF;
+}
+.xiefu-index-header-nav-li:hover a{
+	border-bottom: 3px solid #FFFFFF;
+}

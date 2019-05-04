@@ -1,0 +1,128 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: #F1F0F0;
+	height: 100%;
+	width: 100%;
+}
+.phone-main{
+	width: 1200px;
+	margin: 0 auto;
+}
+.title{
+	color: #666666;
+	font-size: 24px;
+	text-align: center;
+	margin-top: 97px;
+	margin-bottom: 40px;
+}
+.phone-main-div{
+	width: 720px;
+	height: 520px;
+	background: #ffffff;
+	margin: 0 auto;
+	overflow: hidden;
+}
+._div-tel{
+	width: 503px;
+	height: 60px;
+	border: 1px solid #999999;
+	border-radius: 6px;
+	margin: 105px auto 41px;
+}
+.change{
+	height: 100%;
+	width: 126px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    font-size:24px;
+    color: #333333;	
+	/*很关键：将默认的select选择框样式清除*/
+	appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	padding-left: 9px;
+	/*background: url(../img/phone/xiala.png) no-repeat scroll right center transparent;*/
+	background: url(../img/phone/xiala.png) no-repeat scroll right center transparent;
+	background-size: 18%;
+}
+.change::-ms-expand { display: none; }
+._div-tel_inp{
+	height: 100%;
+    border: none;
+    float: right;
+    border-radius: 6px;
+    width: 370px;
+    outline: none;
+    font-size: 24px;
+    box-sizing: border-box;
+    padding-left: 20px;
+}
+._div-tel_inp::-webkit-input-placeholder{
+	font-size: 24px;
+        color: #E8E6E6;
+}
+._div-tel_inp::-moz-placeholder{  
+	font-size: 24px;
+	color: #E8E6E6;
+}
+._div-tel_inp:-ms-input-placeholder{  
+	font-size: 24px;
+	color: #E8E6E6;
+}
+._div-yzm{
+	width: 503px;
+	height: 60px;
+	
+	
+	margin: 0 auto;
+}
+._div-yzm_inp{
+	height: 60px;
+    border: none;
+    padding-left: 10px;
+    border-radius: 6px;
+    width: 300px;
+    outline: none;
+    font-size: 24px;
+    border: 1px solid #999999;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+._div-yzm_inp::-webkit-input-placeholder{
+	font-size: 24px;
+        color: #E8E6E6;
+}
+._div-yzm_inp::-moz-placeholder{  
+	font-size: 24px;
+	color: #E8E6E6;
+}
+._div-yzm_inp:-ms-input-placeholder{  
+	font-size: 24px;
+	color: #E8E6E6;
+}
+.getCode{
+	width: 180px;
+	height: 60px;
+	background: #F1F8FE;
+	color: #79B6F4;
+	font-size: 24px;
+	border: none;
+	float: right;
+	border-radius: 6px;
+	outline: none;
+}
+.phone_btn{
+    width: 503px;
+    height: 60px;
+    background: #79B6F4;
+    font-size: 24px;
+    color: #FFFFFF;
+    margin: 73px auto 0;
+    display: block;
+    border: none;
+    border-radius: 6px;
+}

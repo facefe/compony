@@ -1,0 +1,225 @@
+/*y1-header-nav*/
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.y1-header-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top: 10px;
+}
+.y1-header-nav a {
+    color: #000;
+}
+.y1-header-nav .y1-header-left-ul{
+    float: left;
+    list-style: none;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+.y1-header-nav .y1-header-left-ul>:first-child>li {
+    margin: 0;
+}
+.y1-header-nav .y1-header-li {
+    float: left;
+    font-size: 12px;
+    margin-left: 20px;
+    color: #000000;
+}
+/*.y1-header-li:hover {
+    color: #aaaaaa;
+    cursor: pointer;
+}*/
+.y1-header-left-ul>:first-child {
+    margin: 0;
+}
+.y1-header-right-ul {
+    float: right;
+    list-style: none;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+.y1-h-item {
+    vertical-align: middle;
+}
+/*y1-header-mainbav*/
+.y1-header-nav2 {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 38px;
+    overflow: hidden;
+    padding-bottom: 28px;
+}
+.y1-header-logo {
+    float: left;
+}
+.y1-header-search {
+    float: right;
+    width: 380px;
+    height: 42px;
+    border: 1px solid #f13a3a;
+    padding-left: 20px;
+}
+.y1-header-search .y1-header-search-box {
+    width: 60px;
+    height: 40px;
+    background: #f13a3a;
+    float: right;
+    cursor: pointer;
+}
+.y1-h-ss {
+    display: block;
+    margin: 0 auto;
+    margin-top: 8px;
+}
+#y1-h-search {
+    width: 80%;
+    outline: none;
+    border: none;
+    float: left;
+    padding-top: 10px;
+}
+/*y1-header-mainnav*/
+.y1-header-mainnav {
+    min-width: 100%;
+    overflow: hidden;
+    background: #ffcdda;
+}
+.y1-header-mainnav .y1-mainnav-ul {
+    list-style: none;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+/* .y1-mainnav-ul .y1-mainnav-ul-li {
+    float: left;
+    padding: 12px 34px 12px 34px;
+}
+.y1-mainnav-ul-li:hover {
+    cursor: pointer;
+    color: #ffffff;
+    background: #f13a3a;
+} */
+.y1-mainnav-active {
+    cursor: pointer;
+    color: #ffffff !important;
+    background: #f13a3a;
+}
+.y1-mainnav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.y1-mainnav-ul>:first-child  {
+    margin: 0;
+}
+.y1-header-mainnav2 {
+    display: none;
+}
+/*media modules*/
+@media screen and (min-width: 320px) and (max-width: 1200px) {
+    .y1-header-mainnav2 {
+        display: block;
+    }
+    .y1-header-nav {
+        display: none;
+    }
+    .y1-header-logo {
+        float: none;
+        margin: 0 auto;
+        width: 200px;
+    }
+    .y1-header-search {
+        float: none;
+        margin: 0 auto;
+        margin-top: 30px;
+        width: 90%;
+    }
+    .y1-header-mainnav {
+        display: none;
+        min-width: 100%;
+    }
+    .y1-mainnav-container {
+        margin-left: 30px;
+    }
+    /*app*/
+    .y1-header-mainnav2 {
+        overflow: hidden;
+        background: #ffcdda;
+        padding-right: 18px;
+    }
+    .y1-mainnav2-ul {
+        width: 100%;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .y1-mainnav2-ul>:first-child{
+        float: right;
+    }
+    .y1-header-search .y1-header-search-box {
+        width: 50px;
+    }
+
+    /**
+     * revise: 20180712
+     * modules: 头部样式
+     * describe: 修改头部手机模式样式
+     */
+    .y1-mainnav-container{
+        margin-left: 0;
+    }
+    .y1-mainnav-ul li.y1-mainnav-ul-li a{
+        width: 100%;
+        float: none;
+        text-align: center;
+    }
+    .y1-mainnav-ul li.y1-mainnav-ul-li{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .y1-mainnav-ul > li:first-child{
+        padding-top: 0;
+    }
+}
+
+/**
+ * revise: 20180712
+ * modules: 头部样式
+ * describe: 修改头部精灵图片
+ */
+.y1-header-search-box{
+    line-height: 50px;
+    text-align: center;
+}
+.y1-header-li .f1-href:hover {
+    color: #aaaaaa;
+    cursor: pointer;
+}
+.y1-mainnav-ul .y1-mainnav-ul-li a {
+    float: left;
+    padding: 12px 34px 12px 34px;
+    display: inline-block;
+    color: #000000;
+}
+.y1-mainnav-ul-li:hover a {
+    cursor: pointer;
+    color: #ffffff;
+    background: #f13a3a;
+}
+
+/**
+ * revise: 20180723
+ * modules: 头部样式
+ * describe: 修改头部logo图片
+ */
+.y1-header-nav2{
+    line-height: 0;
+}

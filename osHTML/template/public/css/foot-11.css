@@ -1,0 +1,82 @@
+.fcake_l{
+	float: left;
+}
+.fcake_r{
+	float: right;
+}
+.cake-index-footer{
+	height: 420px;
+}
+.cake-index-footer-content-top{
+	padding-top: 59px;
+	height: 264px;
+	background: #3E3E3E;
+	border-bottom: 1px solid #6A6A6A;
+}
+.cake-index-footer-content-top-da{
+	width: 1200px;
+	margin: 0 auto;
+	font-family: "宋体";
+}
+.cake-index-footer-content-top-da-con{
+	margin-right: 140px;
+}
+.cake-index-footer-content-top-da-p{
+	font-size: 18px;
+	color: #d8d8d8;
+}
+.cake-index-footer-content-top-da-div{
+	width: 110px;
+}
+.cake-index-footer-content-top-da-div>a{
+	font-size: 18px;
+	color: #d8d8d8;
+	margin-right: 34px;
+	display: inline-block;
+	margin-bottom: 12px;
+}
+.cake-index-footer-content-top-da-div>a:nth-child(n){
+	float: left;
+}
+.cake-index-footer-content-top-da-div>a:nth-child(2n){
+	float: right;
+	margin-right: 0;
+}
+.cake-index-footer-content-top-da-div:last-of-type{
+	margin-right: 0;
+}
+.cake-index-footer-content-top-da-p{
+	margin-bottom: 13px;
+}
+.cake-index-footer-content-top-da-p:first-child{
+	font-weight: bold;
+	margin-bottom: 37px;
+}
+.cake-index-footer-content-top-da-con:nth-child(4){
+	margin-right: 0;
+}
+.cake-index-footer-content-top-da-teDiv{
+	width: auto;
+}
+.cake-index-footer-content-top-da-teDiv>p{
+	font-size: 18px;
+	color: #D8D8D8;
+	margin-bottom: 12px;
+}
+.cake-index-footer-content-top-right-p{
+	font-size: 14px;
+	color: #D8D8D8;
+	text-align: center;
+	margin-top: 14px;
+}
+.cake-index-footer-content-bot{
+	height: 99px;
+	background: #3E3E3E;
+}
+.cake-index-footer-content-bot-da-p{
+	text-align: center;
+	line-height: 99px;
+	font-size: 18px;
+	color: #D8D8D8;
+}
+

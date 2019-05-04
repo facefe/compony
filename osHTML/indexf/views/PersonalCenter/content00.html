@@ -1,0 +1,521 @@
+<!--我的订单总订单展示页-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=10, chrome=1">
+	<link rel="stylesheet" href="indexf/public/css/base.css">
+	<link rel="stylesheet" href="indexf/public/css/x1-personalCenter.css">
+	<script src="indexf/public/js/libraries/jquery-1.12.4.js"></script>
+    <script src="indexf/public/js/x1-personalCenter.js"></script>
+    <title>个人中心-我的订单-中</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="y1-personal-container clearFix">
+        <!--侧边栏-->
+        <div class="y1-personal-column">
+            <img src="indexf/public/img/other/y1-personal-img1.jpg" class="y1-personal-column-img1" alt="">
+            <p class="y1-personal-column-p1">185***3062</p>
+            <ul id="f1-userCenter-left-hover">
+                <li class="y1-personal-column-ul-li y1-personal-column-ul-li-active" data-number="1">
+                    我的订单
+                </li>
+                <li class="y1-personal-column-ul-li" data-number="2">
+                    退款管理
+                </li>
+                <li class="y1-personal-column-ul-li" data-number="3">
+                    个人资料
+                </li>
+                <li class="y1-personal-column-ul-li" data-number="4">
+                    修改登录密码
+                </li>
+                <li class="y1-personal-column-ul-li" data-number="5">
+                    收货地址
+                </li>
+                <li class="y1-personal-column-ul-li" data-number="6">
+                    我的收藏
+                </li>
+            </ul>
+        </div>
+        <!-- 右侧内容 -->
+        <div class="y1-personal-Myoder">
+            <!--导航栏-->
+            <div class="y1-personal-Myoder-nav">
+                <ul class="y1-personal-Myoder-nav-ul">
+                    <li class="y1-personal-Myoder-nav-ul-li y1-personal-Myoder-nav-ul-li-active" id="allOrder">全部订单</li>
+                    <li class="y1-personal-Myoder-nav-ul-li" id="toPay">待付款 <span class="y1-p-M-n-u-sp">1</span></li>
+                    <li class="y1-personal-Myoder-nav-ul-li" id="dlieverGoods">待发货 <span class="y1-p-M-n-u-sp">1</span></li>
+                    <li class="y1-personal-Myoder-nav-ul-li" id="receiveGoods">待收货 <span class="y1-p-M-n-u-sp">1</span></li>
+                    <li class="y1-personal-Myoder-nav-ul-li" id="evaluate">待评价 <span class="y1-p-M-n-u-sp">1</span></li>
+                </ul>
+                <div class="y1-personal-Myoder-nav-search">
+                    <input type="text" class="y1-personal-Myoder-nav-search-inp">
+                    <button class="y1-personal-Myoder-nav-search-btn">搜索订单</button>
+                </div>
+            </div>
+            <!--菜单栏-->
+            <div class="y1-personal-menu">
+                <span class="y1-personal-menu-shangpin">商品</span>
+                <span class="y1-personal-menu-danjia">单价</span>
+                <span class="y1-personal-menu-shuliang">数量</span>
+                <span class="y1-personal-menu-caozuo">商品操作</span>
+                <span class="y1-personal-menu-shifukuan">实付款</span>
+                <span class="y1-personal-menu-zhuangtai">订单状态</span>
+                <span class="y1-personal-menu-jiaoyicaozuo">交易操作</span>
+            </div>
+            <!--内容-->
+            <!--立即付款-->
+           <div id="toPayShow">
+               <div class="y1-personal-content1">
+                   <div class="y1-personal-content1-top">
+                       <div class="y1-personal-content1-date">
+                           2018-05-24
+                           <span class="y1-personal-content1-date-hours">09:21:54</span>
+                       </div>
+                       <div class="y1-personal-content1-oder">
+                           订单号 ：14578524584
+                       </div>
+                   </div>
+                   <div class="y1-personal-content1-left">
+                       <div class="y1-personal-content1-left-box1">
+                           <img src="indexf/public/img/other/y1-personal-content1-img1.jpg" class="y1-left-box1-img1" alt="">
+                           <div class="y1-left-box1-text">
+                               <p class="y1-left-box1-text-p">2018春夏装新款 时尚v领修身雪纺印花连衣裙 甜美公主裙品牌女装</p>
+                               <span class="y1-left-box1-text-sp">颜色：水洗白</span>
+                               <span class="y1-left-box1-text-sp">尺码：28英寸</span>
+                           </div>
+                           <div class="y1-left-box1-danjia">
+                               ￥289.00
+                           </div>
+                           <div class="y1-left-box1-shuliang">
+                               1
+                           </div>
+                       </div>
+                       <div class="y1-personal-content1-left-box1">
+                           <img src="indexf/public/img/other/y1-personal-content1-img1.jpg" class="y1-left-box1-img1" alt="">
+                           <div class="y1-left-box1-text">
+                               <p class="y1-left-box1-text-p">2018春夏装新款 时尚v领修身雪纺印花连衣裙 甜美公主裙品牌女装</p>
+                               <span class="y1-left-box1-text-sp">颜色：水洗白</span>
+                               <span class="y1-left-box1-text-sp">尺码：28英寸</span>
+                           </div>
+                           <div class="y1-left-box1-danjia">
+                               ￥289.00
+                           </div>
+                           <div class="y1-left-box1-shuliang">
+                               1
+                           </div>
+                       </div>
+                   </div>
+                   <div class="y1-personal-content1-right">
+                       <div class="y1-right-box1-shifukuan">
+                           <span class="y1-right-box1-shifukuan-sp1">¥596.00</span>
+                           <span class="y1-right-box1-shifukuan-sp1">(含运费:¥0.00)</span>
+                       </div>
+                       <div class="y1-right-box1-zhuangtai">
+                           <span class="y1-right-box1-zhuangtai-sp1">等待买家付款</span>
+                           <span class="y1-right-box1-zhuangtai-sp1">订单详情</span>
+                       </div>
+                       <div class="y1-right-box1-jiaoyicaozuo">
+                           <span class="y1-right-box1-jiaoyicaozuo-sp1">立即付款</span>
+                           <span class="y1-right-box1-jiaoyicaozuo-sp2" id="example">取消订单</span>
+                           <div id="LoginBox">
+                               <div class="y1-right-box1-jiaoyicaozuo-box1">
+                                   <span class="y1-right-box1-jiaoyicaozuo-box1-sp">取消订单</span>
+                                   <img class="y1-right-box1-jiaoyicaozuo-box1-img" src="indexf/public/img/icon/cancel.png" />
+                               </div>
+                               <div class="y1-right-box1-jiaoyicaozuo-box2">
+                                   <span class="y1-right-box1-jiaoyicaozuo-box2-sp">请选择您取消订单的原因，以便我们能更好的为您服务。</span>
+                               </div>
+                               <div class="y1-right-box1-jiaoyicaozuo-box3">
+					           <span class="y1-right-box1-jiaoyicaozuo-box3-sp">
+					           	取消原因：
+					           </span>
+                                   <select class="y1-right-box1-jiaoyicaozuo-box3-sel" name="">
+                                       <option class="w1-Arefund-content1-tab-opt1" value="" disabled selected hidden>请选择</option>
+                                       <option value="">拍错/多拍/不想要</option>
+                                       <option value="">协商一致退款</option>
+                                       <option value="">缺货</option>
+                                       <option value="">未按约定时间发货</option>
+                                       <option value="">其他原因</option>
+                                   </select>
+                               </div>
+                               <button class="y1-right-box1-jiaoyicaozuo-btn">提交</button>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+            <!--等待发货-->
+           <div id="dlieverGoodsShow">
+               <div class="y1-personal-content1" >
+                   <div class="y1-personal-content1-top">
+                       <div class="y1-personal-content1-date">
+                           2018-05-24
+                           <span class="y1-personal-content1-date-hours">09:21:54</span>
+                       </div>
+                       <div class="y1-personal-content1-oder">
+                           订单号 ：14578524584
+                       </div>
+                   </div>
+                   <div class="y1-personal-content1-left">
+                       <div class="y1-personal-content1-left-box1">
+                           <img src="indexf/public/img/other/y1-personal-content1-img1.jpg" class="y1-left-box1-img1" alt="">
+                           <div class="y1-left-box1-text">
+                               <p class="y1-left-box1-text-p">2018春夏装新款 时尚v领修身雪纺印花连衣裙 甜美公主裙品牌女装</p>
+                               <span class="y1-left-box1-text-sp">颜色：水洗白</span>
+                               <span class="y1-left-box1-text-sp">尺码：28英寸</span>
+                           </div>
+                           <div class="y1-left-box1-danjia">
+                               ￥289.00
+                           </div>
+                           <div class="y1-left-box1-shuliang">
+                               1
+                           </div>
+                       </div>
+                   </div>
+                   <div class="y1-personal-content1-right">
+                       <div class="y1-right-box1-shifukuan">
+                           <span class="y1-right-box1-shifukuan-sp1">¥596.00</span>
+                           <span class="y1-right-box1-shifukuan-sp1">(含运费:¥0.00)</span>
+                       </div>
+                       <div class="y1-right-box1-zhuangtai">
+                           <span class="y1-right-box1-zhuangtai-sp1">买家已付款</span>
+                           <span class="y1-right-box1-zhuangtai-sp1">订单详情</span>
+                       </div>
+                       <!-- <div class="y1-right-box1-jiaoyicaozuo">
+                           <span class="y1-right-box1-jiaoyicaozuo-sp1">立即付款</span>
+                           <span class="y1-right-box1-jiaoyicaozuo-sp2">取消订单</span>
+                       </div> -->
+                   </div>
+               </div>
+           </div>
+            <!--确认收货-->
+           <div id="receiveGoodsShow">
+               <div class="y1-personal-content1" >
+                   <div class="y1-personal-content1-top">
+                       <div class="y1-personal-content1-date">
+                           2018-05-24
+                           <span class="y1-personal-content1-date-hours">09:21:54</span>
+                       </div>
+                       <div class="y1-personal-content1-oder">
+                           订单号 ：14578524584
+                       </div>
+                   </div>
+                   <div class="y1-personal-content1-left">
+                       <div class="y1-personal-content1-left-box1">
+                           <img src="indexf/public/img/other/y1-personal-content1-img1.jpg" class="y1-left-box1-img1" alt="">
+                           <div class="y1-left-box1-text">
+                               <p class="y1-left-box1-text-p">2018春夏装新款 时尚v领修身雪纺印花连衣裙 甜美公主裙品牌女装</p>
+                               <span class="y1-left-box1-text-sp">颜色：水洗白</span>
+                               <span class="y1-left-box1-text-sp">尺码：28英寸</span>
+                           </div>
+                           <div class="y1-left-box1-danjia">
+                               ￥289.00
+                           </div>
+                           <div class="y1-left-box1-shuliang">
+                               1
+                           </div>
+                           <div class="y1-left-box1-tuikuan">
+                               退款/退货
+                           </div>
+                       </div>
+                   </div>
+                   <div class="y1-personal-content1-right">
+                       <div class="y1-right-box1-shifukuan">
+                           <span class="y1-right-box1-shifukuan-sp1">¥596.00</span>
+                           <span class="y1-right-box1-shifukuan-sp1">(含运费:¥0.00)</span>
+                       </div>
+                       <div class="y1-right-box1-zhuangtai">
+                           <span class="y1-right-box1-zhuangtai-sp1">快递已揽件</span>
+                           <span class="y1-right-box1-zhuangtai-sp1">订单详情</span>
+                           <span class="y1-right-box1-zhuangtai-sp1">查看物流</span>
+                           <span class="y1-right-box1-zhuangtai-sp1">452454564641</span>
+                       </div>
+                       <div class="y1-right-box1-jiaoyicaozuo_shouhuo">
+                        <span class="y1-right-box1-jiaoyicaozuo-time">
+                            <i class="icon-time-black-1"></i>
+                            <span class="y1-right-box1-jiaoyicaozuo-time-sp">还剩12时12分</span>
+                        </span>
+                           <span class="y1-right-box1-jiaoyicaozuo-time-sp1">确认收货</span>
+                           <!--<span class="y1-right-box1-jiaoyicaozuo-sp1">立即付款</span>-->
+                           <!--<span class="y1-right-box1-jiaoyicaozuo-sp2">取消订单</span>-->
+                       </div>
+                   </div>
+               </div>
+           </div>
+            <!--评价-->
+           <div id="evaluateShow">
+               <div class="y1-personal-content1 y1-personal-content1_pj" >
+                   <div class="y1-personal-content1-top y1-personal-content1-top_pj">
+                       <div class="y1-personal-content1-date">
+                           2018-05-24
+                           <span class="y1-personal-content1-date-hours">09:21:54</span>
+                       </div>
+                       <div class="y1-personal-content1-oder">
+                           订单号 ：14578524584
+                       </div>
+                       <i class="icon-delete-black-1"></i>
+                   </div>
+                   <div class="y1-personal-content1-left">
+                       <div class="y1-personal-content1-left-box1">
+                           <img src="indexf/public/img/other/y1-personal-content1-img1.jpg" class="y1-left-box1-img1" alt="">
+                           <div class="y1-left-box1-text">
+                               <p class="y1-left-box1-text-p">2018春夏装新款 时尚v领修身雪纺印花连衣裙 甜美公主裙品牌女装</p>
+                               <span class="y1-left-box1-text-sp">颜色：水洗白</span>
+                               <span class="y1-left-box1-text-sp">尺码：28英寸</span>
+                           </div>
+                           <div class="y1-left-box1-danjia">
+                               ￥289.00
+                           </div>
+                           <div class="y1-left-box1-shuliang">
+                               1
+                           </div>
+                           <div class="y1-left-box1-tuikuan">
+                               申请售后
+                           </div>
+                       </div>
+                   </div>
+                   <div class="y1-personal-content1-right">
+                       <div class="y1-right-box1-shifukuan">
+                           <span class="y1-right-box1-shifukuan-sp1">¥596.00</span>
+                           <span class="y1-right-box1-shifukuan-sp1">(含运费:¥0.00)</span>
+                       </div>
+                       <div class="y1-right-box1-zhuangtai">
+                           <span class="y1-right-box1-zhuangtai-sp1">交易完成</span>
+                           <span class="y1-right-box1-zhuangtai-sp1">订单详情</span>
+                           <span class="y1-right-box1-zhuangtai-sp1">申通快递</span>
+                           <span class="y1-right-box1-zhuangtai-sp1">452454564641</span>
+                       </div>
+                       <div class="y1-right-box1-jiaoyicaozuo">
+                           <span class="y1-right-box1-jiaoyicaozuo-sp1_pj">评价</span>
+                           <!--<span class="y1-right-box1-jiaoyicaozuo-sp2">取消订单</span>-->
+                       </div>
+                   </div>
+               </div>
+               <!--追加评价-->
+               <div class="y1-personal-content1 y1-personal-content1_pj">
+                   <div class="y1-personal-content1-top y1-personal-content1-top_pj">
+                       <div class="y1-personal-content1-date">
+                           2018-05-24
+                           <span class="y1-personal-content1-date-hours">09:21:54</span>
+                       </div>
+                       <div class="y1-personal-content1-oder">
+                           订单号 ：14578524584
+                       </div>
+                   </div>
+                   <div class="y1-personal-content1-left">
+                       <div class="y1-personal-content1-left-box1">
+                           <img src="indexf/public/img/other/y1-personal-content1-img1.jpg" class="y1-left-box1-img1" alt="">
+                           <div class="y1-left-box1-text">
+                               <p class="y1-left-box1-text-p">2018春夏装新款 时尚v领修身雪纺印花连衣裙 甜美公主裙品牌女装</p>
+                               <span class="y1-left-box1-text-sp">颜色：水洗白</span>
+                               <span class="y1-left-box1-text-sp">尺码：28英寸</span>
+                           </div>
+                           <div class="y1-left-box1-danjia">
+                               ￥289.00
+                           </div>
+                           <div class="y1-left-box1-shuliang">
+                               1
+                           </div>
+                           <div class="y1-left-box1-tuikuan">
+                               申请售后
+                           </div>
+                       </div>
+                   </div>
+                   <div class="y1-personal-content1-right">
+                       <div class="y1-right-box1-shifukuan">
+                           <span class="y1-right-box1-shifukuan-sp1">¥596.00</span>
+                           <span class="y1-right-box1-shifukuan-sp1">(含运费:¥0.00)</span>
+                       </div>
+                       <div class="y1-right-box1-zhuangtai">
+                           <span class="y1-right-box1-zhuangtai-sp1">交易完成</span>
+                           <span class="y1-right-box1-zhuangtai-sp1">订单详情</span>
+                           <span class="y1-right-box1-zhuangtai-sp1">申通快递</span>
+                           <span class="y1-right-box1-zhuangtai-sp1">452454564641</span>
+                       </div>
+                       <div class="y1-right-box1-jiaoyicaozuo">
+                           <span class="y1-right-box1-jiaoyicaozuo-sp1_zjpj ">追加评价</span>
+                           <!--<span class="y1-right-box1-jiaoyicaozuo-sp2">取消订单</span>-->
+                       </div>
+                   </div>
+               </div>
+           </div>
+
+            
+
+        </div>
+    </div>
+    <script>
+
+        $.ajax({
+            url: '/front/order/list/11',
+            type: 'get',
+            success: function (res) {
+                console.log(res)
+            }
+        })
+
+
+        /**
+         *
+         */
+        $('#allOrder').on('click', function () {
+            $('#allOrder').css({
+                'border-bottom': '2px solid #f13a3a',
+                'color': '#f13a3a'
+            });
+
+            $('#toPay').css({
+                'border-bottom': 'none'
+            });
+
+            $('#dlieverGoods').css({
+                    'border-bottom': 'none'
+                });
+            $('#receiveGoods').css({
+                'border-bottom': 'none'
+            });
+            $('#evaluate').css({
+                'border-bottom': 'none'
+            });
+
+
+
+
+            $('#evaluateShow').show()
+            $('#evaluateShowAdd').show()
+        });
+
+        $('#toPay').on('click', function () {
+            $('#allOrder').css({
+                'border-bottom': 'none'
+            });
+
+            $('#toPay').css({
+                'border-bottom': '2px solid #f13a3a',
+                'color': '#f13a3a'
+            });
+
+            $('#dlieverGoods').css({
+                'border-bottom': 'none'
+            });
+            $('#receiveGoods').css({
+                'border-bottom': 'none'
+            });
+            $('#evaluate').css({
+                'border-bottom': 'none'
+            });
+        });
+
+        $('#dlieverGoods').on('click', function () {
+            $('#allOrder').css({
+                'border-bottom': 'none'
+            });
+
+            $('#toPay').css({
+                'border-bottom': 'none'
+            });
+
+            $('#dlieverGoods').css({
+                'border-bottom': '2px solid #f13a3a',
+                'color': '#f13a3a'
+            });
+            $('#receiveGoods').css({
+                'border-bottom': 'none'
+            });
+            $('#evaluate').css({
+                'border-bottom': 'none'
+            });
+        });
+
+        $('#receiveGoods').on('click', function () {
+            $('#allOrder').css({
+                'border-bottom': 'none'
+            });
+
+            $('#toPay').css({
+                'border-bottom': 'none'
+            });
+
+            $('#dlieverGoods').css({
+                'border-bottom': 'none'
+            });
+            $('#receiveGoods').css({
+                'border-bottom': '2px solid #f13a3a',
+                'color': '#f13a3a'
+            });
+            $('#evaluate').css({
+                'border-bottom': 'none'
+            });
+        });
+
+        $('#evaluate').on('click', function () {
+            $('#allOrder').css({
+                'border-bottom': 'none'
+            });
+
+            $('#toPay').css({
+                'border-bottom': 'none'
+            });
+
+            $('#dlieverGoods').css({
+                'border-bottom': 'none'
+            });
+            $('#receiveGoods').css({
+                'border-bottom': 'none'
+            });
+            $('#evaluate').css({
+                'border-bottom': '2px solid #f13a3a',
+                'color': '#f13a3a'
+            });
+        })
+
+
+
+        $('#allOrder').on('click', function () {
+            $('#toPayShow').show()
+            $('#dlieverGoodsShow').show()
+            $('#receiveGoodsShow').show()
+            $('#evaluateShow').show()
+
+        })
+
+        $('#toPay').on('click', function () {
+            $('#toPayShow').show()
+            $('#dlieverGoodsShow').hide()
+            $('#receiveGoodsShow').hide()
+            $('#evaluateShow').hide()
+
+        })
+        
+        $('#dlieverGoods').on('click', function () {
+            $('#dlieverGoodsShow').show()
+            $('#toPayShow').hide()
+            $('#receiveGoodsShow').hide()
+            $('#evaluateShow').hide()
+        })
+        $('#receiveGoods').on('click', function () {
+            $('#receiveGoodsShow').show()
+            $('#toPayShow').hide()
+            $('#dlieverGoodsShow').hide()
+            $('#evaluateShow').hide()
+
+        })
+        $('#evaluate').on('click', function () {
+            $('#evaluateShow').show()
+            $('#toPayShow').hide()
+            $('#dlieverGoodsShow').hide()
+            $('#receiveGoodsShow').hide()
+
+        })
+        
+        
+    </script>
+</body>
+</html>

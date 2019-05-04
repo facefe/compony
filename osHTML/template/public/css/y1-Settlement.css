@@ -1,0 +1,368 @@
+/*隐藏底部部分内容*/
+.x1-footer-boxs{
+    display: none;
+}
+/*<!--隐藏头部的导航栏-->*/
+.y1-header-mainnav {
+    display: none;
+}
+.y1-shopping-line {
+    height: 3px;
+    border: none;
+    background: #ffcdda;
+}
+.y1-header-search {
+    display: none;
+}
+/*content css*/
+.y1-settlement-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.y1-settlement-title {
+    width: 100%;
+    border-bottom: 1px solid #ffcdda;
+    padding-bottom: 10px;
+}
+.y1-settlement-title-p1 {
+    font-size: 14px;
+    color: #333333;
+    float: left;
+}
+.y1-settlement-title-p2 {
+    font-size: 14px;
+    color: #3366cc;
+    float: right;
+}
+.y1-settlement-title2-p1 {
+    font-size: 14px;
+    color: #333333;
+    float: left;
+}
+.y1-settlement-title2-p2 {
+    float: left;
+    font-size: 14px;
+    color: #3366cc;
+    margin-left: 22px;
+}
+.y1-settlement-title2 {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.y1-address-ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-top: 22px;
+}
+.y1-address-ul>li:hover {
+    background-color: #fff6f9;
+}
+.y1-address-ul-li {
+    width: 100%;
+    height: 34px;
+    /*background: #ffcdda;*/
+    position: relative;
+    padding-top: 8px;
+}
+.y1-address-ul-li-sp1 {
+    font-size: 12px;
+    color: #f13a3a;
+    position: absolute;
+    top: 12px;
+    left: 20px;
+    display: none;
+}
+.y1-address-ul-li-sp1-show {
+    display: block !important;
+    font-size: 12px;
+    color: #f13a3a;
+    margin-left: 20px;
+    margin-top: 12px;
+    display: inline-block;
+}
+.cur {
+    background: #ffcdda;
+}
+.y1-address-ul-li-inp1 {
+    vertical-align: middle;
+    margin-left: 80px;
+}
+.y1-address-ul-li-sp2 {
+    font-size: 14px;
+    color: #333333;
+    margin-left: 30px;
+}
+.y1-address-ul-li-sp3 {
+    float: right;
+    margin-right: 14px;
+    color: #3366cc;
+    font-size: 14px;
+    cursor: pointer;
+}
+.y1-address-ul-li-sp4 {
+    float: right;
+    margin-right: 40px;
+    font-size: 14px;
+}
+.y1-address-ul-li2 {
+    height: 34px;
+}
+.y1-address-ul-li2-inp1 {
+    margin-left: 80px;
+    vertical-align: middle;
+}
+.y1-address-ul-li2-sp2 {
+    font-size: 14px;
+    margin-top: 12px;
+    display: inline-block;
+    margin-left: 30px;
+}
+.y1-address-ul-li3 {
+    height: 34px;
+}
+.y1-address-ul-li4-p {
+    color: #3366cc;
+    font-size: 14px;
+    margin-left: 128px;
+    margin-top: 20px;
+}
+.y1-settlement-goods p {
+    float: left;
+    display: inline-block;
+    margin-top: 20px;
+    color: #000000;
+    font-size: 14px;
+}
+.y1-settlement-goods-p1 {
+    margin-left: 186px;
+}
+.y1-settlement-goods-p2 {
+    margin-left: 426px;
+}
+.y1-settlement-goods-p3 {
+    margin-left: 148px;
+}
+.y1-settlement-goods-p4 {
+    margin-left: 150px;
+}
+.y1-settlement-goods-box1 {
+    height: 120px;
+    background: #fff6f9;
+    width: 100%;
+    border-bottom: 1px solid #cccccc;
+}
+.y1-settlement-goods-box1-img {
+    margin-top: 20px;
+    margin-left: 40px;
+    float: left;
+}
+.y1-settlement-goods-box1-p1 {
+    width: 334px;
+    font-size: 14px;
+    color: #333333;
+    margin-left: 10px;
+    line-height: 1.6;
+    overflow: hidden;
+}
+.y1-settlement-goods-box1-p1 span {
+    display: block;
+    color: #999999;
+    margin-top: 10px;
+}
+.y1-settlement-goods-box1-p2 {
+    display: block;
+    margin-left: 208px;
+    width: 100px;
+    text-align: center;
+}
+.y1-settlement-goods-box1-p3 {
+    display: block;
+    margin-left: 78px;
+    width: 100px;
+    text-align: center;
+}
+.y1-settlement-goods-box1-p4 span {
+    display: block;
+    margin-left: 78px;
+    width: 100px;
+    text-align: center;
+    color: #f13a3a;
+    font-size: 14px;
+}
+#y1-clear {
+    border-bottom: 0 !important;
+}
+
+.y1-settlement-goods-box2 {
+    height: 164px;
+    background: #ffebf1;
+}
+.y1-settlement-goods-box2-p1 {
+    padding-left: 40px;
+}
+.y1-settlement-goods-box2-p1-inp {
+    width: 268px;
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    padding-left: 9px;
+}
+.y1-settlement-goods-box2-p2 {
+    margin-left: 288px;
+}
+.y1-settlement-goods-box2-p3 {
+    margin-left: 688px;
+}
+.y1-settlement-goods-box2-p4 {
+    float: right !important;
+    padding: 20px 24px 0 0;
+}
+.y1-settlement-goods-box2-p4 span {
+    font-size: 24px;
+    color: #f13a3a;
+}
+.y1-settlement-btn {
+    float: right;
+    margin-top: 20px;
+}
+.y1-settlement-btn span {
+    font-size: 14px;
+    color: #3366cc;
+    vertical-align: bottom;
+    margin-right: 20px;
+}
+.y1-settlement-btn button {
+    width: 160px;
+    height: 50px;
+    background: #f13a3a;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+.y1-settlement-goods {
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+.y1-settlement-goods:first-child {
+    padding-top: 0;
+}
+
+/* 
+ * revise: 180806
+ * describe: 修改中部距离头的距离
+*/
+.y1-settlement-container{
+    margin-top: 55px;
+    margin-bottom: 57px;
+}
+.y1-address-ul-li-sp2{
+    display: inline-block;
+    width: 967px;
+    vertical-align: text-top;
+}
+.y1-address-ul-li-inp1{
+    vertical-align: text-top;
+    position: relative;
+    top: 2px;
+}
+
+/* 
+ * revise: 180807
+ * describe: 修改弹框
+*/
+.f1-layui-layer-title{
+    background-color: #fff;
+    font-size: 16px;
+    padding: 0 20px;
+    border-bottom: 0;
+    position: relative;
+    height: 56px;
+    line-height: normal;
+}
+.f1-layui-layer-title div{
+    height: 56px;
+    line-height: 55px;
+    border-bottom: 1px solid #e8e8e8;
+}
+.f1-layui-layer-title i{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+div.layui-layer-content{
+    padding: 0 20px;
+}
+.f1-settlement-tk{
+    padding-left: 42px;
+    margin-top: 17px;
+    font-size: 14px;
+    color: #333;
+}
+.f1-settlement-tk laber{
+    width: 65px;
+    display: inline-block;
+    text-align: right;
+}
+
+
+/* 
+ * revise: 1808010
+ * describe: 修改弹框
+*/
+.f1-settlement-tk input[type="text"],
+.f1-settlement-tk .f1-sett-sele-1{
+    height: 35px;
+    border-radius: 4px;
+    border: 1px solid #CCCCCC;
+    padding-left: 11px;
+    vertical-align: middle;
+}
+.f1-settlement-tk input::placeholder{
+    color: #999999;
+}
+.f1-settlement-tk input[type="radio"]{
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+}
+.f1-settlement-tk > div{
+    margin-bottom: 15px;
+}
+.f1-sett-name-input{
+    width: 150px;
+}
+.f1-sett-address-detail{
+    width: 244px;
+    margin-left: 64px;
+}
+.f1-settlement-tk .f1-sett-sele-1{
+    width: 120px;
+    margin: 0 7px 7px 0;
+}
+.f1-sett-address-default{
+    font-size: 12px;
+}
+.f1-sett-address-default input[type="checkbox"]{
+    margin-right: 2px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+}
+.f1-sett-save-btn{
+    width: 80px;
+    height: 31px;
+    color: #f7f7f7;
+    background: #fe2222;
+    display: inline-block;
+    text-align: center;
+    line-height: 31px;
+}
+.f1-settlement-tk > :last-child{
+    margin-bottom: 0;
+}
+.y1-settlement-title2-p2,
+.f1-settlement-tk-close{
+    cursor: pointer;
+}

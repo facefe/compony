@@ -1,0 +1,157 @@
+	<!--个人资料-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=10, chrome=1">
+	<link rel="stylesheet" href="../../public/css/base.css">
+	<link rel="stylesheet" href="../../public/css/x1-personalCenter.css">
+	<script src="../../public/js/libraries/jquery-1.12.4.js"></script>
+    <script src="../../public/js/libraries/YMDClass.js"></script>
+    <script src="../../public/js/x1-personalCenter.js"></script>
+    <title>个人中心-个人资料-中</title>
+</head>
+<body>
+    <div class="y1-personal-container clearFix">
+        <!--侧边栏-->
+        <div class="y1-personal-column">
+            <img src="../../public/img/other/y1-personal-img1.jpg" class="y1-personal-column-img1" alt="">
+            <p class="y1-personal-column-p1">185***3062</p>
+            <ul id="f1-userCenter-left-hover">
+                <li class="y1-personal-column-ul-li" data-number="1">
+                    我的订单
+                </li>
+                <li class="y1-personal-column-ul-li" data-number="2">
+                    退款管理
+                </li>
+                <li class="y1-personal-column-ul-li y1-personal-column-ul-li-active" data-number="3">
+                    个人资料
+                </li>
+                <li class="y1-personal-column-ul-li" data-number="4">
+                    修改登录密码
+                </li>
+                <li class="y1-personal-column-ul-li" data-number="5">
+                    收货地址
+                </li>
+                <li class="y1-personal-column-ul-li" data-number="6">
+                    我的收藏
+                </li>
+            </ul>
+        </div>
+        <!-- 右侧内容 -->
+        <div class="x1-personalCenter-box">
+            <div class="x1-personalCenter-top">
+                <p class="x1-personalCenter-title">个人资料</p>
+            </div>
+            <div class="x1-personalCenter-nav">
+                <form id="form1" action="">
+                    <div class="x1-personalCenter-div clearFix">
+                        <div class="x1-personalCenter-div-left">
+                            当前头像 :&nbsp;
+                        </div>
+                        <div class="x1-personalCenter-div-headPortrait">
+                            <img src="../../public/img/other/content1-img1.jpg" class="x1-personalCenter-headPortrait" />
+                            <div class="x1-personalCenter-modification-headPortrait">
+                                编辑头像
+                            </div>
+                            <input type="file" class="x1-personalCenter-div-tab" accept="image/*" />
+                        </div>
+                    </div>
+                    <div class="x1-personalCenter-div clearFix">
+                        <div class="x1-personalCenter-div-left1">
+                           登录账号 :&nbsp;
+                        </div>
+                        <div class="x1-personalCenter-div-right">
+                            <input type="text" class="x1-personalCenter-inp1"disabled="disabled" value="ada45434534" />
+                        </div>
+                    </div>
+                    <div class="x1-personalCenter-div clearFix">
+                        <div class="x1-personalCenter-div-left1">
+                            昵称 :&nbsp;
+                        </div>
+                        <div class="x1-personalCenter-div-right">
+                            <input type="text" class="x1-personalCenter-inp1" value="185***3062" />
+                        </div>
+                    </div>
+                    <div class="x1-personalCenter-div clearFix">
+                        <div class="x1-personalCenter-div-left1">
+                            真实姓名 :&nbsp;
+                        </div>
+                        <div class="x1-personalCenter-div-right">
+                            <input type="text" class="x1-personalCenter-inp2" value="李**" />
+                        </div>
+                    </div>
+                    <div class="x1-personalCenter-div clearFix">
+                        <div class="x1-personalCenter-div-left1">
+                            性别 :&nbsp;
+                        </div>
+                        <div class="x1-personalCenter-div-radio">
+                            <label class="x1-personalCenter-div-radio-v2">
+                            　　<input type="radio" name="sex" value="男">
+                            　　<span></span>男
+                            </label>
+                            <label class="x1-personalCenter-div-radio-v2">
+                            　　<input type="radio" name="sex" value="女">
+                            　　<span></span>女
+                            </label>
+                            <label class="x1-personalCenter-div-radio-v2">
+                            　　<input type="radio" name="sex" value="保密" checked>
+                            　　<span></span>保密
+                            </label>
+                        </div>
+                    </div>
+                    <div class="x1-personalCenter-div clearFix">
+                        <div class="x1-personalCenter-div-left1">
+                            生日 :&nbsp;
+                        </div>
+                        <div class="x1-personalCenter-div-birthday">
+                            <select name="year1"  class="x1-personalCenter-div-birthday-sele"></select><span class="x1-personalCenter-div-birthday-sele-span">年</span>
+                            <select name="month1" class="x1-personalCenter-div-birthday-sele"></select><span class="x1-personalCenter-div-birthday-sele-span">月</span>
+                            <select name="day1" class="x1-personalCenter-div-birthday-sele"></select><span class="x1-personalCenter-div-birthday-sele-span">日</span>
+                            <span class="x1-personalCenter-div-birthday-span">填写生日有惊喜哦~</span>
+                        </div>
+                    </div>
+                    <div class="x1-personalCenter-div clearFix">
+                        <div class="x1-personalCenter-div-left1">
+                            兴趣爱好 :&nbsp;
+                        </div>
+                        <div class="x1-personalCenter-div-hobbies">
+                            <p class="x1-personalCenter-div-hobbies-p">请选择兴趣的分类，给您最精准的推荐</p>
+                            <div id="f1-userCenter-tag" class="x1-personalCenter-div-hobbies-box">
+                                <div class="x1-personalCenter-div-hobbies-div">品牌女装</div>
+                                <div class="x1-personalCenter-div-hobbies-div">图书音像/电子书刊</div>
+                                <div class="x1-personalCenter-div-hobbies-div">手机数码</div>
+                                <div class="x1-personalCenter-div-hobbies-div">电子办公</div>
+                                <div class="x1-personalCenter-div-hobbies-div">家具/家居/家装/厨具</div>
+                                <div class="x1-personalCenter-div-hobbies-div">鞋靴/箱包/珠宝/首饰</div>
+                                <div class="x1-personalCenter-div-hobbies-div">食品/保健</div>
+                                <div class="x1-personalCenter-div-hobbies-div">母婴/儿童玩具</div>
+                                <div class="x1-personalCenter-div-hobbies-div">运动健康</div>
+                                <div class="x1-personalCenter-div-hobbies-div">汽车用品</div>
+                                <div class="x1-personalCenter-div-hobbies-div">内衣服饰</div>
+                                <div class="x1-personalCenter-div-hobbies-div">办公用品</div>
+                                <div class="x1-personalCenter-div-hobbies-div">零食饮料</div>
+                                <div class="x1-personalCenter-div-hobbies-div">个护化妆</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="x1-personalCenter-div clearFix">
+                        <div class="x1-personalCenter-div-left1">
+                            邮箱 :&nbsp;
+                        </div>
+                        <div class="x1-personalCenter-div-hobbies">
+                            <p class="x1-personalCenter-div-hobbies-p">111***33.qq.com <button class="x1-personalCenter-div-hobbies-p-btn">更换邮箱</button></p>
+                        </div>
+                    </div>
+                    <div class="x1-personalCenter-save">
+                        <button class="x1-personalCenter-save-btn">保存</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

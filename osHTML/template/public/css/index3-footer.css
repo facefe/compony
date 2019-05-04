@@ -1,0 +1,253 @@
+.x2-footer-huge{
+	width: 100%;
+	background: #222222;
+}
+.x2-footer-first{
+	width: 1200px;
+	margin: 0 auto;
+}
+.x2-first-p{
+	height: 100px;
+	padding-top: 50px;
+	padding-bottom: 30px;
+	text-align: center;
+	font-size: 20px;
+	color: #FFFFFF;
+}
+.x2-first-sort{
+	width: 1200px;
+	height: 210px;
+	background: #222222;
+	padding-bottom: 50px;
+}
+.x2-sort{
+	width: 232px;
+	height: 160px;
+	float: left;
+	margin-left: 10px;
+	background-size: 100% 100%;
+}
+.x2-first-sort1{
+	margin-left: 0;
+	background-image: url(../img/other/x2-main-shopImg26.jpg);	
+}
+.x2-first-sort2{
+	background-image: url(../img/other/x2-main-shopImg27.jpg);	
+}
+.x2-first-sort3{
+	background-image: url(../img/other/x2-main-shopImg28.jpg);	
+}
+.x2-first-sort4{
+	background-image: url(../img/other/x2-main-shopImg31.jpg);	
+}
+.x2-first-sort5{
+	background-image: url(../img/other/x2-main-shopImg32.jpg);	
+}
+.x2-first-shade{
+	width: 232px;
+	height: 160px;
+	background-image: url(../img/other/x2-main-banner9.jpg);
+	background-size: 100% 100%;
+	display:  table;
+}
+.x2-first-title{
+	color: #FFFFFF;
+	font-size: 20px;
+    display:  table-cell;
+    vertical-align: middle;
+    text-align:  center;
+}
+.x2-first-title-a{
+    display:  inline-block;
+    border-bottom: 2px solid #f9f9f9;
+    padding: 6px 5px;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+.x2-footer-huge1{
+	width: 100%;
+	background: #1A1A1A;
+	padding-bottom: 50px;
+}
+.x2-footer-second{
+	padding-top: 40px;
+}
+.x2-second-top{
+	height: 25px;
+	width: 160px;
+	margin: 0 auto;
+	margin-bottom: 30px;
+	text-align: right;
+}
+.x2-second-dw{
+	float: left;
+	margin-right: 10px;
+}
+.x2-second-p{
+	font-size: 18px;
+	color: #FFFFFF;
+	float: left;
+}
+.x2-second-center{
+	width: 95%;
+	margin: 30px auto;
+	text-align: center;
+}
+.x2-second-select{
+	background: #1A1A1A;
+	border: 1px solid #FFFFFF;
+	color: #FFFFFF;
+	width: 108px;
+	height: 28px;
+	font-size: 14px;
+	padding-left: 5px;
+	margin-left: 10px;
+}
+.x2-btn2{
+	width: 52px;
+	height: 28px;
+	line-height: 28px;
+	background: #FFFFFF;
+	border: none;
+	color: #252424;
+	font-size: 14px;
+	text-align: center;
+	margin-left: 20px;
+}
+.x2-footer-third{
+	width: 1200px;
+	height: 200px;
+	margin: 0 auto;
+	border-bottom: 1px solid #AFAFAF;
+}
+.x2-third-div{
+	width: 200px;
+	padding: 30px 0 0 20px; 
+	float: left;
+}
+.x2-third-ewm{
+	width: 200px;
+	padding: 30px 0 0 20px; 
+	float: left;
+}
+.x2-third-guide{
+	height: 25px;
+	font-size: 16px;
+	color: #FFFFFF;
+	background-image: url(../img/other/x2-background.jpg);
+	background-size: 69px 100%;
+	background-repeat: no-repeat;
+}
+.x2-third-guide1-a{
+	color: #FFFFFF;
+	text-decoration: none;
+	font-size: 12px;
+	margin: 10px 0;
+	display: block;
+}
+.x2-third-p{
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 12px;
+	margin-top: 10px;
+}
+.x2-footer-ewm{
+	width: 120px;
+	height: 120px;
+	margin-left: 30px;
+}
+.x2-fourth{
+	margin-top: 40px;
+}
+.x2-fourth-p1{
+	color: #FFFFFF;
+	font-size: 12px;
+	text-align: center;
+	line-height: 25px;
+}
+@media (max-width: 768px) {
+	.x2-footer-first{
+		width: 95%;
+		margin: 0 auto;
+	}
+	.x2-first-sort{
+		width: 95%;
+		height: 100%;
+		background: #222222;
+		padding-bottom: 50px;
+		margin: 0 auto;
+	}
+	.x2-second-bottom{
+		width: 95%;
+		margin: 0 auto;
+		text-align: center;
+	}
+	.x2-second-p2{
+		font-size: 14px;
+		color: #FFFFFF;
+	}
+	.x2-second-a{
+		text-decoration: none;
+		font-size: 14px;
+		color: #FFFFFF;
+		margin-left: 20px;
+	}
+	.x2-footer-third{
+		width: 95%;
+		height: 100%;
+		margin: 0 auto;
+		border-bottom: 1px solid #AFAFAF;
+	}
+	.x2-third-div {
+	   	display: none;
+	}
+	.x2-sort {
+	    width: 232px;
+	    height: 160px;
+	    float: none;
+	    margin: 30px auto;
+	    background-size: 100% 100%;
+	}
+	.x2-third-ewm{
+		width: 95%;
+		padding: 0; 
+		float: none;
+		margin: 0 auto;
+		margin-bottom: 20px;
+	}
+	.x2-footer-ewm {
+	    width: 120px;
+	    height: 120px;
+	    margin: 0 auto;
+	    display: block;
+	}
+	.x2-second-p2{
+		display: none;
+	}
+	.x2-fourth-p1 {
+		padding: 0 10px;
+	}
+	.x2-second-select{
+		margin-left: 0;
+	}
+	.x2-btn2 {
+	    margin-left: 2%;
+	}
+	.x2-footer-none{
+		display: none;
+	}
+}
+
+/**
+ * revise: 20180712
+ * modules: 底部样式
+ * describe: 修改门店查询下拉框与按钮上下不齐问题
+ */
+button.x2-btn2{
+	line-height: 0;
+	vertical-align: top;
+}
+.icon-site-white-1{
+	float: left;
+	margin-right: 10px;
+}

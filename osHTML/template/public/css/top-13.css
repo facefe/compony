@@ -1,0 +1,105 @@
+.fghmz_l{
+	float: left;
+}
+.fghmz_r{
+	float: right;
+}
+.ghmz-index-header-top-con{
+	height: 40px;
+	border-bottom: 1px solid #FE9E91;
+}
+.ghmz-index-header-top-con-left-div{
+	width: 1200px;
+	margin: 0 auto;
+	line-height: 40px;
+}
+.ghmz-index-header-top-con-left-li{
+	color: #161616;
+}
+.ghmz-index-header-top-con i{
+	margin: 0 7px;
+	font-style: inherit;
+}
+.ghmz-index-header-search-right{
+	background: url(../img/other/ghmz-index-3.png) no-repeat center left;
+	padding-left: 35px;
+	line-height: 45px;
+}
+.ghmz-index-header-search{
+	width: 1200px;
+	margin: 0 auto;
+	padding-top: 42px;
+	padding-bottom: 39px;
+}
+.ghmz-index-header-search-left-img{
+	width: 200px;
+	height: 45px;
+	margin-right: 176px;
+}
+.ghmz-index-header-search-center{
+	margin-top: 2px;
+}
+.ghmz-index-header-search-center-inp{
+	width: 403px;
+	height: 40px;
+	border: 1px solid #FE9E91;
+	padding: 0 18px;	
+	line-height: 40px;
+	border-radius: 20px 0 0 20px;
+}
+.ghmz-index-header-search-center-inp::-webkit-input-placeholder{
+	font-size: 14px;
+	color: #999999;
+}
+.ghmz-index-header-search-center-inp:-moz-placeholder{
+	font-size: 14px;
+	color: #999999;
+}
+.ghmz-index-header-search-center-inp::-moz-placeholder{
+	font-size: 14px;
+	color: #999999;
+}
+.ghmz-index-header-search-center-inp:-ms-input-placeholder{
+	font-size: 14px;
+	color: #999999;
+}
+.ghmz-index-header-search-center-btn{
+	background: #FE9E91 url(../img/other/ghmz-index-2.png) no-repeat center;
+	width: 69px;
+	height: 40px;
+	border-radius: 0 20px 20px 0;
+	border: none;
+	cursor: pointer;
+}
+.ghmz-index-header-nav{
+	width: 1200px;
+	margin: 0 auto;
+}
+.ghmz-index-header-nav-li>a{
+	color: #333333;
+	line-height: 32px;
+	display: inline-block;
+}
+.ghmz-index-header-nav-li{
+	width: 126px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	margin-right: 27px;
+}
+.ghmz-index-header-nav-li:last-child{
+	margin-right: 0;
+}
+.ghmz-index-header-nav-li:hover{
+	color: #FFFFFF;
+	background: #FE9E91;
+}
+.ghmz-index-header-nav-li:hover a{
+	color: #FFFFFF;
+}
+.ghmz-index-header-nav-li-bh{
+	background: #FE9E91;
+}
+.ghmz-index-header-nav-li-bh a{
+	color: #FFFFFF;
+}
